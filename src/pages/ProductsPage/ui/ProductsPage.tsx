@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router'
 
-import { getRouteProductById } from '../../../routes'
+import { getRouteProductById } from '@shared/lib/routes'
 
 const ProductsPage: FC = () => {
   return (

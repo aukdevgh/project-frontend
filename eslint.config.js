@@ -48,6 +48,12 @@ export default tseslint.config(
         alias: {
           map: [
             ['', './public'], // <-- this line
+            ['@widgets', './src/widgets'],
+            ['@app', './src/app'],
+            ['@pages', './src/pages'],
+            ['@features', './src/features'],
+            ['@entities', './src/entities'],
+            ['@shared', './src/shared'],
           ],
           extensions: ['.ts', '.tsx'],
         },
@@ -64,12 +70,51 @@ export default tseslint.config(
       'import/order': [
         'error',
         {
-          groups: [['builtin', 'external'], ['internal'], ['parent', 'sibling'], ['index']],
-          'newlines-between': 'always',
+          groups: [
+            'builtin', // Встроенные модули (например, 'fs', 'path')
+            'external', // Пакеты из node_modules
+            ['internal', 'parent', 'sibling', 'index'], // Внутренние импорты
+            'type', // Типы (если используется TypeScript)
+            'object', // Импорты с объектной структурой
+          ],
+          pathGroups: [
+            {
+              pattern: '@app/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@pages/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@widgets/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@features/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@entities/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@shared/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
+            order: 'asc', // Сортировка по алфавиту
+            caseInsensitive: true, // Без учета регистра
           },
+          'newlines-between': 'always', // Всегда новая строка между группами
         },
       ],
     },
