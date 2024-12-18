@@ -1,77 +1,78 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 *,
-*:before,
-*:after {
-    box-sizing: border-box;
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 :focus,
 :active {
-    outline: none;
-}
-
-a:focus,
-a:active {
-    outline: none;
+  outline: none;
 }
 
 nav,
 footer,
 header,
 aside {
-    display: block;
+  display: block;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    font-size: 100%;
-    line-height: 1;
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  line-height: 1;
 }
 
 input,
 button,
 textarea {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 a,
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: top;
-    object-fit: cover;
-}
-
-a {
-    color: inherit;
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+  object-fit: cover;
 }
 
 h1,
@@ -80,29 +81,29 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: inherit;
-    font-weight: 400;
+  font-size: inherit;
+  font-weight: 400;
 }
 
 input[type='text']::-ms-clear {
-    width: 0;
-    height: 0;
-    display: none;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 input[type='text']::-ms-reveal {
-    width: 0;
-    height: 0;
-    display: none;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
-    display: none;
+  display: none;
 }
 
 address {
-    font-style: normal;
+  font-style: normal;
 }
