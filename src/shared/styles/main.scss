@@ -1,0 +1,48 @@
+@use 'reset';
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: $primary-color;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* Стилизуем всю полосу прокрутки */
+::-webkit-scrollbar {
+  width: 3px; /* Ширина вертикальной полосы прокрутки */
+  height: 3px; /* Высота горизонтальной полосы прокрутки */
+}
+
+/* Стилизуем трек полосы прокрутки (фоновая часть) */
+::-webkit-scrollbar-track {
+  background-color: #e6e6e6; /* Цвет фона */
+}
+
+/* Стилизуем ползунок полосы прокрутки */
+::-webkit-scrollbar-thumb {
+  background-color: #8d8b8b; /* Цвет ползунка */
+}
+
+/* Стилизуем ползунок при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Цвет ползунка при наведении */
+}
+
+/* Стилизуем стрелки полосы прокрутки (не во всех браузерах) */
+::-webkit-scrollbar-button {
+  display: none; /* Скрыть кнопки */
+}
