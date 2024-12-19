@@ -9,6 +9,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import jest from 'eslint-plugin-jest'
 import testingLibrary from 'eslint-plugin-testing-library'
 import vitest from 'eslint-plugin-vitest'
+import storybook from 'eslint-plugin-storybook'
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -32,25 +33,24 @@ export default tseslint.config(
       globals: globals.browser,
     },
 
-    // specify used plugins
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      storybook,
     },
 
     settings: {
-      // for eslint-plugin-react to auto detect react version
       react: {
         version: 'detect',
       },
-      // for eslint-plugin-import to use import alias
+
       'import/resolver': {
         typescript: {
           project: './tsconfig.json',
         },
         alias: {
           map: [
-            ['', './public'], // <-- this line
+            ['', './public'],
             ['@widgets', './src/widgets'],
             ['@app', './src/app'],
             ['@pages', './src/pages'],
@@ -61,10 +61,15 @@ export default tseslint.config(
           extensions: ['.ts', '.tsx'],
         },
       },
+
+      storybook: {
+        projectRoot: './',
+      },
     },
 
     rules: {
       ...reactHooks.configs.recommended.rules,
+      ...storybook.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'no-console': 'warn',
       'react/button-has-type': 'error',
@@ -122,6 +127,8 @@ export default tseslint.config(
       ],
     },
   },
+
+  //test
   {
     files: ['**/*.{spec,test}.{ts,tsx}'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended, eslintConfigPrettier],
@@ -141,6 +148,14 @@ export default tseslint.config(
       'testing-library/no-dom-import': 'off',
       ...vitest.configs.recommended.rules,
       'vitest/max-nested-describe': ['error', { max: 3 }],
+    },
+  },
+
+  // Storybook stories
+  {
+    files: ['**/*.stories.@(js|jsx|ts|tsx)'],
+    rules: {
+      'storybook/no-stories-of': 'warn',
     },
   }
 )
