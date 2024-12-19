@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -32,5 +32,17 @@ export default defineConfig({
       localsConvention: 'dashes',
       scopeBehaviour: 'local',
     },
+  },
+
+  test: {
+    browser: {
+      enabled: true,
+      name: 'chromium',
+      provider: 'playwright',
+    },
+
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './setupTest.ts',
   },
 })

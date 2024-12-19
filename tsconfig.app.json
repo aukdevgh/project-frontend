@@ -22,6 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
+  "include": ["src", "setupTest.ts"],
+  "types": ["@vitest/browser/providers/playwright"],
   "extends": "./tsconfig.paths.json"
 }

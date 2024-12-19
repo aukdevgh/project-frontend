@@ -21,5 +21,6 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"],
+  "types": ["@vitest/browser/providers/playwright"],
   "extends": "./tsconfig.paths.json"
 }

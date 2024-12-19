@@ -6,6 +6,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import importPlugin from 'eslint-plugin-import'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import jest from 'eslint-plugin-jest'
+import testingLibrary from 'eslint-plugin-testing-library'
+import vitest from 'eslint-plugin-vitest'
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -117,6 +120,27 @@ export default tseslint.config(
           'newlines-between': 'always', // Всегда новая строка между группами
         },
       ],
+    },
+  },
+  {
+    files: ['**/*.{spec,test}.{ts,tsx}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, eslintConfigPrettier],
+    plugins: { jest, 'testing-library': testingLibrary, vitest },
+    languageOptions: {
+      globals: jest.environments.globals.globals,
+    },
+    rules: {
+      'jest/no-disabled-tests': 'warn',
+      'jest/no-focused-tests': 'error',
+      'jest/no-identical-title': 'error',
+      'jest/prefer-to-have-length': 'warn',
+      'jest/valid-expect': 'error',
+      'testing-library/await-async-queries': 'error',
+      'testing-library/no-await-sync-queries': 'error',
+      'testing-library/no-debugging-utils': 'warn',
+      'testing-library/no-dom-import': 'off',
+      ...vitest.configs.recommended.rules,
+      'vitest/max-nested-describe': ['error', { max: 3 }],
     },
   }
 )
