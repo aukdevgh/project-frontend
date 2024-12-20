@@ -8,6 +8,8 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   plugins: [react(), svgr({ include: '**/*.svg' })],
 
+  assetsInclude: ['**/*.woff', '**/*.woff2'],
+
   resolve: {
     alias: {
       '@app': resolve(__dirname, 'src/app'),
