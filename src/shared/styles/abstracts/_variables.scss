@@ -4,26 +4,28 @@ $color-error: #f33;
 $color-background-primary: #fff;
 $color-background-secondary: #f0f0f0;
 $color-text: #000;
+$color-text-inverted: #fff;
 $color-star: #ffc633;
 
 // Шрифты
 $font-primary: 'Satoshi', sans-serif;
-$font-primary-regular: 400;
-$font-primary-medium: 500;
-$font-primary-bold: 700;
 $font-secondary: 'Integral CF', sans-serif;
-$font-secondary-bold: 700;
+
+// font-weight
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
 
 // Размеры
-$font-size-display: clamp(2.25rem, 1.6rem + 2.6667vw, 4rem); // баннеры, рекламные блоки (36px ~ 64px)
-$font-size-title-large: clamp(2rem, 1.6286rem + 1.5238vw, 3rem); // Большие заголовки (32px ~ 48px)
-$font-size-title-medium: clamp(1.5rem, 1.1286rem + 1.5238vw, 2.5rem); // Средние заголовки (24px ~ 40px)
-$font-size-title-small: clamp(1.5rem, 1.2214rem + 1.1429vw, 2.25rem); // Маленькие заголовки (24px ~ 36px)
-$font-size-heading: clamp(1.625rem, 1.4857rem + 0.5714vw, 2rem); // Заголовки разделов (26px ~ 32px)
-$font-size-subheading: clamp(1.25rem, 1.1571rem + 0.381vw, 1.5rem); // Подзаголовки (20px ~ 24px)
-$font-size-body-large: clamp(1rem, 0.9071rem + 0.381vw, 1.25rem); // Крупный текст (16px ~ 20px)
-$font-size-body: clamp(0.875rem, 0.8286rem + 0.1905vw, 1rem); // Основной текст (14px ~ 16px)
-$font-size-caption: clamp(0.75rem, 0.7036rem + 0.1905vw, 0.875rem); // Подписи, вспомогательный текст (12px ~ 14px)
+$font-size-display: clamp(36px, 0.4397rem + 7.4271vw, 64px); // баннеры, рекламные блоки
+$font-size-title-large: clamp(32px, 0.9655rem + 4.244vw, 48px); // Большие заголовки
+$font-size-title-medium: clamp(24px, 0.4655rem + 4.244vw, 40px); // Средние заголовки
+$font-size-title-small: clamp(24px, 0.7241rem + 3.183vw, 36px); // Маленькие заголовки
+$font-size-heading: clamp(26px, 1.2371rem + 1.5915vw, 32px); // Заголовки разделов
+$font-size-subheading: clamp(20px, 0.9914rem + 1.061vw, 24px); // Подзаголовки
+$font-size-body-large: clamp(16px, 0.7414rem + 1.061vw, 20px); // Крупный текст
+$font-size-body: clamp(14px, 0.7457rem + 0.5305vw, 16px); // Основной текст
+$font-size-caption: clamp(12px, 0.6207rem + 0.5305vw, 14px); // Подписи, вспомогательный текст
 
 // Радиус
 $radius-xs: 14px;
@@ -33,3 +35,8 @@ $radius-l: 62px;
 
 // z-index
 $zindex-modal: 1000;
+
+// Breakpoints для различных устройств
+$breakpoint-desktop: 1024px; // Для десктопов
+$breakpoint-tablet: 767px; // Для планшетов
+$breakpoint-mobile: 480px; // Для мобильных устройств

@@ -1,6 +1,6 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 
-const ProductPageLazy = lazy(
+export const ProductPageLazy = lazy(
   () =>
     // for dev
     new Promise((resolve) => {
@@ -9,11 +9,3 @@ const ProductPageLazy = lazy(
       setTimeout(() => resolve(import('./ProductPage')), 1500)
     })
 )
-
-export const withSuspenseProductPage = () => {
-  return (
-    <Suspense>
-      <ProductPageLazy />
-    </Suspense>
-  )
-}

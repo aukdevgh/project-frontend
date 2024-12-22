@@ -1,11 +1,3 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 
-const BaseLayoutLazy = lazy(() => import('./BaseLayout'))
-
-export const withSuspenseBaseLayout = () => {
-  return (
-    <Suspense>
-      <BaseLayoutLazy />
-    </Suspense>
-  )
-}
+export const BaseLayoutLazy = lazy(() => import('./BaseLayout'))

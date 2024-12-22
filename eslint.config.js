@@ -74,6 +74,7 @@ export default tseslint.config(
       'no-console': 'warn',
       'react/button-has-type': 'error',
       'react/react-in-jsx-scope': ['off'],
+      'react/button-has-type': 'off',
 
       'import/order': [
         'error',

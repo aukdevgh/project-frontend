@@ -1,0 +1,26 @@
+.topbar {
+  padding: 9px 0;
+  display: flex;
+  background-color: $color-primary;
+  color: $color-text-inverted;
+
+  .close {
+    @media screen and (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner {
+  margin: 0 auto;
+}
+
+.hide {
+  display: none;
+}

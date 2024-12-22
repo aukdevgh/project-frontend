@@ -1,11 +1,3 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 
-const WithBreadcrumbLayoutLazy = lazy(() => import('./WithBreadcrumbLayout'))
-
-export const withSuspenseWithBreadcrumbLayout = () => {
-  return (
-    <Suspense>
-      <WithBreadcrumbLayoutLazy />
-    </Suspense>
-  )
-}
+export const WithBreadcrumbLayoutLazy = lazy(() => import('./WithBreadcrumbLayout'))

@@ -1,0 +1,78 @@
+.button {
+  font-family: $font-primary;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: center;
+  border-radius: $radius-l;
+  cursor: pointer;
+}
+
+.primary {
+  padding: 15px 30px;
+  color: $color-text-inverted;
+  background-color: $color-primary;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+.secondary {
+  padding: clamp(10px, 0.4957rem + 0.5305vw, 12px) clamp(20px, 0.9914rem + 1.061vw, 24px);
+  color: $color-text;
+  background-color: $color-background-secondary;
+
+  &:hover,
+  &:focus {
+    color: $color-text-inverted;
+    background-color: $color-primary;
+  }
+}
+
+.outline {
+  padding: clamp(13px, 0.6832rem + 0.5305vw, 15px) 80px;
+  background-color: transparent;
+  border: 1px solid rgba($color: $color-primary, $alpha: 10%);
+
+  &:hover,
+  &:focus {
+    background-color: $color-background-secondary;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.clear {
+  width: auto;
+  height: auto;
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+}
+
+.active {
+  color: $color-text-inverted;
+  background-color: $color-primary;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
