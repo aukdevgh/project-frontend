@@ -1,1 +1,1 @@
-export { ProductPageLazy as ProductPage } from './ui/ProductPage.lazy'
+export { withSuspenseProductPage as ProductPage } from './ui/ProductPage.lazy'

@@ -1,4 +1,4 @@
-import { RouteProps } from 'react-router'
+import { createBrowserRouter } from 'react-router'
 
 import { MainPage } from '@pages/MainPage'
 import { ProductPage } from '@pages/ProductPage'
@@ -6,19 +6,33 @@ import { ProductsPage } from '@pages/ProductsPage'
 
 import { getRouteMain, getRouteProductById, getRouteProducts } from '@shared/lib/routes'
 
-import { AppRoutes } from '../consts/AppRoutes'
+import { BaseLayout, WithBreadcrumbLayout } from '../../layouts'
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.MAIN]: {
-    path: getRouteMain(),
-    element: <MainPage />,
-  },
-  [AppRoutes.PRODUCTS]: {
-    path: getRouteProducts(),
-    element: <ProductsPage />,
-  },
-  [AppRoutes.PRODUCT]: {
-    path: getRouteProductById(':id'),
-    element: <ProductPage />,
-  },
+export const routeConfig = () => {
+  return createBrowserRouter([
+    {
+      element: <BaseLayout />,
+      errorElement: <div>Error happened</div>,
+      children: [
+        {
+          path: getRouteMain(),
+          element: <MainPage />,
+        },
+      ],
+    },
+    {
+      element: <WithBreadcrumbLayout />,
+      errorElement: <div>Error happened</div>,
+      children: [
+        {
+          path: getRouteProducts(),
+          element: <ProductsPage />,
+        },
+        {
+          path: getRouteProductById(':id'),
+          element: <ProductPage />,
+        },
+      ],
+    },
+  ])
 }

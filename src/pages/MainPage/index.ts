@@ -1,1 +1,1 @@
-export { MainPageLazy as MainPage } from './ui/MainPage.lazy'
+export { withSuspenseMainPage as MainPage } from './ui/MainPage.lazy'
