@@ -1,3 +1,5 @@
+import { RouterDecorator } from '../src/app/providers/storybook'
+
 import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
@@ -9,6 +11,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [RouterDecorator],
 }
 
 export default preview
