@@ -6,7 +6,12 @@ import { defineConfig } from 'vitest/config'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr({ include: '**/*.svg' })],
+  plugins: [
+    react(),
+    svgr({
+      include: '**/*.svg',
+    }),
+  ],
 
   assetsInclude: ['**/*.woff', '**/*.woff2'],
 

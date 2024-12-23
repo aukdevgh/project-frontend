@@ -75,6 +75,8 @@ export default tseslint.config(
       'react/button-has-type': 'error',
       'react/react-in-jsx-scope': ['off'],
       'react/button-has-type': 'off',
+      'react/display-name': 'off',
+      '@typescript-eslint/triple-slash-reference': 'off',
 
       'import/order': [
         'error',

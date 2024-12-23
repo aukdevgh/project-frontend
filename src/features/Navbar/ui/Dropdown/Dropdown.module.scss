@@ -1,0 +1,33 @@
+.content {
+  padding: 4px;
+  background-color: $color-background-primary;
+  border: 1px solid $color-background-secondary;
+  border-radius: $radius-xs;
+}
+
+.item {
+  padding: 8px 16px;
+  text-transform: capitalize;
+  border-radius: $radius-xs;
+
+  &:hover,
+  &:focus {
+    background-color: $color-background-secondary;
+  }
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-primary;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  text-transform: capitalize;
+  background-color: $color-background-primary;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+}

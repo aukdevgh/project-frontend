@@ -1,15 +1,15 @@
-import { Topbar } from './Topbar'
+import { Dropdown } from './Dropdown'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'widgets/Topbar',
-  component: Topbar,
+  title: 'features/Navbar/Dropdown',
+  component: Dropdown,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Topbar>
+} satisfies Meta<typeof Dropdown>
 
 export default meta
 type Story = StoryObj<typeof meta>

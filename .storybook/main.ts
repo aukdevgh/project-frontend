@@ -1,3 +1,5 @@
+import svgr from 'vite-plugin-svgr'
+
 import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
@@ -11,6 +13,15 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  viteFinal: async (config) => {
+    // Добавляем поддержку SVG с помощью vite-plugin-svgr
+    config.plugins?.push(
+      svgr({
+        include: '**/*.svg',
+      })
+    )
+    return config
   },
 }
 export default config

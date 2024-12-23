@@ -2,10 +2,10 @@ import { FC, useState } from 'react'
 
 import { PromoBanner } from '@features/PromoBanner'
 
-import CloseIcon from '@shared/assets/icon/close.svg'
 import { classNames } from '@shared/lib/classNames/classNames'
 import { Button } from '@shared/ui/Button'
 import { Container } from '@shared/ui/Container'
+import { Icon } from '@shared/ui/Icon/ui/Icon'
 
 import cls from './Topbar.module.scss'
 
@@ -21,7 +21,7 @@ export const Topbar: FC<TopbarProps> = ({ className }) => {
       <Container className={cls.content}>
         <PromoBanner className={cls.banner} />
         <Button className={cls.close} variant="clear" size="icon" onClick={() => setIsHide(true)}>
-          <CloseIcon />
+          <Icon type="Close" />
         </Button>
       </Container>
     </div>

@@ -7,9 +7,9 @@ html {
 
 * {
   transition:
-    opacity 0.2s,
-    background-color 0.2s,
-    color 0.2s;
+    opacity 0.2s ease-out,
+    background-color 0.2s ease-out,
+    color 0.2s ease-out;
 }
 
 body {
