@@ -1,0 +1,87 @@
+.left {
+  text-align-last: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.wrap {
+  text-wrap: wrap;
+}
+
+.nowrap {
+  text-wrap: nowrap;
+}
+
+.pretty {
+  text-wrap: pretty;
+}
+
+.balance {
+  text-wrap: balance;
+}
+
+.regular {
+  font-weight: $font-weight-regular;
+}
+
+.medium {
+  font-weight: $font-weight-medium;
+}
+
+.bold {
+  font-weight: $font-weight-bold;
+}
+
+.subheading {
+  font-size: $font-size-subheading;
+}
+
+.heading {
+  font-size: $font-size-heading;
+}
+
+.title-small {
+  font-size: $font-size-title-small;
+}
+
+.title-medium {
+  font-size: $font-size-title-medium;
+}
+
+.title-large {
+  font-size: $font-size-title-large;
+}
+
+.banner {
+  font-size: $font-size-display;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.none {
+  text-transform: none;
+}
+
+.font-primary {
+  font-family: $font-primary;
+}
+
+.font-secondary {
+  font-family: $font-secondary;
+}

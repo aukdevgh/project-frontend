@@ -47,7 +47,7 @@ export const Text = memo(
 
     const props = {
       className: classNames('', {}, additionalClass),
-      dataTestId,
+      'data-testid': dataTestId,
       ...(as === 'label' && htmlFor && { htmlFor }),
       ...otherProps,
     }
