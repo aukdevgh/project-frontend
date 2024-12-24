@@ -1,0 +1,52 @@
+.header {
+  padding: 24px 0;
+
+  .search {
+    @media screen and (max-width: $breakpoint-desktop) {
+      display: none;
+    }
+  }
+
+  .navbar {
+    @media screen and (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    gap: 16px;
+  }
+}
+
+.logo {
+  line-height: 0;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    margin-right: auto;
+  }
+
+  & svg {
+    height: 22px;
+    width: auto;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      height: 16px;
+      width: auto;
+    }
+  }
+}
+
+.burger {
+  display: none;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: flex;
+  }
+}

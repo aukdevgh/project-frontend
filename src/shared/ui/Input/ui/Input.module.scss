@@ -1,0 +1,43 @@
+.field {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: $radius-l;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 11px 16px;
+  }
+}
+
+.input {
+  flex-grow: 1;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  background: none;
+
+  &::placeholder {
+    color: rgba($color: $color-primary, $alpha: 40%);
+  }
+}
+
+.addon {
+  line-height: 0;
+  color: rgba($color: $color-primary, $alpha: 40%);
+}
+
+.primary {
+  max-width: 577px;
+  width: 100%;
+  background-color: $color-background-secondary;
+}
+
+.secondary {
+  max-width: 349px;
+  width: 100%;
+  background-color: $color-background-primary;
+}

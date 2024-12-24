@@ -1,0 +1,15 @@
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  line-height: 0;
+}
+
+.seart-action {
+  display: none;
+
+  @media screen and (max-width: $breakpoint-desktop) {
+    display: list-item;
+  }
+}
