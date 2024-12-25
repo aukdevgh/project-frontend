@@ -1,6 +1,6 @@
 import { memo, SVGProps } from 'react'
 
-import { classNames } from '@shared/lib/classNames/classNames'
+import { classNames } from '@shared/lib/classNames'
 
 import { IconType, iconTypes } from '../types/IconTypes'
 

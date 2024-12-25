@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router'
 
+import { BaseLayout, WithBreadcrumbLayout } from '@app/layouts'
+
 import { MainPage } from '@pages/MainPage'
 import { ProductPage } from '@pages/ProductPage'
 import { ProductsPage } from '@pages/ProductsPage'
 
 import { getRouteMain, getRouteProductById, getRouteProducts } from '@shared/lib/routes'
-
-import { BaseLayout, WithBreadcrumbLayout } from '../../layouts'
 
 export const routeConfig = () => {
   return createBrowserRouter([

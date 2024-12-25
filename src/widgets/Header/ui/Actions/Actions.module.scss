@@ -6,10 +6,19 @@
   line-height: 0;
 }
 
-.seart-action {
+.search-action {
   display: none;
 
   @media screen and (max-width: $breakpoint-desktop) {
     display: list-item;
+  }
+}
+
+.search-menu {
+  max-width: 100%;
+  display: none;
+
+  @media screen and (max-width: $breakpoint-desktop) {
+    display: flex;
   }
 }

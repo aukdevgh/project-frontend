@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { Link, LinkProps } from 'react-router'
 
-import { classNames } from '@shared/lib/classNames/classNames'
+import { classNames } from '@shared/lib/classNames'
 
 import cls from './AppLink.module.scss'
 

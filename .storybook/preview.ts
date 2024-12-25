@@ -1,4 +1,4 @@
-import { RouterDecorator } from '../src/app/providers/storybook'
+import { RouterDecorator, StoreDecorator } from '../src/app/providers/storybook'
 
 import type { Preview } from '@storybook/react'
 
@@ -11,7 +11,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [RouterDecorator],
+  decorators: [RouterDecorator, StoreDecorator],
 }
 
 export default preview

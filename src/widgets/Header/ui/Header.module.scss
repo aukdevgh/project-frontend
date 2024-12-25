@@ -2,6 +2,7 @@
   padding: 24px 0;
 
   .search {
+    max-width: 577px;
     @media screen and (max-width: $breakpoint-desktop) {
       display: none;
     }
@@ -48,5 +49,11 @@
 
   @media screen and (max-width: $breakpoint-tablet) {
     display: flex;
+  }
+}
+
+.menu-navbar {
+  ul {
+    flex-direction: column;
   }
 }

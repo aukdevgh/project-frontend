@@ -1,8 +1,9 @@
 import { FC } from 'react'
 
-import { classNames } from '@shared/lib/classNames/classNames'
+import { classNames } from '@shared/lib/classNames'
 import { getRouteSignUp } from '@shared/lib/routes'
 import { AppLink } from '@shared/ui/Link'
+import { Text } from '@shared/ui/Text'
 
 import cls from './PromoBanner.module.scss'
 
@@ -13,7 +14,7 @@ interface PromoBannerProps {
 export const PromoBanner: FC<PromoBannerProps> = ({ className }) => {
   return (
     <div className={classNames(cls['promo-anner'], {}, [className])}>
-      <span>Sign up and get 20% off your first order! </span>
+      <Text>Sign up and get 20% off your first order! </Text>
       <AppLink className={cls.link} to={getRouteSignUp()} variant="clear">
         Sign Up Now
       </AppLink>

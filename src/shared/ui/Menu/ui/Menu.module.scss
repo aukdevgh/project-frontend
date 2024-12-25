@@ -1,0 +1,35 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: $color-background-primary;
+}
+
+.close {
+  transform: translateX(-100vw);
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+  transition:
+    transform 0.3s ease,
+    visibility 0s 0.3s,
+    z-index 0s 0.3s;
+}
+
+.open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  z-index: auto;
+  transition: transform 0.3s ease;
+}
+
+.close-btn {
+  margin-left: auto;
+}

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { classNames } from './classNames'
+import { classNames } from '.'
 
 describe('classNames', () => {
   test('with only first param', () => {

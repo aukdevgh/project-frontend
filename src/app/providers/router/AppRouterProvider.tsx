@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router'
 
-import { routeConfig } from '../config/routesConfig'
+import { routeConfig } from '@app/router'
 
 export const AppRouterProvider = () => {
   return <RouterProvider router={routeConfig()} />

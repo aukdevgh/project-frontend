@@ -2,3 +2,24 @@
   position: relative;
   width: 100%;
 }
+
+.catalog {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  padding: 24px 16px;
+  background-color: $color-background-primary;
+  border: 1px solid $color-background-secondary;
+  border-radius: $radius-s;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.item {
+  padding: 8px 16px;
+}
