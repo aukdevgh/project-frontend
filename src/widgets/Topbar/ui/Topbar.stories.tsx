@@ -14,7 +14,15 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const primary: Story = {
-  globals: {},
+export const desctop: Story = {
   args: {},
+  parameters: {
+    viewport: { defaultViewport: 'desctop' },
+  },
+}
+export const tablet: Story = {
+  args: {},
+  parameters: {
+    viewport: { defaultViewport: 'tablet' },
+  },
 }

@@ -1,3 +1,4 @@
+import { viewports } from './viewports'
 import { RouterDecorator, StoreDecorator } from '../src/app/providers/storybook'
 
 import type { Preview } from '@storybook/react'
@@ -9,6 +10,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    viewport: {
+      viewports: viewports,
     },
   },
   decorators: [RouterDecorator, StoreDecorator],
