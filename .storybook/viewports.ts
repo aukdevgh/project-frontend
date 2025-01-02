@@ -9,7 +9,7 @@ export const viewports = {
   tablet: {
     name: 'tablet',
     styles: {
-      width: '767px',
+      width: '768px',
       height: '576px',
     },
   },

@@ -2,11 +2,14 @@ import { createBrowserRouter } from 'react-router'
 
 import { BaseLayout, WithBreadcrumbLayout } from '@app/layouts'
 
-import { MainPage } from '@pages/MainPage'
-import { ProductPage } from '@pages/ProductPage'
-import { ProductsPage } from '@pages/ProductsPage'
-
-import { getRouteMain, getRouteProductById, getRouteProducts } from '@shared/lib/routes'
+import { Brands } from '@pages/Brands'
+import { Cart } from '@pages/Cart'
+import { Category } from '@pages/Category'
+import { Home } from '@pages/Home'
+import { Login } from '@pages/Login'
+import { Product } from '@pages/Product'
+import { Products } from '@pages/Products'
+import { Profile } from '@pages/Profile'
 
 export const routeConfig = () => {
   return createBrowserRouter([
@@ -15,22 +18,51 @@ export const routeConfig = () => {
       errorElement: <div>Error happened</div>,
       children: [
         {
-          path: getRouteMain(),
-          element: <MainPage />,
+          path: '/',
+          element: <Home />,
+          handle: { breadcrumb: 'Home' },
         },
       ],
     },
     {
+      path: '/',
       element: <WithBreadcrumbLayout />,
       errorElement: <div>Error happened</div>,
       children: [
         {
-          path: getRouteProducts(),
-          element: <ProductsPage />,
+          path: '/:category',
+          element: <Category />,
+          handle: { breadcrumb: 'Category' },
         },
         {
-          path: getRouteProductById(':id'),
-          element: <ProductPage />,
+          path: '/:category/:subcategory',
+          element: <Products />,
+          handle: { breadcrumb: 'Products' },
+        },
+        {
+          path: '/:category/:subcategory/:productId',
+          element: <Product />,
+          handle: { breadcrumb: 'Product' },
+        },
+        {
+          path: 'cart',
+          element: <Cart />,
+          handle: { breadcrumb: 'Cart' },
+        },
+        {
+          path: 'profile',
+          element: <Profile />,
+          handle: { breadcrumb: 'Profile' },
+        },
+        {
+          path: 'login',
+          element: <Login />,
+          handle: { breadcrumb: 'Login' },
+        },
+        {
+          path: '/brands',
+          element: <Brands />,
+          handle: { breadcrumb: 'Brands' },
         },
       ],
     },

@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.active {
+  z-index: 1;
+}
+
+.img {
+  background-color: $color-background-secondary;
+}
+
+.hide {
+  display: none;
+}
+
+.transparent {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}

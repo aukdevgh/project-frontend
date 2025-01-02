@@ -1,0 +1,33 @@
+.card,
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  gap: 16px;
+}
+
+.text {
+  gap: 8px;
+}
+
+.image {
+  width: clamp(198px, 4.7969rem + 24.25vw, 295px);
+  height: clamp(200px, 4.8438rem + 24.5vw, 298px);
+  background-color: $color-background-secondary;
+  border-radius: $radius-s;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  width: clamp(198px, 4.7969rem + 24.25vw, 295px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

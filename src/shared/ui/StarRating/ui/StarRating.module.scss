@@ -1,0 +1,41 @@
+.rating {
+  display: flex;
+  gap: 5px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.star {
+  cursor: inherit;
+}
+
+.half-star {
+  color: $color-star;
+}
+
+.visually-hidden {
+  position: absolute;
+  padding: 0;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.active {
+  color: $color-star;
+}
+
+.disabled {
+  cursor: none;
+  pointer-events: none;
+  opacity: 0.38;
+}
+
+.readonly {
+  cursor: none;
+  pointer-events: none;
+}

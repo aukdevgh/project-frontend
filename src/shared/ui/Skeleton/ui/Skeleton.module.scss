@@ -1,0 +1,17 @@
+.skeleton {
+  width: 100%;
+  height: auto;
+  background-color: $color-background-secondary;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  overflow: hidden;
+}
+
+.img {
+  background-color: $color-background-secondary;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

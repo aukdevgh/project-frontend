@@ -1,10 +1,10 @@
 import { FC } from 'react'
 
+import { navbarRoutes } from '@shared/constants/routes'
 import { classNames } from '@shared/lib/classNames'
 import { AppLink } from '@shared/ui/Link'
 
 import cls from './Navbar.module.scss'
-import { NAV_LINKS } from '../../const/links'
 import { Dropdown } from '../Dropdown/Dropdown'
 
 interface NavbarProps {
@@ -18,9 +18,9 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <li>
           <Dropdown />
         </li>
-        {NAV_LINKS.map((link) => (
+        {navbarRoutes.map((link) => (
           <li key={link.path}>
-            <AppLink to={link.path}>{link.name}</AppLink>
+            <AppLink to={link.path}>{link.title}</AppLink>
           </li>
         ))}
       </ul>

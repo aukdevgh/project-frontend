@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import { Outlet } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
+import { Container } from '@shared/ui/Container'
 
 interface LayoutProps {
   className?: string
@@ -17,9 +18,9 @@ export const Layout: FC<LayoutProps> = ({ className, topbar, header, breadcrumb,
       {topbar}
       {header}
       {breadcrumb}
-      <div className="main container">
+      <Container className="main">
         <Outlet />
-      </div>
+      </Container>
       {footer}
     </div>
   )
