@@ -38,6 +38,10 @@
   font-weight: $font-weight-bold;
 }
 
+.xs {
+  font-size: $font-size-small;
+}
+
 .s {
   font-size: $font-size-caption;
 }
@@ -62,6 +66,18 @@
   text-transform: lowercase;
 }
 
-.none {
-  text-transform: none;
+.deprecated {
+  opacity: 0.4;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
 }

@@ -25,7 +25,7 @@ export const readonly: Story = {
 }
 export const disabled: Story = {
   args: {
-    rating: 4.5,
+    rating: 3.5,
     disabled: true,
   },
 }

@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router'
 import { useGetProductById } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
-import { formatPathName } from '@shared/lib/formatPathName'
+import { formatPathName } from '@shared/lib/path'
 import { Icon } from '@shared/ui/Icon'
 import { AppLink } from '@shared/ui/Link'
 

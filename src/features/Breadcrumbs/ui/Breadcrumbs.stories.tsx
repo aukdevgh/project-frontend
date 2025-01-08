@@ -14,7 +14,4 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Light: Story = {
-  globals: {},
-  args: {},
-}
+export const primary: Story = {}

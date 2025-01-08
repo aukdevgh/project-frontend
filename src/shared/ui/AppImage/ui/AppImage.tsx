@@ -57,6 +57,7 @@ export const AppImage = memo((props: AppImageProps) => {
             setIsLoading(false)
             setIsError(true)
           }}
+          loading="lazy"
           {...otherProps}
         />
       </picture>

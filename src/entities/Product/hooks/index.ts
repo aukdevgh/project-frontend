@@ -5,8 +5,9 @@ import { productsApi } from '@entities/Product/api/ProductApi'
 export const {
   useLazyGetProductByIdQuery,
   useGetProductByIdQuery,
-  useGetProductsByCategoryQuery,
   useGetCategoryListQuery,
+  useGetProductsQuery,
+  useGetBrandListQuery,
 } = productsApi
 
 export const useGetProductById = (id: string | undefined) => {

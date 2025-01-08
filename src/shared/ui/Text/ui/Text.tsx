@@ -12,9 +12,11 @@ type TextWrap = 'wrap' | 'nowrap' | 'pretty' | 'balance'
 
 type TextWeight = 'regular' | 'medium' | 'bold'
 
-type TextSize = 's' | 'm' | 'l'
+type TextSize = 'xs' | 's' | 'm' | 'l'
 
 type TextTransform = 'none' | 'uppercase' | 'capitalize' | 'lowercase'
+
+type TextDecoration = 'none' | 'line-through' | 'overline' | 'underline'
 
 interface TextProps {
   className?: string
@@ -24,9 +26,11 @@ interface TextProps {
   weight?: TextWeight
   size?: TextSize
   transform?: TextTransform
+  decoration?: TextDecoration
   children?: ReactNode
   dataTestId?: string
   htmlFor?: string
+  deprecated?: boolean
 }
 
 export const Text = memo(
@@ -38,15 +42,17 @@ export const Text = memo(
     weight = 'regular',
     size = 'm',
     transform = 'none',
+    decoration = 'none',
     children,
     dataTestId = 'ui_text',
     htmlFor,
+    deprecated = false,
     ...otherProps
   }: TextProps) => {
-    const additionalClass = [className, cls[align], cls[wrap], cls[weight], cls[size], cls[transform]]
+    const additionalClass = [className, cls[align], cls[wrap], cls[weight], cls[size], cls[transform], cls[decoration]]
 
     const props = {
-      className: classNames('', {}, additionalClass),
+      className: classNames('', { [cls.deprecated]: deprecated }, additionalClass),
       'data-testid': dataTestId,
       ...(as === 'label' && htmlFor && { htmlFor }),
       ...otherProps,

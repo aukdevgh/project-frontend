@@ -1,0 +1,158 @@
+.poster {
+  background-color: $color-background-secondary;
+}
+
+.container {
+  display: flex;
+  gap: 54px;
+
+  @media screen and (max-width: 1140px) {
+    flex-direction: column;
+  }
+}
+
+.content {
+  margin: auto 0;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 1140px) {
+    width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+  font-family: $font-secondary;
+  line-height: 1;
+
+  @media screen and (max-width: 1140px) {
+    margin-top: 40px;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    margin-top: 32px;
+  }
+}
+
+.text {
+  margin-bottom: 32px;
+}
+
+.button {
+  margin-bottom: 48px;
+  padding: 15px 68px;
+
+  @media screen and (max-width: 1140px) {
+    width: 100%;
+  }
+}
+
+.advantages {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    margin-bottom: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.advantage {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+
+  &::after {
+    content: '';
+    width: 1px;
+    max-height: 100%;
+    background-color: rgba($color-primary, 0.1);
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+
+  @media screen and (max-width: 580px) {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.separator {
+  width: 1px;
+  max-height: 100%;
+  background-color: rgba($color: $color-primary, $alpha: 10%);
+}
+
+.separator:first-child {
+  display: none;
+}
+
+.img {
+  position: relative;
+  width: 50%;
+  @media screen and (max-width: 1140px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+.diamond-small,
+.diamond-big {
+  position: absolute;
+  z-index: 1;
+}
+
+.diamond-small {
+  left: 0;
+  top: 50%;
+}
+
+.diamond-big {
+  right: 0;
+  top: 15%;
+}
+
+.brands {
+  padding: 44px 0;
+  color: $color-text-inverted;
+  background-color: $color-primary;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 32px 0;
+  }
+}
+
+.brands-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 24px;
+  }
+}
+
+.brand {
+  max-height: clamp(24px, 0.8552rem + 2.6455vw, 34px);
+  height: 100%;
+  width: min-content;
+  margin: 0 auto;
+}

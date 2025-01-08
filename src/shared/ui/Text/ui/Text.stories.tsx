@@ -26,6 +26,10 @@ export const bold: Story = {
   args: { weight: 'bold', children: 'bold' },
 }
 
+export const size_xs: Story = {
+  args: { size: 'xs', children: 'size xs' },
+}
+
 export const size_s: Story = {
   args: { size: 's', children: 'size s' },
 }
@@ -44,4 +48,20 @@ export const capitalize: Story = {
 
 export const lowercase: Story = {
   args: { transform: 'lowercase', children: 'text lowercase' },
+}
+
+export const overline: Story = {
+  args: { decoration: 'overline', children: 'overline' },
+}
+
+export const line_through: Story = {
+  args: { decoration: 'line-through', children: 'line-through' },
+}
+
+export const underline: Story = {
+  args: { decoration: 'underline', children: 'underline' },
+}
+
+export const deprecated: Story = {
+  args: { deprecated: true, children: 'deprecated' },
 }

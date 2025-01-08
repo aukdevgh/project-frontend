@@ -8,21 +8,18 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Topbar>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const desctop: Story = {
-  args: {},
   parameters: {
     viewport: { defaultViewport: 'desctop' },
   },
 }
-export const tablet: Story = {
-  args: {},
+export const mobile: Story = {
   parameters: {
-    viewport: { defaultViewport: 'tablet' },
+    viewport: { defaultViewport: 'mobile' },
   },
 }

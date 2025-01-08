@@ -4,7 +4,7 @@ import { ImageSkeleton, Skeleton } from '@shared/ui/Skeleton'
 
 import cls from './ProductCard.module.scss'
 
-export const ProductCartSkeleton: FC = () => {
+export const ProductCardSkeleton: FC = () => {
   return (
     <div className={cls.card}>
       <ImageSkeleton className={cls.image} height={298} width={295} />

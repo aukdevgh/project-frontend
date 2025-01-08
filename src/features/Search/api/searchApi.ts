@@ -2,7 +2,7 @@ import { baseApi } from '@shared/api'
 
 import { SearchRequestArgs, SearchResponseType } from '../types/searchTypes'
 
-const searchApi = baseApi.injectEndpoints({
+export const searchApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getProductsBySearch: build.query<SearchResponseType, SearchRequestArgs>({
       query: ({ searchQuery }) => ({

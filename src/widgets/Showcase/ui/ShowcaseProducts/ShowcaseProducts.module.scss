@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  width: clamp(198px, 4.7969rem + 24.25vw, 295px);
+
+  &:first-child {
+    margin-left: 20px;
+    @media screen and (max-width: $breakpoint-mobile) {
+      margin-left: 16px;
+    }
+  }
+}

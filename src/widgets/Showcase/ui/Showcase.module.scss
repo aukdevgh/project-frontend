@@ -1,0 +1,19 @@
+.showcase {
+  padding-top: clamp(50px, 2.2222rem + 3.7037vw, 64px);
+  padding-bottom: clamp(50px, 2.2222rem + 3.7037vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: clamp(32px, 0.5169rem + 6.0847vw, 55px);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 36px;
+}

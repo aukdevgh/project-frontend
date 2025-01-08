@@ -9,6 +9,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  staticDirs: ['../public'],
   viteFinal: async (config) => {
     // Добавляем поддержку SVG с помощью vite-plugin-svgr
     config.plugins?.push(

@@ -23,3 +23,8 @@ export const clear: Story = {
   globals: {},
   args: { to: '/', children: 'clear', variant: 'clear' },
 }
+
+export const outline: Story = {
+  globals: {},
+  args: { to: '/', children: 'outline', variant: 'outline' },
+}

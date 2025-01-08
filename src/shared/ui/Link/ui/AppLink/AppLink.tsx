@@ -5,7 +5,7 @@ import { classNames } from '@shared/lib/classNames'
 
 import cls from './AppLink.module.scss'
 
-type AppLinkVariant = 'underline' | 'clear'
+type AppLinkVariant = 'underline' | 'clear' | 'outline'
 
 interface AppLinkProps extends LinkProps {
   className?: string

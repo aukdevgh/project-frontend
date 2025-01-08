@@ -35,7 +35,7 @@ export const StarRating = memo((props: StarRatingProps) => {
   }
 
   const renderStars = () => {
-    return Array.from({ length: maxStars }, (_, index) => {
+    return Array.from({ length: Math.ceil(rating) || maxStars }, (_, index) => {
       const starIndex = index + 1
       const isActive = hoverRating ? hoverRating >= starIndex : currentRating >= starIndex
       const isHalf = !hoverRating && currentRating > starIndex - 1 && currentRating < starIndex

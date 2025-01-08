@@ -8,7 +8,6 @@ import { Category } from '@pages/Category'
 import { Home } from '@pages/Home'
 import { Login } from '@pages/Login'
 import { Product } from '@pages/Product'
-import { Products } from '@pages/Products'
 import { Profile } from '@pages/Profile'
 
 export const routeConfig = () => {
@@ -36,7 +35,7 @@ export const routeConfig = () => {
         },
         {
           path: '/:category/:subcategory',
-          element: <Products />,
+          element: <Category />,
           handle: { breadcrumb: 'Products' },
         },
         {
