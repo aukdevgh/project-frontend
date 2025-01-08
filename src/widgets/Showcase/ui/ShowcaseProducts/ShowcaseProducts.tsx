@@ -23,7 +23,22 @@ export const ShowcaseProducts: FC<ShowcaseProductsProps> = ({ className, product
     return (
       <>
         {isMobile ? (
-          <Swiper className={cls.swiper} spaceBetween={16} slidesPerView={'auto'}>
+          <Swiper
+            className={cls.swiper}
+            spaceBetween={16}
+            slidesPerView={1.5}
+            breakpoints={{
+              375: {
+                slidesPerView: 1.8,
+              },
+              480: {
+                slidesPerView: 2.3,
+              },
+              580: {
+                slidesPerView: 2.5,
+              },
+            }}
+          >
             {[1, 2, 3, 4].map((product) => (
               <SwiperSlide className={cls.slider} key={product}>
                 <ProductCardSkeleton />
@@ -48,7 +63,22 @@ export const ShowcaseProducts: FC<ShowcaseProductsProps> = ({ className, product
   return (
     <>
       {isMobile ? (
-        <Swiper className={cls.swiper} spaceBetween={16} slidesPerView={'auto'}>
+        <Swiper
+          className={cls.swiper}
+          spaceBetween={16}
+          slidesPerView={1.5}
+          breakpoints={{
+            375: {
+              slidesPerView: 1.8,
+            },
+            480: {
+              slidesPerView: 2.3,
+            },
+            580: {
+              slidesPerView: 2.5,
+            },
+          }}
+        >
           {products.map((product) => (
             <SwiperSlide className={cls.slider} key={product.id}>
               <ProductCard product={product} />

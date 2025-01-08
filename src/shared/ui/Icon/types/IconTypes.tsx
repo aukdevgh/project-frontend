@@ -1,4 +1,5 @@
 import ArrowDownIcon from '@shared/assets/icon/arrow-down.svg'
+import ArrowLeftIcon from '@shared/assets/icon/arrow-left.svg'
 import ArrowRightIcon from '@shared/assets/icon/arrow-right.svg'
 import BurgerIcon from '@shared/assets/icon/burger.svg'
 import CalvinKleinIcon from '@shared/assets/icon/calvinKlein.svg'
@@ -18,6 +19,7 @@ import ZaraIcon from '@shared/assets/icon/zara.svg'
 export type IconType =
   | 'ArrowDown'
   | 'ArrowRight'
+  | 'ArrowLeft'
   | 'Close'
   | 'Search'
   | 'Cart'
@@ -35,6 +37,7 @@ export type IconType =
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
   ['ArrowRight', ArrowRightIcon],
+  ['ArrowLeft', ArrowLeftIcon],
   ['Close', CloseIcon],
   ['Search', SearchIcon],
   ['Cart', CartIcon],

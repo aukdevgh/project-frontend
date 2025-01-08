@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { Intro } from '@widgets/Intro'
+import { Reviews } from '@widgets/Reviews'
 import { Showcase } from '@widgets/Showcase'
 
 import { classNames } from '@shared/lib/classNames'
@@ -26,6 +27,8 @@ const Home: FC = () => {
           See All
         </AppLink>
       </Showcase>
+
+      <Reviews />
     </>
   )
 }
