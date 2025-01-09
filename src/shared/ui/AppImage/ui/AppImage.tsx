@@ -16,7 +16,7 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-  const { className, src = '', sources = [], alt = 'image', width, height, ...otherProps } = props
+  const { className, src = '', sources = [], alt = 'image', width, height, loading = 'lazy', ...otherProps } = props
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
 
@@ -57,7 +57,7 @@ export const AppImage = memo((props: AppImageProps) => {
             setIsLoading(false)
             setIsError(true)
           }}
-          loading="lazy"
+          loading={loading}
           {...otherProps}
         />
       </picture>

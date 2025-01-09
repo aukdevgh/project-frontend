@@ -4,10 +4,8 @@ import { Intro } from '@widgets/Intro'
 import { Reviews } from '@widgets/Reviews'
 import { Showcase } from '@widgets/Showcase'
 
-import { classNames } from '@shared/lib/classNames'
+import { Line } from '@shared/ui/Line'
 import { AppLink } from '@shared/ui/Link'
-
-import cls from './Home.module.scss'
 
 const Home: FC = () => {
   return (
@@ -15,15 +13,15 @@ const Home: FC = () => {
       <Intro />
 
       <Showcase title="NEW ARRIVALS" sortBy="new" limit={4}>
-        <AppLink className={cls.link} to={'/new'} variant="outline">
+        <AppLink to={'/new'} variant="outline">
           See All
         </AppLink>
       </Showcase>
 
-      <hr className={classNames(cls.line, {}, ['container'])} />
+      <Line className={'container'} />
 
       <Showcase title="TOP SELLING" sortBy="sale" limit={4}>
-        <AppLink className={cls.link} to={'/sale'} variant="outline">
+        <AppLink to={'/sale'} variant="outline">
           See All
         </AppLink>
       </Showcase>

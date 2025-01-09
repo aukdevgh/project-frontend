@@ -2,7 +2,6 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -18,8 +17,8 @@
   display: flex;
   gap: 16px;
 
-  @media screen and (max-width: $breakpoint-mobile) {
-    align-items: end;
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: none;
   }
 }
 
@@ -46,6 +45,7 @@
 .review-card {
   height: clamp(186px, 8.1429rem + 14.2857vw, 240px);
   padding: 28px 32px;
+  background-color: $color-background-primary;
   border: 1px solid $color-background-secondary;
   border-radius: $radius-s;
   opacity: 0.8;

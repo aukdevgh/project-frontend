@@ -18,7 +18,7 @@
   flex-grow: 1;
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
-  background: none;
+  background: inherit;
 
   &::placeholder {
     color: rgba($color: $color-primary, $alpha: 40%);
@@ -26,7 +26,7 @@
 }
 
 .addon {
-  line-height: 0;
+  line-height: 1;
   color: rgba($color: $color-primary, $alpha: 40%);
 }
 

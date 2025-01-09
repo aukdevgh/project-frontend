@@ -1,0 +1,15 @@
+.blok-menu,
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.blok-menu {
+  max-width: 248px;
+  gap: 26px;
+}
+
+.links {
+  gap: 20px;
+  color: rgba($color: $color-text, $alpha: 60%);
+}

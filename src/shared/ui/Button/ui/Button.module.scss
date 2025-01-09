@@ -23,12 +23,12 @@
 .secondary {
   padding: clamp(10px, 0.4957rem + 0.5305vw, 12px) clamp(20px, 0.9914rem + 1.061vw, 24px);
   color: $color-text;
-  background-color: $color-background-secondary;
+  background-color: $color-background-primary;
 
   &:hover,
   &:focus {
-    color: $color-text-inverted;
-    background-color: $color-primary;
+    background-color: $color-background-secondary;
+    opacity: 0.8;
   }
 }
 

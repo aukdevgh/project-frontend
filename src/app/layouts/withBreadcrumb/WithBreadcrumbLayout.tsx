@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import { Footer } from '@widgets/Footer'
 import { Header } from '@widgets/Header'
 import { Topbar } from '@widgets/Topbar'
 
@@ -18,6 +19,7 @@ const WithBreadcrumbLayout: FC = () => {
           <Breadcrumbs />
         </Container>
       }
+      footer={<Footer />}
     />
   )
 }

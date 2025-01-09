@@ -1,0 +1,43 @@
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  line-height: 1;
+
+  circle {
+    transition:
+      stroke 0.1s ease-in-out,
+      fill 0.1s ease-in-out;
+  }
+
+  circle:first-of-type {
+    fill: white;
+  }
+
+  circle:last-of-type {
+    stroke: black;
+    stroke-opacity: 0.4;
+  }
+
+  path {
+    fill: black;
+    transition: fill 0.1s ease-in-out;
+  }
+}
+
+.link:hover,
+.link:focus {
+  circle:first-of-type {
+    fill: black;
+  }
+
+  circle:last-of-type {
+    stroke-opacity: 0.4;
+  }
+
+  path {
+    fill: white;
+  }
+}
