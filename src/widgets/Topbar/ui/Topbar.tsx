@@ -20,7 +20,13 @@ export const Topbar: FC<TopbarProps> = ({ className }) => {
     <div className={classNames(cls.topbar, { [cls.hide]: isHide }, [className])}>
       <Container className={cls.content}>
         <PromoBanner className={cls.banner} />
-        <Button className={cls.close} variant="clear" size="icon" onClick={() => setIsHide(true)}>
+        <Button
+          className={cls.close}
+          variant="clear"
+          size="icon"
+          onClick={() => setIsHide(true)}
+          aria-label="hide topbar"
+        >
           <Icon type="Close" />
         </Button>
       </Container>

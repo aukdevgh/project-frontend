@@ -20,8 +20,9 @@ interface FooterProps {
 }
 
 export const Footer: FC<FooterProps> = ({ className }) => {
+  //TODO Processing form
   return (
-    <footer className={cls.footer}>
+    <footer className={classNames(cls.footer, {}, ['footer'])}>
       <div className={cls.header}>
         <Container className={cls.container}>
           <div className={cls['header-content']}>
@@ -42,7 +43,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
         <Container>
           <div className={cls.content}>
             <div className={cls.branding}>
-              <AppLink to="/" aria-label="shop.co" variant="clear">
+              <AppLink to="/" variant="clear" aria-label="shop.co">
                 <Icon className={cls.logo} type="Logo" width={167} height={23} />
               </AppLink>
 

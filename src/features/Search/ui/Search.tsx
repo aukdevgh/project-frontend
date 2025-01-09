@@ -56,7 +56,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
       />
       {isError && <Text as="div">Произошла ошибка при загрузке</Text>}
 
-      {isOpen && searchQuery && (
+      {isOpen && searchQuery && data && (
         <div className={cls.catalog}>
           <ul className={cls.list}>
             {data?.products.length === 0 && <li className={cls.item}>Not found</li>}

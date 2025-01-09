@@ -24,17 +24,17 @@ export const Actions: FC<ActionsProps> = ({ className }) => {
       <nav className={classNames('', {}, [className])}>
         <ul className={cls.actions}>
           <li className={cls['search-action']}>
-            <Button variant="clear" onClick={onOpen}>
+            <Button variant="clear" onClick={onOpen} aria-label="open search menu">
               <Icon type="Search" width={24} height={24} />
             </Button>
           </li>
           <li>
-            <AppLink to={getRouteCart()} variant="clear">
+            <AppLink to={getRouteCart()} variant="clear" aria-label="cart">
               <Icon type="Cart" width={24} height={24} />
             </AppLink>
           </li>
           <li>
-            <AppLink to={getRouteProfile()} variant="clear">
+            <AppLink to={getRouteProfile()} variant="clear" aria-label="profile">
               <Icon type="Profile" width={24} height={24} />
             </AppLink>
           </li>

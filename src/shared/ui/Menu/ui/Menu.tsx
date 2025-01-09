@@ -16,7 +16,7 @@ interface MenuProps {
 export const Menu: FC<MenuProps> = ({ className, children, isOpen, onClose }) => {
   return (
     <div className={classNames(cls.menu, { [cls.open]: isOpen, [cls.close]: !isOpen }, [className])}>
-      <Button className={cls['close-btn']} variant="clear" onClick={onClose}>
+      <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
         <Icon type="Close" width={24} height={24} />
       </Button>
       <div className={cls.content}>{children}</div>

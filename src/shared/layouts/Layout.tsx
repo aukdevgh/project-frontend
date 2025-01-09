@@ -18,7 +18,9 @@ export const Layout: FC<LayoutProps> = ({ className, topbar, header, breadcrumb,
       {header}
       {breadcrumb}
 
-      <Outlet />
+      <main className="main">
+        <Outlet />
+      </main>
 
       {footer}
     </div>

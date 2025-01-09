@@ -49,3 +49,15 @@
     background-color: $color-background-secondary;
   }
 }
+
+.primary {
+  padding: 15px 30px;
+  color: $color-text-inverted;
+  background-color: $color-primary;
+  border-radius: $radius-l;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}

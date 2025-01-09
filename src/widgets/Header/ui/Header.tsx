@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { Navbar } from '@features/Navbar'
 import { Search } from '@features/Search'
 
+import { classNames } from '@shared/lib/classNames'
 import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteMain } from '@shared/lib/routes'
 import { Button } from '@shared/ui/Button'
@@ -19,13 +20,13 @@ export const Header: FC = () => {
 
   return (
     <>
-      <header className={cls.header}>
+      <header className={classNames(cls.header, {}, ['header'])}>
         <Container className={cls.content}>
-          <Button className={cls.burger} variant="clear" onClick={onOpen}>
+          <Button className={cls.burger} variant="clear" onClick={onOpen} aria-label="open burger menu">
             <Icon type="Burger" width={24} height={24} />
           </Button>
 
-          <AppLink className={cls.logo} to={getRouteMain()} variant="clear">
+          <AppLink className={cls.logo} to={getRouteMain()} variant="clear" aria-label="shop.co">
             <Icon type="Logo" width={160} height={22} />
           </AppLink>
 

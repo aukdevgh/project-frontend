@@ -2,10 +2,10 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { AppImage } from '@shared/ui/AppImage'
-import { Button } from '@shared/ui/Button'
 import { Container } from '@shared/ui/Container'
 import { Headling } from '@shared/ui/Headling'
-import { Icon } from '@shared/ui/Icon'
+import { Icon, IconType } from '@shared/ui/Icon'
+import { AppLink } from '@shared/ui/Link'
 import { Text } from '@shared/ui/Text'
 
 import cls from './Intro.module.scss'
@@ -13,6 +13,13 @@ import cls from './Intro.module.scss'
 interface IntroProps {
   className?: string
 }
+
+const advantages = [
+  { title: '200+', text: 'International Brands' },
+  { title: '2,000+', text: 'High-Quality Products' },
+  { title: '30,000+', text: 'Happy Customers' },
+]
+const brands: IconType[] = ['Versace', 'Zara', 'Gucci', 'Prada', 'CalvinKlein']
 
 export const Intro: FC<IntroProps> = ({ className }) => {
   return (
@@ -28,31 +35,19 @@ export const Intro: FC<IntroProps> = ({ className }) => {
               individuality and cater to your sense of style.
             </Text>
 
-            <Button className={cls.button} variant="primary">
+            <AppLink to={'/new'} className={cls.button} variant="primary">
               Shop Now
-            </Button>
+            </AppLink>
 
             <div className={cls.advantages}>
-              <div className={cls.advantage}>
-                <div className={cls.info}>
-                  <Headling size="title-medium">200+</Headling>
-                  <Text>International Brands</Text>
+              {advantages.map((advantage) => (
+                <div className={cls.advantage} key={advantage.text}>
+                  <div className={cls.info}>
+                    <Headling size="title-medium">{advantage.title}</Headling>
+                    <Text>{advantage.text}</Text>
+                  </div>
                 </div>
-              </div>
-
-              <div className={cls.advantage}>
-                <div className={cls.info}>
-                  <Headling size="title-medium">2,000+</Headling>
-                  <Text>High-Quality Products</Text>
-                </div>
-              </div>
-
-              <div className={cls.advantage}>
-                <div className={cls.info}>
-                  <Headling size="title-medium">30,000+</Headling>
-                  <Text>Happy Customers</Text>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className={cls.img}>
@@ -66,17 +61,16 @@ export const Intro: FC<IntroProps> = ({ className }) => {
                 { srcSet: '/img/banner.webp', type: 'image/webp' },
                 { srcSet: '/img/banner.jpg', type: 'image/jpg' },
               ]}
+              loading="eager"
             />
           </div>
         </Container>
       </div>
       <div className={cls.brands}>
         <Container className={cls['brands-list']}>
-          <Icon className={cls.brand} type="Versace" width={'100%'} height={34} />
-          <Icon className={cls.brand} type="Zara" width={'100%'} height={34} />
-          <Icon className={cls.brand} type="Gucci" width={'100%'} height={34} />
-          <Icon className={cls.brand} type="Prada" width={'100%'} height={34} />
-          <Icon className={cls.brand} type="CalvinKlein" width={'100%'} height={34} />
+          {brands.map((brand) => (
+            <Icon className={cls.brand} key={brand} type={brand} width={'100%'} height={34} aria-label={brand} />
+          ))}
         </Container>
       </div>
     </div>
