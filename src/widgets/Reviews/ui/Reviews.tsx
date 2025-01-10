@@ -2,19 +2,15 @@ import { FC, useEffect, useState } from 'react'
 import { Virtual, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Review } from '@entities/Product'
+import { Review, ReviewCard, useGetHighRatingReviewsQuery } from '@entities/Review'
 
 import { classNames } from '@shared/lib/classNames'
 import { Button } from '@shared/ui/Button'
 import { Container } from '@shared/ui/Container'
 import { Headling } from '@shared/ui/Headling'
 import { Icon } from '@shared/ui/Icon'
-import { StarRating } from '@shared/ui/StarRating'
-import { Text } from '@shared/ui/Text'
 
 import './Reviews.scss'
-
-import { useGetHighRatingReviewsQuery } from '../hooks'
 
 interface ReaviewsProps {
   className?: string
@@ -84,15 +80,7 @@ export const Reviews: FC<ReaviewsProps> = ({ className }) => {
       >
         {reviews.map((review, index) => (
           <SwiperSlide className="review-slider" key={review.comment} virtualIndex={index}>
-            <div className="review-card">
-              <StarRating className="review-rating" rating={review.rating} readonly={true} />
-              <Headling className="review-author" as="h3" transform="capitalize">
-                {review.reviewerName}
-              </Headling>
-              <Text className="review-comment" as="p">
-                {review.comment}
-              </Text>
-            </div>
+            <ReviewCard className="review-card" review={review} />
           </SwiperSlide>
         ))}
       </Swiper>

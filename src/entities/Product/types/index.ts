@@ -34,7 +34,6 @@ export interface ProductDetails extends Product {
   warrantyInformation: string
   shippingInformation: string
   availabilityStatus: string
-  reviews: Review[]
   returnPolicy: string
   minimumOrderQuantity: number
   meta: {
@@ -43,14 +42,6 @@ export interface ProductDetails extends Product {
     barcode: string
     qrCode: string
   }
-}
-
-export interface Review {
-  rating: number
-  comment: string
-  date: string
-  reviewerName: string
-  reviewerEmail: string
 }
 
 export interface ProductsQueryArgs {

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { getDsicountPrice, toUSD } from '@shared/lib/currency'
+import { getDsicountPrice, toUSD } from '@shared/lib/format'
 import { AppImage } from '@shared/ui/AppImage'
 import { Headling } from '@shared/ui/Headling'
 import { AppLink } from '@shared/ui/Link'

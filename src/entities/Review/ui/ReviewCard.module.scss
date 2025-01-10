@@ -1,0 +1,48 @@
+.review {
+  height: clamp(186px, 8.1429rem + 14.2857vw, 240px);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-background-primary;
+  border: 1px solid $color-background-secondary;
+  border-radius: $radius-s;
+}
+
+.rating {
+  margin-bottom: 15px;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    margin-bottom: 12px;
+  }
+}
+
+.author {
+  margin-bottom: 12px;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    margin-bottom: 8px;
+  }
+}
+
+.comment {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    -webkit-line-clamp: 4;
+  }
+}
+
+.date {
+  margin-top: auto;
+}

@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { Product } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
-import { toUSD, getDsicountPrice } from '@shared/lib/currency'
+import { toUSD, getDsicountPrice } from '@shared/lib/format'
 import { AppImage } from '@shared/ui/AppImage'
 import { Headling } from '@shared/ui/Headling'
 import { AppLink } from '@shared/ui/Link'
