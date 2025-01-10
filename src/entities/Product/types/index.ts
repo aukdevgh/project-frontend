@@ -11,6 +11,7 @@ export interface Product {
   id: number
   title: string
   description: string
+  category: string
   price: number
   discountPercentage: number
   rating: number
@@ -19,7 +20,6 @@ export interface Product {
 
 export interface ProductDetails extends Product {
   images: string[]
-  category: string
   slug: string
   brand: string
   stock: number

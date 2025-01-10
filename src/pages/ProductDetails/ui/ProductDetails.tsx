@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 
 import { useGetProductById } from '@entities/Product'
 
-const Product: FC = () => {
+const ProductDetails: FC = () => {
   const { category, subcategory, productId } = useParams()
 
   const product = useGetProductById(productId)
@@ -18,4 +18,4 @@ const Product: FC = () => {
   )
 }
 
-export default Product
+export default ProductDetails

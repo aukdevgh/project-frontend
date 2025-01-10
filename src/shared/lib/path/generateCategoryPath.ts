@@ -1,4 +1,6 @@
 export const generateCategoryPath = (subcategory: string = '') => {
-  const mainCategory = subcategory?.split('-')[0]
-  return `/${mainCategory}/${subcategory}`
+  const paths = subcategory?.split('-')
+  const mainCategory = paths[0]
+  const subCategory = paths[1]
+  return `/${mainCategory}/${subCategory}`
 }

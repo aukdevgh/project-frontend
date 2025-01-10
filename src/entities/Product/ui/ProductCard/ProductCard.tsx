@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { getDsicountPrice, toUSD } from '@shared/lib/format'
+import { generateCategoryPath } from '@shared/lib/path'
 import { AppImage } from '@shared/ui/AppImage'
 import { Headling } from '@shared/ui/Headling'
 import { AppLink } from '@shared/ui/Link'
@@ -21,7 +22,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product }) => {
     <div className={classNames(cls.card, {}, [className])}>
       <AppImage className={cls.image} src={product.thumbnail} width={295} height={298} />
       <div className={cls.text}>
-        <AppLink to={`${product.id}`}>
+        <AppLink to={`${generateCategoryPath(product.category)}/${product.id}`}>
           <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">
             {product.title}
           </Headling>

@@ -37,7 +37,7 @@ export const productsApi = baseApi.injectEndpoints({
         maxPrice,
         limit,
         offset,
-        select = ['id', 'title', 'brand', 'price', 'discountPercentage', 'rating', 'thumbnail'],
+        select = ['id', 'title', 'brand', 'category', 'price', 'discountPercentage', 'rating', 'thumbnail'],
       }) => {
         const params = new URLSearchParams()
 
