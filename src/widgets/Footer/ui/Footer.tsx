@@ -50,7 +50,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
               <Text className={cls.text}>
                 We have clothes that suits your style and which you’re proud to wear. From women to men.
               </Text>
-              <SocialLinks />
+              <SocialLinks className={cls['social-links']} />
             </div>
 
             <BlokMenu className={cls['blok-menu']} title="company" routes={companyRoutes} />

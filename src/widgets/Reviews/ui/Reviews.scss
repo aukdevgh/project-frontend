@@ -6,11 +6,21 @@
   flex-direction: column;
   gap: 40px;
   overflow: hidden;
+
+  @media screen and (max-width: $breakpoint-mobile-mini) {
+    gap: 24px;
+  }
 }
 
 .reviews-header {
   display: flex;
   justify-content: space-between;
+}
+
+.reviews-title {
+  @media screen and (max-width: $breakpoint-mobile-mini) {
+    font-size: 24px;
+  }
 }
 
 .swiper-buttons {

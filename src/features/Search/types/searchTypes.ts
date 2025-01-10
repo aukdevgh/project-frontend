@@ -1,10 +1,7 @@
-export interface SearchItem {
-  id: number
-  title: string
-}
+import { Product } from '@entities/Product'
 
 export interface SearchResponseType {
-  products: SearchItem[]
+  products: Product[]
 }
 
 export interface SearchRequestArgs {

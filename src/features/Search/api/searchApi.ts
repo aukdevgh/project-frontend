@@ -6,7 +6,7 @@ export const searchApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getProductsBySearch: build.query<SearchResponseType, SearchRequestArgs>({
       query: ({ searchQuery }) => ({
-        url: `products/search?q=${searchQuery}&select=title`,
+        url: `products/search?q=${searchQuery}&select=id,title,price,discountPercentage,rating,thumbnail`,
       }),
     }),
   }),

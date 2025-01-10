@@ -56,7 +56,12 @@ export const StarRating = memo((props: StarRatingProps) => {
             )}
           </span>
           <span className={cls['visually-hidden']}>{starIndex} star</span>
-          <input className={cls['visually-hidden']} type="radio" value={starIndex} />
+          <input
+            className={cls['visually-hidden']}
+            type="radio"
+            value={starIndex}
+            tabIndex={readonly || disabled ? -1 : 0}
+          />
         </label>
       )
     })

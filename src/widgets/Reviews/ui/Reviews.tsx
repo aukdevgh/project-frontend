@@ -42,7 +42,7 @@ export const Reviews: FC<ReaviewsProps> = ({ className }) => {
   return (
     <div className={classNames('reviews-container', {}, [className])}>
       <Container className="reviews-header">
-        <Headling as="h2" size="title-large">
+        <Headling className="reviews-title" as="h2" size="title-large">
           OUR HAPPY CUSTOMERS
         </Headling>
         <div className="swiper-buttons">

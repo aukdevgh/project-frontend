@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { Button } from '@shared/ui/Button'
@@ -14,6 +14,18 @@ interface MenuProps {
 }
 
 export const Menu: FC<MenuProps> = ({ className, children, isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
     <div className={classNames(cls.menu, { [cls.open]: isOpen, [cls.close]: !isOpen }, [className])}>
       <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>

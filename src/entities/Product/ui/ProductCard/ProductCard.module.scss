@@ -27,7 +27,7 @@
 }
 
 .title {
-  width: clamp(198px, 4.7969rem + 24.25vw, 295px);
+  max-width: clamp(198px, 4.7969rem + 24.25vw, 295px);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -44,6 +44,6 @@
   display: flex;
   align-items: center;
   color: $color-error;
-  background-color: rgba($color: $color-error, $alpha: 10%);
+  background-color: rgba($color: $color-error, $alpha: 5%);
   border-radius: $radius-l;
 }

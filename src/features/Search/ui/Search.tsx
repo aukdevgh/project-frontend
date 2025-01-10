@@ -2,14 +2,13 @@ import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { useDebounce } from '@shared/lib/hooks/useDebounce'
-import { getRouteProductById } from '@shared/lib/routes'
 import { Icon } from '@shared/ui/Icon'
 import { Input } from '@shared/ui/Input'
-import { AppLink } from '@shared/ui/Link'
 import { Text } from '@shared/ui/Text'
 
 import cls from './Search.module.scss'
 import { useLazyGetProductsBySearchQuery } from '../api/searchApi'
+import { SearchItem } from './SearchItem/SearchItem'
 
 interface SearchProps {
   className?: string
@@ -62,9 +61,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
             {data?.products.length === 0 && <li className={cls.item}>Not found</li>}
             {data?.products.map((product) => (
               <li className={cls.item} key={product.id}>
-                <AppLink to={getRouteProductById(`${product.id}`)} variant="clear">
-                  {product.title}
-                </AppLink>
+                <SearchItem product={product} />
               </li>
             ))}
           </ul>
