@@ -11,7 +11,7 @@ export const {
 } = productsApi
 
 export const useGetProductById = (id: string | undefined) => {
-  const [getProductById, { data }] = useLazyGetProductByIdQuery()
+  const [getProductById, { data, isFetching }] = useLazyGetProductByIdQuery()
 
   useEffect(() => {
     if (id) {
@@ -19,5 +19,5 @@ export const useGetProductById = (id: string | undefined) => {
     }
   }, [id, getProductById])
 
-  return data
+  return { data, isFetching }
 }

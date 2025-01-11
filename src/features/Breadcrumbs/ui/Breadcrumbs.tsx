@@ -19,7 +19,7 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ className }) => {
   const pathNames = location.pathname.split('/').filter(Boolean)
   const { productId } = useParams()
 
-  const product = useGetProductById(productId)
+  const { data: product } = useGetProductById(productId)
 
   const renderBreadcrumbItem = (pathname: string, index: number) => {
     const href = `/${pathNames.slice(0, index + 1).join('/')}`

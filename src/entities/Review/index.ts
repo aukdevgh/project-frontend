@@ -1,3 +1,6 @@
-export { ReviewCard } from './ui/ReviewCard'
+export { ReviewCard } from './ui/ReviewCard/ReviewCard'
+export { ReviewCardSkeleton } from './ui/ReviewCard/ReviewCardSkeleton'
+export { ProductReviews } from './ui/ProductReviews/ProductReviews'
+export { ProductReviewsSkeleton } from './ui/ProductReviews/ProductReviewsSkeleton'
 export type { Review } from './types'
-export { useGetHighRatingReviewsQuery } from './hooks'
+export { useGetHighRatingReviewsQuery, useLazyGetReviewsByProductIdQuery } from './hooks'

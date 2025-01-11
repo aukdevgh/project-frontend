@@ -1,0 +1,26 @@
+.product {
+  margin-bottom: 60px;
+}
+
+.details,
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  gap: 16px;
+}
+
+.details,
+.faqs {
+  margin-top: 24px;
+}
+
+.list {
+  gap: 8px;
+
+  & li {
+    font-weight: $font-weight-bold;
+  }
+}

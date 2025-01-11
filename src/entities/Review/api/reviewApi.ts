@@ -1,6 +1,6 @@
 import { baseApi } from '@shared/api'
 
-import { ReaviewRequestArg, ReaviewResponse, Review } from '../types'
+import { ReaviewRequestArg, ReaviewResponse } from '../types'
 
 export const reviewApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -14,10 +14,16 @@ export const reviewApi = baseApi.injectEndpoints({
         return `products/reviews?${params.toString()}`
       },
     }),
-    getReviewsByProductId: build.query<Review[], string>({
-      query: (produtId) => ({
-        url: `products/reviews?productId=${produtId}`,
-      }),
+    getReviewsByProductId: build.query<ReaviewResponse, ReaviewRequestArg>({
+      query: ({ limit, offset, productId }) => {
+        const params = new URLSearchParams()
+
+        if (productId) params.append('productId', productId)
+        if (limit) params.append('limit', limit.toString())
+        if (offset) params.append('offset', offset.toString())
+
+        return `products/reviews?${params.toString()}`
+      },
     }),
   }),
 })

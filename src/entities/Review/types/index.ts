@@ -15,4 +15,5 @@ export interface ReaviewResponse {
 export interface ReaviewRequestArg {
   limit?: number
   offset?: number
+  productId?: string
 }

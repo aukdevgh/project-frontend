@@ -7,7 +7,7 @@ import { Cart } from '@pages/Cart'
 import { Category } from '@pages/Category'
 import { Home } from '@pages/Home'
 import { Login } from '@pages/Login'
-import { ProductDetails } from '@pages/ProductDetails'
+import { ProductPage } from '@pages/ProductPage'
 import { Profile } from '@pages/Profile'
 
 export const routeConfig = () => {
@@ -38,7 +38,7 @@ export const routeConfig = () => {
         },
         {
           path: '/:category/:subcategory/:productId',
-          element: <ProductDetails />,
+          element: <ProductPage />,
         },
         {
           path: 'cart',

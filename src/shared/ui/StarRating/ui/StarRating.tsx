@@ -12,10 +12,11 @@ interface StarRatingProps {
   onRatingChange?: (rating: number) => void
   readonly?: boolean
   disabled?: boolean
+  size?: number
 }
 
 export const StarRating = memo((props: StarRatingProps) => {
-  const { className, maxStars = 5, rating = 0, onRatingChange, readonly, disabled } = props
+  const { className, maxStars = 5, rating = 0, onRatingChange, readonly, disabled, size = 18 } = props
   const [currentRating, setCurrentRating] = useState<number>(rating)
   const [hoverRating, setHoverRating] = useState<number | null>(null)
 
@@ -50,9 +51,9 @@ export const StarRating = memo((props: StarRatingProps) => {
         >
           <span>
             {isHalf ? (
-              <Icon className={cls['half-star']} type="HalfStar" />
+              <Icon className={cls['half-star']} type="HalfStar" width={size} height={size} />
             ) : (
-              <Icon className={classNames('', { [cls.active]: isActive })} type="Star" />
+              <Icon className={classNames('', { [cls.active]: isActive })} type="Star" width={size} height={size} />
             )}
           </span>
           <span className={cls['visually-hidden']}>{starIndex} star</span>

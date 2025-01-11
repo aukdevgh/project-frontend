@@ -36,7 +36,7 @@ const Category: FC = () => {
         {category === 'sale' || category === 'new' ? (
           <ProductList sortBy={SortMap[category]} limit={9} />
         ) : (
-          <ProductList category={`${category}-${subcategory}`} limit={9} />
+          <ProductList category={`${category}${subcategory ? `-${subcategory}` : ''}`} limit={9} />
         )}
       </div>
     </Container>

@@ -12,6 +12,8 @@ import GithubIcon from '@shared/assets/icon/github.svg'
 import GucciIcon from '@shared/assets/icon/gucci.svg'
 import HalfStarIcon from '@shared/assets/icon/half-star.svg'
 import InstagramIcon from '@shared/assets/icon/instagram.svg'
+import MinusIcon from '@shared/assets/icon/minus.svg'
+import PlusIcon from '@shared/assets/icon/plus.svg'
 import PradaIcon from '@shared/assets/icon/prada.svg'
 import ProfileIcon from '@shared/assets/icon/profile.svg'
 import SearchIcon from '@shared/assets/icon/search.svg'
@@ -44,6 +46,8 @@ export type IconType =
   | 'Instagram'
   | 'Github'
   | 'Email'
+  | 'Plus'
+  | 'Minus'
 
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
@@ -68,4 +72,6 @@ export const iconTypes = new Map([
   ['Instagram', InstagramIcon],
   ['Github', GithubIcon],
   ['Email', EmailIcon],
+  ['Plus', PlusIcon],
+  ['Minus', MinusIcon],
 ])

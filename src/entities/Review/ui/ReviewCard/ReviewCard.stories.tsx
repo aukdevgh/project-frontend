@@ -1,5 +1,5 @@
 import { ReviewCard } from './ReviewCard'
-import { Review } from '../types'
+import { Review } from '../../types'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

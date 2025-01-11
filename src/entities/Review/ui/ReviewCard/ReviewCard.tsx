@@ -7,7 +7,7 @@ import { StarRating } from '@shared/ui/StarRating'
 import { Text } from '@shared/ui/Text'
 
 import cls from './ReviewCard.module.scss'
-import { Review } from '../types'
+import { Review } from '../../types'
 
 interface ReviewCardProps {
   className?: string
@@ -18,7 +18,7 @@ interface ReviewCardProps {
 export const ReviewCard: FC<ReviewCardProps> = ({ className, review, withDate, ...otherProps }) => {
   return (
     <div className={classNames(cls.review, {}, [className])} {...otherProps}>
-      <StarRating className={cls.rating} rating={review.rating} readonly={true} />
+      <StarRating className={cls.rating} rating={review.rating} readonly={true} size={22} />
       <Headling className={cls.author} as="h3" transform="capitalize">
         {review.reviewerName}
       </Headling>
