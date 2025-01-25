@@ -1,0 +1,20 @@
+.price-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.discount {
+  padding: 6px 13px;
+  display: flex;
+  align-items: center;
+  color: $color-error;
+  background-color: rgba($color: $color-error, $alpha: 5%);
+  border-radius: $radius-l;
+}
+
+.small {
+  .price {
+    font-size: 18px;
+  }
+}

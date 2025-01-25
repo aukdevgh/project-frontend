@@ -1,36 +1,25 @@
-export type SortBy = 'new' | 'sale' | 'popular'
+export type SortBy = 'new' | 'sale' | 'popular' | 'price' | 'rating'
 export type Order = 'desc' | 'asc'
 
-export enum SortMap {
-  new = 'id',
-  sale = 'discountPercentage',
-  popular = 'rating',
-}
-
 export interface Product {
-  id: number
-  title: string
-  description: string
+  id: string
+  name: string
+  brand: string
   category: string
   price: number
   discountPercentage: number
   rating: number
   thumbnail: string
+  colors: string[]
+  sizes: string[]
 }
 
 export interface ProductDetails extends Product {
   images: string[]
   slug: string
-  brand: string
   stock: number
-  tags: string[]
   sku: string
-  weight: number
-  dimensions: {
-    width: number
-    height: number
-    depth: number
-  }
+  material: string
   warrantyInformation: string
   shippingInformation: string
   availabilityStatus: string
@@ -46,14 +35,16 @@ export interface ProductDetails extends Product {
 
 export interface ProductsQueryArgs {
   category?: string
-  sortBy?: SortMap
+  sortBy?: SortBy
   filterByBrand?: string
   order?: Order
   minPrice?: number
   maxPrice?: number
   limit?: number
-  offset?: number
+  page?: number
   select?: string[]
+  colors?: string[]
+  sizes?: string[]
 }
 
 export interface ProductsResponse {

@@ -57,7 +57,7 @@ export const Search: FC<SearchProps> = ({ className }) => {
 
       {isOpen && searchQuery && data && (
         <div className={cls.catalog}>
-          <ul className={cls.list}>
+          <ul className={cls.list} onClick={() => setIsOpen(false)}>
             {data?.products.length === 0 && <li className={cls.item}>Not found</li>}
             {data?.products.map((product) => (
               <li className={cls.item} key={product.id}>

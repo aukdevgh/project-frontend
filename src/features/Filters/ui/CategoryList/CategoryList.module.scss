@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.active {
+  text-decoration: underline;
+  opacity: 1;
+}

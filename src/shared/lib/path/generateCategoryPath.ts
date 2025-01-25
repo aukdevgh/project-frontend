@@ -1,6 +1,5 @@
-export const generateCategoryPath = (subcategory: string = '') => {
+export const generateCategoryPath = (subcategory: string = '', catalog?: string) => {
   const paths = subcategory?.split('-')
-  const mainCategory = paths[0]
-  const subCategory = paths[1]
-  return `/${mainCategory}/${subCategory}`
+  const main = paths[0]
+  return catalog ? `/${catalog}/${main}/${subcategory}` : `shop/${main}/${subcategory}`
 }

@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { memo } from 'react'
 import { useLocation, useParams } from 'react-router'
 
 import { useGetProductById } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
-import { formatPathName } from '@shared/lib/path'
+import { formatCategoryName } from '@shared/lib/path'
 import { Icon } from '@shared/ui/Icon'
 import { AppLink } from '@shared/ui/Link'
 
@@ -14,10 +14,10 @@ interface BreadcrumbsProps {
   className?: string
 }
 
-export const Breadcrumbs: FC<BreadcrumbsProps> = ({ className }) => {
+export const Breadcrumbs = memo(({ className }: BreadcrumbsProps) => {
   const location = useLocation()
   const pathNames = location.pathname.split('/').filter(Boolean)
-  const { productId } = useParams()
+  const { category, productId } = useParams()
 
   const { data: product } = useGetProductById(productId)
 
@@ -25,8 +25,12 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ className }) => {
     const href = `/${pathNames.slice(0, index + 1).join('/')}`
     const isLastPath = pathNames.length === index + 1
 
-    const mainPathname = pathNames[0]
-    const content = productId && isLastPath ? product?.brand || product?.title : formatPathName(mainPathname, pathname)
+    const content =
+      productId && isLastPath
+        ? product?.brand || product?.name
+        : category
+          ? formatCategoryName(category, pathname)
+          : pathname
 
     if (isLastPath) {
       return <li key={href}>{content}</li>
@@ -51,4 +55,4 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ className }) => {
       </ul>
     </nav>
   )
-}
+})

@@ -17,6 +17,7 @@
 
 .list {
   max-height: 60vh;
+  padding: 12px;
   overflow-y: auto;
 
   @media screen and (max-width: $breakpoint-desktop) {

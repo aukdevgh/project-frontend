@@ -1,3 +1,3 @@
 export { toUSD } from './toUSD'
-export { getDsicountPrice } from './getDsicountPrice'
+export { getDiscountPrice } from './getDiscountPrice'
 export { getPostDate } from './getPostDate'

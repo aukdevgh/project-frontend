@@ -19,30 +19,20 @@
   }
 }
 
-.rating {
+.row {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
-.price {
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+.color-btn,
+.size-btn {
+  border: 1px solid transparent;
+  border-radius: $radius-xs;
+  overflow: hidden;
 
-.discount {
-  padding: 6px 13px;
-  display: flex;
-  align-items: center;
-  color: $color-error;
-  background-color: rgba($color: $color-error, $alpha: 5%);
-  border-radius: $radius-l;
-}
-
-.description {
-  margin-bottom: 10px;
+  &.active {
+    border-color: $color-primary;
+  }
 }
 
 .cart {

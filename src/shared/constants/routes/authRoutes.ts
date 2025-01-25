@@ -1,5 +1,3 @@
-import { RouteDictionary } from '@shared/types/route'
+import { Option } from '@shared/types/select'
 
-export const authRoutes: RouteDictionary = {
-  login: { path: '/login', title: 'login' },
-}
+export const authRoutes: Option = { value: '/login', label: 'login' }

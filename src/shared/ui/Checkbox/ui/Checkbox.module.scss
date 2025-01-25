@@ -1,0 +1,69 @@
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.marker {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    fill: transparent;
+    stroke: transparent;
+  }
+}
+
+.checkbox {
+  border: 1px solid var(--grey);
+}
+
+.radio {
+  border: 1px solid var(--grey);
+  border-radius: 50%;
+}
+
+.input {
+  appearance: none;
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+
+  &:checked ~ .marker {
+    border-color: var(--dark);
+
+    & svg {
+      fill: var(--dark);
+      stroke: var(--dark);
+    }
+  }
+
+  &:checked:disabled ~ .marker {
+    border-color: var(--grey);
+
+    & svg {
+      fill: var(--grey);
+      stroke: var(--grey);
+    }
+  }
+}

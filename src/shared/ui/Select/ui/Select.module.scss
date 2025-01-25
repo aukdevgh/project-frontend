@@ -1,0 +1,42 @@
+.select-wrapper {
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: $color-background-primary;
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: max-content;
+  margin-top: 2px;
+  background-color: $color-background-primary;
+  border: 1px solid $color-background-secondary;
+  border-radius: $radius-xs;
+  box-shadow: 0 2px 5px rgba($color-primary, 20%);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.option {
+  width: 100%;
+  padding: 10px;
+  text-align: start;
+}
+
+.option:hover,
+.option:focus {
+  background-color: $color-background-secondary;
+  opacity: 1;
+}

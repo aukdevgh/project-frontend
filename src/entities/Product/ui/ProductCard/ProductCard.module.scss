@@ -20,30 +20,9 @@
   border-radius: $radius-s;
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .title {
   max-width: clamp(198px, 4.7969rem + 24.25vw, 295px);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.price {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.discount {
-  padding: 6px 13px;
-  display: flex;
-  align-items: center;
-  color: $color-error;
-  background-color: rgba($color: $color-error, $alpha: 5%);
-  border-radius: $radius-l;
 }

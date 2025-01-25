@@ -1,5 +1,5 @@
-import { FC, ReactNode } from 'react'
-import { Outlet } from 'react-router'
+import { FC, ReactNode, useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
 
@@ -12,6 +12,12 @@ interface LayoutProps {
 }
 
 export const Layout: FC<LayoutProps> = ({ className, topbar, header, breadcrumb, footer }) => {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <div className={classNames('app', {}, [className])}>
       {topbar}

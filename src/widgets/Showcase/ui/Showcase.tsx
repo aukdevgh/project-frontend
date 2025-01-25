@@ -1,7 +1,6 @@
 import { FC, ReactNode } from 'react'
 
 import { SortBy, useGetProductsQuery } from '@entities/Product'
-import { SortMap } from '@entities/Product/types'
 
 import { classNames } from '@shared/lib/classNames'
 import { Headling } from '@shared/ui/Headling'
@@ -20,7 +19,7 @@ interface ShowcaseProps {
 export const Showcase: FC<ShowcaseProps> = ({ className, title, sortBy, limit, children }) => {
   const { data, isFetching } = useGetProductsQuery({
     limit,
-    sortBy: SortMap[sortBy],
+    sortBy: sortBy,
     order: 'desc',
   })
 

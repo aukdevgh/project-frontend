@@ -1,2 +1,2 @@
-export { formatPathName } from './formatPathName'
+export { formatCategoryName } from './formatCategoryName'
 export { generateCategoryPath } from './generateCategoryPath'

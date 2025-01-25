@@ -5,7 +5,6 @@
   line-height: inherit;
   text-transform: capitalize;
   text-align: center;
-  border-radius: $radius-l;
   cursor: pointer;
 }
 
@@ -13,6 +12,7 @@
   padding: 15px 30px;
   color: $color-text-inverted;
   background-color: $color-primary;
+  border-radius: $radius-l;
 
   &:hover,
   &:focus {
@@ -23,12 +23,13 @@
 .secondary {
   padding: clamp(10px, 0.4957rem + 0.5305vw, 12px) clamp(20px, 0.9914rem + 1.061vw, 24px);
   color: $color-text;
-  background-color: $color-background-primary;
+  background-color: $color-background-secondary;
+  border: 1px solid transparent;
+  border-radius: $radius-l;
 
   &:hover,
   &:focus {
-    background-color: $color-background-secondary;
-    opacity: 0.8;
+    border-color: $color-primary;
   }
 }
 
@@ -66,6 +67,14 @@
   &:focus {
     opacity: 0.6;
   }
+}
+
+.square {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 0;
 }
 
 .active {

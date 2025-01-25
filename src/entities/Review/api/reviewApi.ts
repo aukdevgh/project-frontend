@@ -1,28 +1,27 @@
 import { baseApi } from '@shared/api'
 
-import { ReaviewRequestArg, ReaviewResponse } from '../types'
+import { ReaviewRequestArg, ReaviewResponse } from '../model/types/reviewsSchema'
 
 export const reviewApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getHighRatingReviews: build.query<ReaviewResponse, ReaviewRequestArg>({
-      query: ({ limit, offset }) => {
+      query: ({ limit, page }) => {
         const params = new URLSearchParams()
 
         if (limit) params.append('limit', limit.toString())
-        if (offset) params.append('offset', offset.toString())
+        if (page) params.append('page', page.toString())
 
-        return `products/reviews?${params.toString()}`
+        return `reviews?${params.toString()}`
       },
     }),
     getReviewsByProductId: build.query<ReaviewResponse, ReaviewRequestArg>({
-      query: ({ limit, offset, productId }) => {
+      query: ({ limit, page, productId }) => {
         const params = new URLSearchParams()
 
-        if (productId) params.append('productId', productId)
         if (limit) params.append('limit', limit.toString())
-        if (offset) params.append('offset', offset.toString())
+        if (page) params.append('page', page.toString())
 
-        return `products/reviews?${params.toString()}`
+        return `reviews/${productId}?${params.toString()}`
       },
     }),
   }),

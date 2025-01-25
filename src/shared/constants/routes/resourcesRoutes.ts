@@ -1,8 +1,8 @@
-import { Routes } from '@shared/types/route'
+import { Option } from '@shared/types/select'
 
-export const resourcesRoutes: Routes = [
-  { path: '/books', title: 'Free eBooks' },
-  { path: '/tutorial', title: 'Development Tutorial' },
-  { path: '/blog', title: 'How to - Blog' },
-  { path: 'https://www.youtube.com/', title: 'Youtube Playlist' },
+export const resourcesRoutes: Option[] = [
+  { value: '/books', label: 'Free eBooks' },
+  { value: '/tutorial', label: 'Development Tutorial' },
+  { value: '/blog', label: 'How to - Blog' },
+  { value: 'https://www.youtube.com/', label: 'Youtube Playlist' },
 ]

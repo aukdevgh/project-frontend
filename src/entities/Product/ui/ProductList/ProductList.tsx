@@ -1,10 +1,11 @@
-import { FC } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 import { classNames } from '@shared/lib/classNames'
-import { Container } from '@shared/ui/Container'
+import { Pagination } from '@shared/ui/Pagination'
 
 import cls from './ProductList.module.scss'
-import { useGetProductsQuery } from '../../hooks'
+import { useLazyGetProductsQuery } from '../../hooks'
 import { ProductsQueryArgs } from '../../types'
 import { ProductCard } from '../ProductCard/ProductCard'
 import { ProductCardSkeleton } from '../ProductCard/ProductCard.skeleton'
@@ -18,42 +19,72 @@ export const ProductList: FC<ProductListProps> = ({
   filterByBrand,
   sortBy,
   category,
-  limit,
-  offset,
   order = 'desc',
+  minPrice,
+  maxPrice,
+  colors,
+  sizes,
 }) => {
-  const { data, isFetching } = useGetProductsQuery({
-    category,
-    limit,
-    offset,
-    sortBy,
-    filterByBrand,
-    order,
-  })
+  const [page, setPage] = useState(1)
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  const limit = isMobile ? 6 : 9
+  const [getProducts, { data, isFetching }] = useLazyGetProductsQuery()
 
-  if (isFetching || !data?.products?.length) {
-    return (
-      <Container>
-        <ul className={classNames(cls.list, {}, [className])}>
-          {[1, 2, 3, 4].map((product) => (
-            <li key={product}>
-              <ProductCardSkeleton />
-            </li>
-          ))}
-        </ul>
-      </Container>
-    )
-  }
+  const handlePageChange = useCallback((page: number) => {
+    setPage(page)
+  }, [])
+
+  const skeletons = useMemo(
+    () =>
+      Array.from({ length: limit }).map((_, index) => (
+        <li key={index}>
+          <ProductCardSkeleton />
+        </li>
+      )),
+    [limit]
+  )
+
+  useEffect(() => {
+    if (sortBy) {
+      setPage(1)
+      getProducts({
+        category,
+        limit,
+        page,
+        sortBy,
+        filterByBrand,
+        order,
+        minPrice,
+        maxPrice,
+        colors,
+        sizes,
+      })
+      window.scrollTo(0, 0)
+    }
+  }, [category, limit, page, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes, getProducts])
 
   return (
-    <Container>
+    <>
       <ul className={classNames(cls.list, {}, [className])}>
-        {data.products.map((product) => (
-          <li key={product.id}>
-            <ProductCard product={product} />
-          </li>
-        ))}
+        {isFetching ? (
+          skeletons
+        ) : data?.products.length ? (
+          data.products.map((product) => (
+            <li key={product.id}>
+              <ProductCard product={product} />
+            </li>
+          ))
+        ) : (
+          <li>Not found</li>
+        )}
       </ul>
-    </Container>
+
+      <Pagination
+        currentPage={page}
+        onPageChange={handlePageChange}
+        totalItems={data?.total || 0}
+        itemsPerPage={limit}
+      />
+    </>
   )
 }

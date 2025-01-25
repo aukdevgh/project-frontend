@@ -4,26 +4,9 @@ import { Product, ProductDetails, ProductsQueryArgs, ProductsResponse } from '..
 
 export const productsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getProductById: build.query<ProductDetails, number>({
+    getProductById: build.query<ProductDetails, string>({
       query: (productId) => ({
         url: `products/${productId}`,
-      }),
-    }),
-
-    getCategoryList: build.query<string[], string | undefined>({
-      query: (category) => {
-        const params = new URLSearchParams()
-
-        if (category) params.append('category', category)
-
-        return `products/category-list?${params.toString()}`
-      },
-      transformResponse: (response: string[]) => response,
-    }),
-
-    getBrandList: build.query<string[], void>({
-      query: () => ({
-        url: `products/brands`,
       }),
     }),
 
@@ -36,8 +19,21 @@ export const productsApi = baseApi.injectEndpoints({
         minPrice,
         maxPrice,
         limit,
-        offset,
-        select = ['id', 'title', 'brand', 'category', 'price', 'discountPercentage', 'rating', 'thumbnail'],
+        page,
+        colors,
+        sizes,
+        select = [
+          'id',
+          'name',
+          'brand',
+          'category',
+          'price',
+          'discountPercentage',
+          'rating',
+          'thumbnail',
+          'colors',
+          'sizes',
+        ],
       }) => {
         const params = new URLSearchParams()
 
@@ -48,8 +44,10 @@ export const productsApi = baseApi.injectEndpoints({
         if (minPrice) params.append('minPrice', minPrice.toString())
         if (maxPrice) params.append('maxPrice', maxPrice.toString())
         if (limit) params.append('limit', limit.toString())
-        if (offset) params.append('offset', offset.toString())
+        if (page) params.append('page', page.toString())
         if (select) params.append('select', select.join(','))
+        if (colors) params.append('colors', colors.join(','))
+        if (sizes) params.append('sizes', sizes.join(','))
 
         return `/products?${params.toString()}`
       },

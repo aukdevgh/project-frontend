@@ -13,10 +13,21 @@ type SourceProps = {
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string
   sources?: SourceProps[]
+  local?: boolean
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-  const { className, src = '', sources = [], alt = 'image', width, height, loading = 'lazy', ...otherProps } = props
+  const {
+    className,
+    src = '',
+    sources = [],
+    alt = 'image',
+    width,
+    height,
+    loading = 'lazy',
+    local,
+    ...otherProps
+  } = props
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
 
@@ -48,7 +59,7 @@ export const AppImage = memo((props: AppImageProps) => {
           ))}
         <img
           className={classNames(cls.img, {}, [className])}
-          src={src}
+          src={local ? src : `${import.meta.env.VITE_IMAGE_URL}/${src}`}
           alt={alt}
           width={width}
           height={height}

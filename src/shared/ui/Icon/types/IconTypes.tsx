@@ -4,10 +4,12 @@ import ArrowRightIcon from '@shared/assets/icon/arrow-right.svg'
 import BurgerIcon from '@shared/assets/icon/burger.svg'
 import CalvinKleinIcon from '@shared/assets/icon/calvinKlein.svg'
 import CartIcon from '@shared/assets/icon/cart.svg'
+import CheckMarkerIcon from '@shared/assets/icon/check-marker.svg'
 import CloseIcon from '@shared/assets/icon/close.svg'
 import DiamondIcon from '@shared/assets/icon/diamond.svg'
 import EmailIcon from '@shared/assets/icon/email.svg'
 import FacebookIcon from '@shared/assets/icon/facebook.svg'
+import FilterIcon from '@shared/assets/icon/filter.svg'
 import GithubIcon from '@shared/assets/icon/github.svg'
 import GucciIcon from '@shared/assets/icon/gucci.svg'
 import HalfStarIcon from '@shared/assets/icon/half-star.svg'
@@ -16,6 +18,7 @@ import MinusIcon from '@shared/assets/icon/minus.svg'
 import PlusIcon from '@shared/assets/icon/plus.svg'
 import PradaIcon from '@shared/assets/icon/prada.svg'
 import ProfileIcon from '@shared/assets/icon/profile.svg'
+import RadioMarkerIcon from '@shared/assets/icon/radio-marker.svg'
 import SearchIcon from '@shared/assets/icon/search.svg'
 import LogoIcon from '@shared/assets/icon/SHOP.CO.svg'
 import StarIcon from '@shared/assets/icon/star.svg'
@@ -48,6 +51,9 @@ export type IconType =
   | 'Email'
   | 'Plus'
   | 'Minus'
+  | 'Filter'
+  | 'CheckMarker'
+  | 'RadioMarker'
 
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
@@ -74,4 +80,7 @@ export const iconTypes = new Map([
   ['Email', EmailIcon],
   ['Plus', PlusIcon],
   ['Minus', MinusIcon],
+  ['Filter', FilterIcon],
+  ['CheckMarker', CheckMarkerIcon],
+  ['RadioMarker', RadioMarkerIcon],
 ])

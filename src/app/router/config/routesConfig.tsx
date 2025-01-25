@@ -2,7 +2,6 @@ import { createBrowserRouter } from 'react-router'
 
 import { BaseLayout, WithBreadcrumbLayout } from '@app/layouts'
 
-import { Brands } from '@pages/Brands'
 import { Cart } from '@pages/Cart'
 import { Category } from '@pages/Category'
 import { Home } from '@pages/Home'
@@ -29,15 +28,21 @@ export const routeConfig = () => {
       errorElement: <div>Error happened</div>,
       children: [
         {
-          path: '/:category',
+          path: ':catalog',
           element: <Category />,
+          children: [
+            {
+              path: ':category',
+              element: <Category />,
+            },
+            {
+              path: ':category/:subcategory',
+              element: <Category />,
+            },
+          ],
         },
         {
-          path: '/:category/:subcategory',
-          element: <Category />,
-        },
-        {
-          path: '/:category/:subcategory/:productId',
+          path: ':catalog/:category/:subcategory/:productId',
           element: <ProductPage />,
         },
         {
@@ -51,10 +56,6 @@ export const routeConfig = () => {
         {
           path: 'login',
           element: <Login />,
-        },
-        {
-          path: '/brands',
-          element: <Brands />,
         },
       ],
     },

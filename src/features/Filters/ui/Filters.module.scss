@@ -1,0 +1,17 @@
+.filters {
+  padding: 20px 24px;
+  width: 295px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 24px;
+  border: 1px solid rgba($color: $color-primary, $alpha: 10%);
+  border-radius: $radius-s;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

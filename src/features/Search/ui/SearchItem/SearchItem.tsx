@@ -1,14 +1,12 @@
 import { FC } from 'react'
 
-import { Product } from '@entities/Product'
+import { type Product, ProductPrice, ProductRating } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
-import { toUSD, getDsicountPrice } from '@shared/lib/format'
+import { generateCategoryPath } from '@shared/lib/path'
 import { AppImage } from '@shared/ui/AppImage'
 import { Headling } from '@shared/ui/Headling'
 import { AppLink } from '@shared/ui/Link'
-import { StarRating } from '@shared/ui/StarRating'
-import { Text } from '@shared/ui/Text'
 
 import cls from './SearchItem.module.scss'
 
@@ -19,32 +17,22 @@ interface SearchItemProps {
 
 export const SearchItem: FC<SearchItemProps> = ({ className, product }) => {
   return (
-    <div className={classNames(cls['search-item'], {}, [className])}>
-      <AppImage className={cls.image} src={product.thumbnail} width={60} height={80} />
+    <AppLink
+      className={classNames(cls['search-item'], {}, [className])}
+      to={`${generateCategoryPath(product.category)}/${product.id}`}
+      variant="clear"
+    >
+      <AppImage className={cls.image} src={product.images[0]} width={60} height={80} />
 
       <div className={cls.info}>
-        <AppLink to={`${product.id}`}>
-          <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">
-            {product.title}
-          </Headling>
-        </AppLink>
+        <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">
+          {product.name}
+        </Headling>
 
-        <StarRating rating={product?.rating} readonly />
+        <ProductRating rating={product.rating} />
 
-        {product.discountPercentage ? (
-          <div className={cls.price}>
-            <Text weight="bold">{toUSD(getDsicountPrice(product.price, product.discountPercentage))}</Text>
-            <Text weight="bold" decoration="line-through" deprecated={true}>
-              {toUSD(product?.price)}
-            </Text>
-            <Text className={cls.discount} size="xs" weight="medium">
-              {`-${product.discountPercentage}%`}
-            </Text>
-          </div>
-        ) : (
-          <Text weight="bold">{product?.price && toUSD(product?.price)}</Text>
-        )}
+        <ProductPrice size="small" price={product.price} discountPercentage={product.discountPercentage} />
       </div>
-    </div>
+    </AppLink>
   )
 }

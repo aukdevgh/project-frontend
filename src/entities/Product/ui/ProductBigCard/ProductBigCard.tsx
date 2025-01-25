@@ -3,16 +3,18 @@ import { FC, useState } from 'react'
 import { ProductDetails } from '@entities/Product/types'
 
 import { classNames } from '@shared/lib/classNames'
-import { toUSD, getDsicountPrice } from '@shared/lib/format'
+import { AppImage } from '@shared/ui/AppImage'
 import { Button } from '@shared/ui/Button'
 import { Headling } from '@shared/ui/Headling'
 import { Icon } from '@shared/ui/Icon'
 import { ImageSwiper } from '@shared/ui/ImageSwiper'
 import { Line } from '@shared/ui/Line'
-import { StarRating } from '@shared/ui/StarRating'
 import { Text } from '@shared/ui/Text'
 
 import cls from './ProductBigCard.module.scss'
+import { ProductBigCardSkeleton } from './ProductBigCardSkeleton'
+import { ProductPrice } from '../ProductPrice/ProductPrice'
+import { ProductRating } from '../ProductRating/ProductRating'
 
 interface ProductBigCardProps {
   className?: string
@@ -21,56 +23,83 @@ interface ProductBigCardProps {
 
 export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) => {
   const [quantity, setQuantity] = useState(1)
+  const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] ?? '')
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] ?? '')
 
-  const onMinus = () => setQuantity((prev) => (prev - 1 ? prev - 1 : 1))
+  if (!product) {
+    return <ProductBigCardSkeleton />
+  }
+
+  const onMinus = () => setQuantity((prev) => Math.max(1, prev - 1))
   const onPlus = () => setQuantity((prev) => prev + 1)
+
+  const handleSelect = (setter: (value: string) => void, value: string) => setter(value)
+
+  const getImageByColor = (color: string) => product?.images.find((image) => image.includes(color)) || ''
+  const getImagesBySelectedColor = () => product.images.filter((image) => image.includes(selectedColor)) || ['']
+
   return (
     <div className={classNames(cls.product, {}, [className])}>
-      <ImageSwiper images={product?.images} />
+      <ImageSwiper images={getImagesBySelectedColor()} />
 
       <div className={cls['product-info']}>
         <Headling size="title-medium" weight="bold">
-          {product?.title}
+          {product?.name}
         </Headling>
 
-        <div className={cls.rating}>
-          <StarRating rating={product?.rating} size={22} readonly />
-          <Text as="span" size="s">
-            {`${product?.rating}/5`}
-          </Text>
-        </div>
-
-        {product?.discountPercentage ? (
-          <div className={cls.price}>
-            <Text as="span" size="l" weight="bold">
-              {toUSD(getDsicountPrice(product.price, product.discountPercentage))}
-            </Text>
-            <Text as="span" size="l" weight="bold" decoration="line-through" deprecated={true}>
-              {toUSD(product?.price)}
-            </Text>
-            <Text className={cls.discount} as="span" size="xs" weight="medium">
-              {`-${product.discountPercentage}%`}
-            </Text>
-          </div>
-        ) : (
-          <Text as="span" size="l" weight="bold">
-            {product?.price && toUSD(product?.price)}
-          </Text>
-        )}
-
-        <Text className={cls.description} as="p">
-          {product?.description}
-        </Text>
+        <ProductRating rating={product.rating} />
+        <ProductPrice price={product.price} discountPercentage={product.discountPercentage} />
 
         <Line />
-
+        <Headling transform="capitalize">Colors:</Headling>
+        <div className={cls.row}>
+          {product.colors.map((color) => {
+            return (
+              <Button
+                className={classNames(cls['color-btn'], { [cls.active]: color === selectedColor }, [])}
+                variant="clear"
+                key={color}
+                onClick={() => handleSelect(setSelectedColor, color)}
+                aria-selected={color === selectedColor}
+                aria-label={`Select color ${color}`}
+              >
+                <AppImage
+                  className={cls.thumb}
+                  src={getImageByColor(color)}
+                  alt={product.name}
+                  width={'60'}
+                  height={'60'}
+                />
+              </Button>
+            )
+          })}
+        </div>
+        <Line />
+        <Headling transform="capitalize">Sizes:</Headling>
+        <div className={cls.row}>
+          {product.sizes.map((size) => {
+            return (
+              <Button
+                className={classNames(cls['size-btn'], { [cls.active]: size === selectedSize }, [])}
+                key={size}
+                variant="secondary"
+                onClick={() => handleSelect(setSelectedSize, size)}
+                aria-selected={size === selectedSize}
+                aria-label={`Select size ${size}`}
+              >
+                {size}
+              </Button>
+            )
+          })}
+        </div>
+        <Line />
         <div className={cls.cart}>
           <div className={cls.quantity}>
-            <Button onClick={onMinus} variant="clear" size="icon" aria-label="minus">
+            <Button onClick={onMinus} variant="clear" size="icon" aria-label="Decrease quantity">
               <Icon type="Minus" width={24} height={24} />
             </Button>
             <Text>{quantity}</Text>
-            <Button onClick={onPlus} variant="clear" size="icon" aria-label="plus">
+            <Button onClick={onPlus} variant="clear" size="icon" aria-label="Increase quantity">
               <Icon type="Plus" width={24} height={24} />
             </Button>
           </div>

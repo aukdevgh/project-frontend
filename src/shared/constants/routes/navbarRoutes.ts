@@ -1,7 +1,6 @@
-import { Routes } from '@shared/types/route'
+import { Option } from '@shared/types/select'
 
-export const navbarRoutes: Routes = [
-  { path: '/sale', title: 'on sale' },
-  { path: '/new', title: 'new arrivals' },
-  { path: '/brands', title: 'brands' },
+export const navbarRoutes: Option[] = [
+  { value: '/sale', label: 'on sale' },
+  { value: '/new', label: 'new arrivals' },
 ]

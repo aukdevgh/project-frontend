@@ -1,0 +1,16 @@
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 20px;
+  opacity: 0.6;
+}
+
+.active {
+  color: $color-text-inverted;
+  background-color: $color-primary;
+  opacity: 1;
+}

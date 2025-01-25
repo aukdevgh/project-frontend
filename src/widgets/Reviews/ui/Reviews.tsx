@@ -18,20 +18,22 @@ interface ReaviewsProps {
 
 export const Reviews: FC<ReaviewsProps> = ({ className }) => {
   const [limit] = useState(10)
-  const [offset, setOffset] = useState(0)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
   const [reviews, setReviews] = useState<Review[]>([])
 
-  const { data, isFetching, isError } = useGetHighRatingReviewsQuery({ limit, offset })
+  const { data, isFetching, isError } = useGetHighRatingReviewsQuery({ limit, page })
 
   useEffect(() => {
     if (data?.reviews) {
       setReviews((prev) => [...prev, ...data.reviews])
+      setHasMore(data.hasMore)
     }
   }, [data])
 
   const loadMore = () => {
-    if (!isFetching && !isError) {
-      setOffset((prev) => prev + limit)
+    if (!isFetching && !isError && hasMore) {
+      setPage((prevPage) => prevPage + 1)
     }
   }
 

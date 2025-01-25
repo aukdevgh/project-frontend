@@ -1,43 +1,37 @@
 import { FC } from 'react'
-import { useParams } from 'react-router'
 
-import { ProductList, useGetCategoryListQuery } from '@entities/Product'
-import { SortMap } from '@entities/Product/types'
+import { Filters, useGetCategory, useGetSelectedPriceRange, useGetColors, useGetSizes } from '@features/Filters'
+import { SortOrder, useGetSortOrder } from '@features/SortOrder'
 
-import { formatPathName, generateCategoryPath } from '@shared/lib/path'
+import { ProductList } from '@entities/Product'
+
 import { Container } from '@shared/ui/Container'
-import { AppLink } from '@shared/ui/Link'
 
 import cls from './Category.module.scss'
 
 const Category: FC = () => {
-  const { category } = useParams()
-  const { subcategory } = useParams()
-
-  const { data: categoryList } = useGetCategoryListQuery(
-    category !== 'sale' && category !== 'new' ? category : undefined
-  )
-
-  if (!category) {
-    return null
-  }
+  const category = useGetCategory()
+  const priceRange = useGetSelectedPriceRange()
+  const sortOrder = useGetSortOrder()
+  const colors = useGetColors()
+  const sizes = useGetSizes()
 
   return (
     <Container className={cls.category}>
-      <ul>
-        {categoryList?.map((subcategory) => (
-          <li key={subcategory}>
-            <AppLink to={generateCategoryPath(subcategory)}>{formatPathName(category, subcategory)}</AppLink>
-          </li>
-        ))}
-      </ul>
+      <Filters />
 
-      <div className={cls.products}>
-        {category === 'sale' || category === 'new' ? (
-          <ProductList sortBy={SortMap[category]} limit={9} />
-        ) : (
-          <ProductList category={`${category}${subcategory ? `-${subcategory}` : ''}`} limit={9} />
-        )}
+      <div className={cls.content}>
+        <SortOrder className={cls.sort} />
+
+        <ProductList
+          category={category}
+          maxPrice={priceRange.max}
+          minPrice={priceRange.min}
+          sortBy={sortOrder.sortBy}
+          order={sortOrder.order}
+          colors={colors}
+          sizes={sizes}
+        />
       </div>
     </Container>
   )

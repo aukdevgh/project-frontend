@@ -7,7 +7,7 @@ import { StarRating } from '@shared/ui/StarRating'
 import { Text } from '@shared/ui/Text'
 
 import cls from './ReviewCard.module.scss'
-import { Review } from '../../types'
+import { Review } from '../../model/types/reviewsSchema'
 
 interface ReviewCardProps {
   className?: string

@@ -1,0 +1,16 @@
+.collapse-wrapper {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.collapsed {
+  transform: rotate(180deg);
+}

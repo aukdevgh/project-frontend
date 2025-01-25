@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: $radius-xs;
+  background-color: #f9f9f9;
+}
+
+.pages-list {
+  display: flex;
+}
+
+.page {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-xs;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 0.5;
+
+  &:focus,
+  &:hover,
+  &.active {
+    background-color: $color-background-secondary;
+    opacity: 1;
+  }
+}
+
+.arrow-right {
+  transform: rotate(180deg);
+}

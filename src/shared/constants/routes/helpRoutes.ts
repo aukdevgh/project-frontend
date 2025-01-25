@@ -1,8 +1,8 @@
-import { Routes } from '@shared/types/route'
+import { Option } from '@shared/types/select'
 
-export const helpRoutes: Routes = [
-  { path: '/support', title: 'Customer Support' },
-  { path: '/delivery/details', title: 'Delivery Details' },
-  { path: '/terms', title: 'Terms & Conditions' },
-  { path: '/privacy', title: 'Privacy Policy' },
+export const helpRoutes: Option[] = [
+  { value: '/support', label: 'Customer Support' },
+  { value: '/delivery/details', label: 'Delivery Details' },
+  { value: '/terms', label: 'Terms & Conditions' },
+  { value: '/privacy', label: 'Privacy Policy' },
 ]
