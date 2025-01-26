@@ -2,8 +2,7 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { getRouteSignUp } from '@shared/lib/routes'
-import { AppLink } from '@shared/ui/Link'
-import { Text } from '@shared/ui/Text'
+import { AppLink, Text } from '@shared/ui'
 
 import cls from './PromoBanner.module.scss'
 

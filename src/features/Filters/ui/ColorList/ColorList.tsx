@@ -2,8 +2,7 @@ import { FC } from 'react'
 
 import { useGetColorsQuery } from '@features/Filters/hooks'
 
-import { Checkbox } from '@shared/ui/Checkbox'
-import { Collapse } from '@shared/ui/Collapse'
+import { Collapse, Checkbox } from '@shared/ui'
 
 import cls from './ColorList.module.scss'
 

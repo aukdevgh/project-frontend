@@ -2,9 +2,7 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { getPostDate } from '@shared/lib/format'
-import { Headling } from '@shared/ui/Headling'
-import { StarRating } from '@shared/ui/StarRating'
-import { Text } from '@shared/ui/Text'
+import { Headling, StarRating, Text } from '@shared/ui'
 
 import cls from './ReviewCard.module.scss'
 import { Review } from '../../model/types/reviewsSchema'

@@ -3,8 +3,8 @@ import SwiperCore from 'swiper/core'
 import { FreeMode, Keyboard, Thumbs } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { AppImage } from '@shared/ui'
 import './ImageSwiper.scss'
-import { AppImage } from '@shared/ui/AppImage'
 
 interface ImageSwiperProps {
   images?: string[]

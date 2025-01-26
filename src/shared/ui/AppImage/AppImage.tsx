@@ -1,7 +1,7 @@
 import { ImgHTMLAttributes, memo, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { ImageSkeleton } from '@shared/ui/Skeleton'
+import { ImageSkeleton } from '@shared/ui'
 
 import cls from './AppImage.module.scss'
 

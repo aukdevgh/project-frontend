@@ -2,8 +2,7 @@ import { FC } from 'react'
 
 import { type ProductDetails } from '@entities/Product'
 
-import { Headling } from '@shared/ui/Headling'
-import { Text } from '@shared/ui/Text'
+import { Headling, Text } from '@shared/ui'
 
 import cls from './ProductPage.module.scss'
 

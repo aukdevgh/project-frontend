@@ -10,11 +10,11 @@ export interface Product {
   discountPercentage: number
   rating: number
   thumbnail: string
-  colors: string[]
-  sizes: string[]
 }
 
 export interface ProductDetails extends Product {
+  colors: string[]
+  sizes: string[]
   images: string[]
   slug: string
   stock: number

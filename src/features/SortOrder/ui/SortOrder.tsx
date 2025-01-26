@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react'
 import { useParams } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
-import { Select } from '@shared/ui/Select'
+import { Select } from '@shared/ui'
 
 import cls from './SortOrder.module.scss'
 import { SORT_OPTIONS, SORT_ORDER_MAP } from '../consts/consts'

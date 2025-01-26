@@ -4,9 +4,7 @@ import { type Product, ProductPrice, ProductRating } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
 import { generateCategoryPath } from '@shared/lib/path'
-import { AppImage } from '@shared/ui/AppImage'
-import { Headling } from '@shared/ui/Headling'
-import { AppLink } from '@shared/ui/Link'
+import { AppLink, AppImage, Headling } from '@shared/ui'
 
 import cls from './SearchItem.module.scss'
 
@@ -22,7 +20,7 @@ export const SearchItem: FC<SearchItemProps> = ({ className, product }) => {
       to={`${generateCategoryPath(product.category)}/${product.id}`}
       variant="clear"
     >
-      <AppImage className={cls.image} src={product.images[0]} width={60} height={80} />
+      <AppImage className={cls.image} src={product.thumbnail} width={60} height={80} />
 
       <div className={cls.info}>
         <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">

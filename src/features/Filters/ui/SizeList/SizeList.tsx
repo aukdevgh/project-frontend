@@ -3,8 +3,7 @@ import { FC, type MouseEvent } from 'react'
 import { useGetSizesQuery } from '@features/Filters/hooks'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Collapse } from '@shared/ui/Collapse'
+import { Collapse, Button } from '@shared/ui'
 
 import cls from './SizeList.module.scss'
 

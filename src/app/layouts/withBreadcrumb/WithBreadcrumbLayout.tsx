@@ -7,7 +7,7 @@ import { Topbar } from '@widgets/Topbar'
 import { Breadcrumbs } from '@features/Breadcrumbs'
 
 import { Layout } from '@shared/layouts/Layout'
-import { Container } from '@shared/ui/Container'
+import { Container } from '@shared/ui'
 
 const WithBreadcrumbLayout: FC = () => {
   return (

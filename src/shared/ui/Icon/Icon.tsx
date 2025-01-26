@@ -2,7 +2,7 @@ import { memo, SVGProps } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 
-import { IconType, iconTypes } from '../types/IconTypes'
+import { IconType, iconTypes } from './types/IconTypes'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
   className?: string

@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, memo, ReactNode } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { Icon } from '@shared/ui/Icon'
+import { Icon } from '@shared/ui'
 
 import cls from './Checkbox.module.scss'
 

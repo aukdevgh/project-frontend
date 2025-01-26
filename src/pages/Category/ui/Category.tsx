@@ -5,7 +5,7 @@ import { SortOrder, useGetSortOrder } from '@features/SortOrder'
 
 import { ProductList } from '@entities/Product'
 
-import { Container } from '@shared/ui/Container'
+import { Container } from '@shared/ui'
 
 import cls from './Category.module.scss'
 

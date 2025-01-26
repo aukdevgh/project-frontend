@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ImageSkeleton, Skeleton } from '@shared/ui/Skeleton'
+import { ImageSkeleton, Skeleton } from '@shared/ui'
 
 import cls from './ProductCard.module.scss'
 

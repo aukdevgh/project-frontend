@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { navbarRoutes, shopRoutes } from '@shared/constants/routes'
 import { classNames } from '@shared/lib/classNames'
-import { AppLink } from '@shared/ui/Link'
-import { Select } from '@shared/ui/Select'
+import { Select, AppLink } from '@shared/ui'
 
 import cls from './Navbar.module.scss'
 

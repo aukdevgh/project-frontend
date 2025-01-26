@@ -1,4 +1,4 @@
-import { AppLink } from '@shared/ui/Link'
+import { AppLink } from '@shared/ui'
 
 import { Showcase } from './Showcase'
 

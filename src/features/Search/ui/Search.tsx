@@ -2,9 +2,7 @@ import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { useDebounce } from '@shared/lib/hooks/useDebounce'
-import { Icon } from '@shared/ui/Icon'
-import { Input } from '@shared/ui/Input'
-import { Text } from '@shared/ui/Text'
+import { Icon, Input, Text } from '@shared/ui'
 
 import cls from './Search.module.scss'
 import { useLazyGetProductsBySearchQuery } from '../api/searchApi'

@@ -1,9 +1,7 @@
 import { FC, ReactNode, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Headling } from '@shared/ui/Headling'
-import { Icon } from '@shared/ui/Icon'
+import { Button, Headling, Icon } from '@shared/ui'
 
 import cls from './Collapse.module.scss'
 

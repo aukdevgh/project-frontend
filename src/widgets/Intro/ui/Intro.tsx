@@ -1,12 +1,7 @@
 import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { AppImage } from '@shared/ui/AppImage'
-import { Container } from '@shared/ui/Container'
-import { Headling } from '@shared/ui/Headling'
-import { Icon, IconType } from '@shared/ui/Icon'
-import { AppLink } from '@shared/ui/Link'
-import { Text } from '@shared/ui/Text'
+import { AppImage, AppLink, Container, Headling, Icon, type IconType, Text } from '@shared/ui'
 
 import cls from './Intro.module.scss'
 

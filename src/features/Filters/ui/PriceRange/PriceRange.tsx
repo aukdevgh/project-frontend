@@ -1,7 +1,6 @@
 import { memo } from 'react'
 
-import { Collapse } from '@shared/ui/Collapse'
-import { RangeSlider } from '@shared/ui/RangeSlider'
+import { Collapse, RangeSlider } from '@shared/ui'
 
 import { useGetSelectedPriceRange } from '../../model/selectors/getSelectedPriceRange/getSelectedPriceRange'
 

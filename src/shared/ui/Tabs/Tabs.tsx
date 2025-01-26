@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
+import { Button } from '@shared/ui'
 
 import cls from './Tabs.module.scss'
 

@@ -6,7 +6,7 @@ import { Product, ProductCardSkeleton } from '@entities/Product'
 import { ProductCard } from '@entities/Product/ui/ProductCard/ProductCard'
 
 import { classNames } from '@shared/lib/classNames'
-import { Container } from '@shared/ui/Container'
+import { Container } from '@shared/ui'
 
 import cls from './ShowcaseProducts.module.scss'
 

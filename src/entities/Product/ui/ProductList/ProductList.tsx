@@ -2,7 +2,7 @@ import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { classNames } from '@shared/lib/classNames'
-import { Pagination } from '@shared/ui/Pagination'
+import { Pagination } from '@shared/ui'
 
 import cls from './ProductList.module.scss'
 import { useLazyGetProductsQuery } from '../../hooks'

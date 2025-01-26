@@ -5,8 +5,7 @@ import { useGetProductById } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
 import { formatCategoryName } from '@shared/lib/path'
-import { Icon } from '@shared/ui/Icon'
-import { AppLink } from '@shared/ui/Link'
+import { AppLink, Icon } from '@shared/ui'
 
 import cls from './Breadcrumbs.module.scss'
 

@@ -1,7 +1,7 @@
 import { ProductBigCardSkeleton } from '@entities/Product'
 import { ProductReviewsSkeleton } from '@entities/Review'
 
-import { Container } from '@shared/ui/Container'
+import { Container } from '@shared/ui'
 
 export const ProductPageSkeleton = () => {
   return (

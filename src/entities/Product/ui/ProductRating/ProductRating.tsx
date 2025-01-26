@@ -1,8 +1,7 @@
 import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { StarRating } from '@shared/ui/StarRating'
-import { Text } from '@shared/ui/Text'
+import { Text, StarRating } from '@shared/ui'
 
 import cls from './ProductRating.module.scss'
 

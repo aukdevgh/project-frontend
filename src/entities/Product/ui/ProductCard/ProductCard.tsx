@@ -3,9 +3,7 @@ import { useParams } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
 import { generateCategoryPath } from '@shared/lib/path'
-import { AppImage } from '@shared/ui/AppImage'
-import { Headling } from '@shared/ui/Headling'
-import { AppLink } from '@shared/ui/Link'
+import { AppImage, AppLink, Headling } from '@shared/ui'
 
 import cls from './ProductCard.module.scss'
 import { type Product } from '../../types'

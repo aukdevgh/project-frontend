@@ -3,10 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
 import { generateCategoryPath } from '@shared/lib/path'
-import { Button } from '@shared/ui/Button'
-import { Headling } from '@shared/ui/Headling'
-import { Icon } from '@shared/ui/Icon'
-import { Line } from '@shared/ui/Line'
+import { Headling, Icon, Line, Button } from '@shared/ui'
 
 import { CategoryList } from './CategoryList/CategoryList'
 import { ColorList } from './ColorList/ColorList'

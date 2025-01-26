@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react'
 import { SortBy, useGetProductsQuery } from '@entities/Product'
 
 import { classNames } from '@shared/lib/classNames'
-import { Headling } from '@shared/ui/Headling'
+import { Headling } from '@shared/ui'
 
 import cls from './Showcase.module.scss'
 import { ShowcaseProducts } from './ShowcaseProducts/ShowcaseProducts'

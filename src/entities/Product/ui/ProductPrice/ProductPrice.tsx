@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { toUSD, getDiscountPrice } from '@shared/lib/format'
-import { Text } from '@shared/ui/Text'
+import { Text } from '@shared/ui'
 
 import cls from './ProductPrice.module.scss'
 

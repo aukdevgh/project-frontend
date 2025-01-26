@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { ImageSkeleton } from '@shared/ui/Skeleton'
+import { ImageSkeleton } from '@shared/ui'
 
 import './ImageSwiper.scss'
 

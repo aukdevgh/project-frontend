@@ -4,8 +4,7 @@ import { useParams } from 'react-router'
 import { ProductBigCard, useGetProductById } from '@entities/Product'
 import { ProductReviews } from '@entities/Review'
 
-import { Container } from '@shared/ui/Container'
-import { Tab, Tabs } from '@shared/ui/Tabs'
+import { Container, type Tab, Tabs } from '@shared/ui'
 
 import { Details } from './Details'
 import { FAQs } from './FAQs'

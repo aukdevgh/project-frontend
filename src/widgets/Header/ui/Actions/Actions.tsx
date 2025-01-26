@@ -5,10 +5,7 @@ import { Search } from '@features/Search'
 import { classNames } from '@shared/lib/classNames'
 import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteCart, getRouteProfile } from '@shared/lib/routes'
-import { Button } from '@shared/ui/Button'
-import { Icon } from '@shared/ui/Icon'
-import { AppLink } from '@shared/ui/Link'
-import { Menu } from '@shared/ui/Menu'
+import { Button, Icon, AppLink, Menu } from '@shared/ui'
 
 import cls from './Actions.module.scss'
 

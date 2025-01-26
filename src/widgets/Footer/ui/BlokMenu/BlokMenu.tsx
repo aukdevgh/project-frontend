@@ -2,8 +2,7 @@ import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { Option } from '@shared/types/select'
-import { Headling } from '@shared/ui/Headling'
-import { AppLink } from '@shared/ui/Link'
+import { Headling, AppLink } from '@shared/ui'
 
 import cls from './BlokMenu.module.scss'
 

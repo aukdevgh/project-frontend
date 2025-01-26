@@ -4,8 +4,7 @@ import { Intro } from '@widgets/Intro'
 import { Reviews } from '@widgets/Reviews'
 import { Showcase } from '@widgets/Showcase'
 
-import { Line } from '@shared/ui/Line'
-import { AppLink } from '@shared/ui/Link'
+import { AppLink, Line } from '@shared/ui'
 
 const Home: FC = () => {
   return (

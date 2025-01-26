@@ -2,8 +2,7 @@ import { FC, useMemo } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Icon } from '@shared/ui/Icon'
+import { Button, Icon } from '@shared/ui'
 
 import cls from './Pagination.module.scss'
 

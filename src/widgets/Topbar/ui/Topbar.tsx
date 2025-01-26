@@ -3,9 +3,7 @@ import { FC, useState } from 'react'
 import { PromoBanner } from '@features/PromoBanner'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Container } from '@shared/ui/Container'
-import { Icon } from '@shared/ui/Icon/ui/Icon'
+import { Container, Button, Icon } from '@shared/ui'
 
 import cls from './Topbar.module.scss'
 

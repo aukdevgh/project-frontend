@@ -8,9 +8,7 @@ import { useGetReviewsPage } from '@entities/Review/model/selectors/getReviewsPa
 import { useGetTotalReviews } from '@entities/Review/model/selectors/getTotalReviews/getTotalReviews'
 import { useReviewsActions } from '@entities/Review/model/slice/reviewsSlice'
 
-import { Button } from '@shared/ui/Button'
-import { Headling } from '@shared/ui/Headling'
-import { Text } from '@shared/ui/Text'
+import { Button, Headling, Text } from '@shared/ui'
 
 import cls from './ProductReviews.module.scss'
 import { useLazyGetReviewsByProductIdQuery } from '../../hooks'

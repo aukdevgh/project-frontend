@@ -5,10 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Review, ReviewCard, useGetHighRatingReviewsQuery } from '@entities/Review'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Container } from '@shared/ui/Container'
-import { Headling } from '@shared/ui/Headling'
-import { Icon } from '@shared/ui/Icon'
+import { Container, Headling, Button, Icon } from '@shared/ui'
 
 import './Reviews.scss'
 

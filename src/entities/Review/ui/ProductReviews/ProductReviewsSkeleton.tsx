@@ -1,6 +1,6 @@
 import { ReviewCardSkeleton } from '@entities/Review'
 
-import { Skeleton } from '@shared/ui/Skeleton'
+import { Skeleton } from '@shared/ui'
 
 import cls from './ProductReviews.module.scss'
 

@@ -1,8 +1,7 @@
 import { FC, ReactNode, useEffect } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { Button } from '@shared/ui/Button'
-import { Icon } from '@shared/ui/Icon'
+import { Button, Icon } from '@shared/ui'
 
 import cls from './Menu.module.scss'
 

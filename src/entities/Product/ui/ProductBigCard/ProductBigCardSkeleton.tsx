@@ -1,9 +1,7 @@
 import { FC, HTMLAttributes } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
-import { ImageSwiperSkeleton } from '@shared/ui/ImageSwiper'
-import { Line } from '@shared/ui/Line'
-import { Skeleton } from '@shared/ui/Skeleton'
+import { ImageSwiperSkeleton, Line, Skeleton } from '@shared/ui'
 
 import cls from './ProductBigCard.module.scss'
 

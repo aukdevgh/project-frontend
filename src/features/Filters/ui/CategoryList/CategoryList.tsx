@@ -4,9 +4,7 @@ import { useGetCategoryListQuery } from '@features/Filters/hooks'
 
 import { classNames } from '@shared/lib/classNames'
 import { formatCategoryName } from '@shared/lib/path'
-import { Button } from '@shared/ui/Button'
-import { Icon } from '@shared/ui/Icon'
-import { Skeleton } from '@shared/ui/Skeleton'
+import { Button, Icon, Skeleton } from '@shared/ui'
 
 import cls from './CategoryList.module.scss'
 

@@ -2,8 +2,7 @@ import { FC, useCallback, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { Option } from '@shared/types/select'
-import { Button } from '@shared/ui/Button'
-import { Icon } from '@shared/ui/Icon'
+import { Button, Icon } from '@shared/ui'
 
 import cls from './Select.module.scss'
 
