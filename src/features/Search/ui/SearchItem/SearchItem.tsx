@@ -20,7 +20,7 @@ export const SearchItem: FC<SearchItemProps> = ({ className, product }) => {
       to={`${generateCategoryPath(product.category)}/${product.id}`}
       variant="clear"
     >
-      <AppImage className={cls.image} src={product.thumbnail} width={60} height={80} />
+      <AppImage className={cls.image} src={product.thumbnail} width={60} height={'100%'} />
 
       <div className={cls.info}>
         <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">

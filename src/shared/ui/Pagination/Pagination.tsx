@@ -60,8 +60,10 @@ export const Pagination: FC<PaginationProps> = ({ className, currentPage, totalI
         onClick={handlePrevPage}
         disabled={currentPage === 1}
         variant="secondary"
+        aria-label="prev"
       >
-        <Icon type="ArrowLeft" width={20} height={20} /> Prev
+        <Icon type="ArrowLeft" width={20} height={20} />
+        {!isMobile && 'Prev'}
       </Button>
 
       <ul className={cls['pages-list']}>
@@ -91,8 +93,9 @@ export const Pagination: FC<PaginationProps> = ({ className, currentPage, totalI
         onClick={handleNextPage}
         disabled={currentPage === totalPages}
         variant="secondary"
+        aria-label="next"
       >
-        Next
+        {!isMobile && 'Next'}
         <Icon className={cls['arrow-right']} type="ArrowLeft" width={20} height={20} />
       </Button>
     </div>

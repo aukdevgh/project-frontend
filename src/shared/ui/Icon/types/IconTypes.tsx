@@ -13,6 +13,7 @@ import FilterIcon from '@shared/assets/icon/filter.svg'
 import GithubIcon from '@shared/assets/icon/github.svg'
 import GucciIcon from '@shared/assets/icon/gucci.svg'
 import HalfStarIcon from '@shared/assets/icon/half-star.svg'
+import HomeIcon from '@shared/assets/icon/home.svg'
 import InstagramIcon from '@shared/assets/icon/instagram.svg'
 import MinusIcon from '@shared/assets/icon/minus.svg'
 import PlusIcon from '@shared/assets/icon/plus.svg'
@@ -54,6 +55,7 @@ export type IconType =
   | 'Filter'
   | 'CheckMarker'
   | 'RadioMarker'
+  | 'Home'
 
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
@@ -83,4 +85,5 @@ export const iconTypes = new Map([
   ['Filter', FilterIcon],
   ['CheckMarker', CheckMarkerIcon],
   ['RadioMarker', RadioMarkerIcon],
+  ['Home', HomeIcon],
 ])

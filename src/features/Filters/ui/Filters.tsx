@@ -1,34 +1,44 @@
 import { FC, useState, useEffect, useCallback, MouseEvent } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { useNavigate, useParams } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
 import { generateCategoryPath } from '@shared/lib/path'
-import { Headling, Icon, Line, Button } from '@shared/ui'
+import { Headling, Icon, Line, Button, Collapse, SizeList, ColorList, RangeSlider } from '@shared/ui'
 
 import { CategoryList } from './CategoryList/CategoryList'
-import { ColorList } from './ColorList/ColorList'
 import cls from './Filters.module.scss'
-import { PriceRange } from './PriceRange/PriceRange'
-import { SizeList } from './SizeList/SizeList'
+import { useGetColorsQuery, useGetSizesQuery } from '../hooks'
 import { useGetMaxPrice } from '../model/selectors/getMaxPrice/getMaxPrice'
 import { useGetMinPrice } from '../model/selectors/getMinPrice/getMinPrice'
+import { useGetSelectedPriceRange } from '../model/selectors/getSelectedPriceRange/getSelectedPriceRange'
 import { useFiltersActions } from '../model/slice/filtersSlice'
 
 interface FiltersProps {
   className?: string
+  onClose?: () => void
 }
 
-export const Filters: FC<FiltersProps> = ({ className }) => {
-  const { catalog, category, subcategory } = useParams()
+const STEP = 1
+
+export const Filters: FC<FiltersProps> = ({ className, onClose }) => {
+  const isTablet = useMediaQuery({ maxWidth: 1024 })
   const navigate = useNavigate()
+  const { catalog, category, subcategory } = useParams()
   const { setRange, setCategory, setColors, setSizes, resetFilters } = useFiltersActions()
+
+  const [selectedCategory, setSelectedCategory] = useState<string>('')
+
   const maxPrice = useGetMaxPrice()
   const minPrice = useGetMinPrice()
-
+  const priceRange = useGetSelectedPriceRange()
   const [selectedPriceRange, setSelectedPriceRange] = useState({ min: minPrice, max: maxPrice })
-  const [selectedCategory, setSelectedCategory] = useState<string>('')
-  const [selectedColors, setSelectedColors] = useState<string[]>([])
+
+  const { data: sizes } = useGetSizesQuery()
   const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+
+  const { data: colors } = useGetColorsQuery()
+  const [selectedColors, setSelectedColors] = useState<string[]>([])
 
   const handleSelectSizes = (e: MouseEvent<HTMLUListElement>) => {
     const target = e.target as HTMLElement
@@ -56,6 +66,10 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
     setColors(selectedColors)
     setSizes(selectedSizes)
     navigate(generateCategoryPath(selectedCategory, catalog))
+
+    if (onClose) {
+      onClose()
+    }
   }
 
   useEffect(() => {
@@ -78,7 +92,13 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
         <Headling as="h2" transform="capitalize">
           Filter
         </Headling>
-        <Icon type="Filter" width={24} height={24} />
+        {isTablet ? (
+          <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
+            <Icon type="Close" width={24} height={24} />
+          </Button>
+        ) : (
+          <Icon type="Filter" width={24} height={24} />
+        )}
       </header>
 
       <Line />
@@ -89,12 +109,29 @@ export const Filters: FC<FiltersProps> = ({ className }) => {
         handleCategoryClick={handleSelectCategory}
       />
 
-      <PriceRange onChangeRange={handlePriceRangeChange} maxPrice={maxPrice} minPrice={minPrice} />
+      <Collapse className={className} title="Price">
+        <RangeSlider
+          isShowTooltip={true}
+          max={maxPrice}
+          min={minPrice}
+          onChange={handlePriceRangeChange}
+          step={STEP}
+          value={priceRange}
+        />
+      </Collapse>
 
       <Line />
-      <ColorList selectedColors={selectedColors} handleColorClick={handleSelectColors} />
+
+      <Collapse className={className} title="Colors">
+        <ColorList colors={colors} selectedColors={selectedColors} handleColorClick={handleSelectColors} />
+      </Collapse>
+
       <Line />
-      <SizeList selectedSizes={selectedSizes} handleSizeClick={handleSelectSizes} />
+
+      <Collapse className={className} title="Size">
+        <SizeList sizes={sizes} selectedSizes={selectedSizes} handleSizeClick={handleSelectSizes} />
+      </Collapse>
+
       <Line />
 
       <Button onClick={handleApply}>Apply Filter</Button>

@@ -6,7 +6,7 @@ import { Search } from '@features/Search'
 import { classNames } from '@shared/lib/classNames'
 import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteMain } from '@shared/lib/routes'
-import { Container, Button, Icon, AppLink, Menu } from '@shared/ui'
+import { Container, Button, Icon, AppLink, Menu, Card, Headling } from '@shared/ui'
 
 import { Actions } from './Actions/Actions'
 import cls from './Header.module.scss'
@@ -23,7 +23,7 @@ export const Header: FC = () => {
           </Button>
 
           <AppLink className={cls.logo} to={getRouteMain()} variant="clear" aria-label="shop.co">
-            <Icon type="Logo" width={160} height={22} />
+            <Icon type="Logo" width={'auto'} height={22} />
           </AppLink>
 
           <Navbar className={cls.navbar} />
@@ -34,7 +34,15 @@ export const Header: FC = () => {
         </Container>
       </header>
       <Menu isOpen={isOpen} onClose={onClose}>
-        <Navbar className={cls['menu-navbar']} />
+        <Card className={cls['menu-card']}>
+          <div className={cls['menu-header']}>
+            <Headling>Catalogs</Headling>
+            <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
+              <Icon type="Close" width={24} height={24} />
+            </Button>
+          </div>
+          <Navbar className={cls['menu-navbar']} onClose={onClose} />
+        </Card>
       </Menu>
     </>
   )

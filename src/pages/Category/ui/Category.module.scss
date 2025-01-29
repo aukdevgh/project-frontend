@@ -10,7 +10,25 @@
   gap: 24px;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+}
+
 .sort {
   margin-left: auto;
   width: fit-content;
+}
+
+.filter {
+  @media screen and (max-width: $breakpoint-desktop) {
+    display: none;
+  }
+}
+
+.filter-menu-btn {
+  display: none;
+  @media screen and (max-width: $breakpoint-desktop) {
+    display: flex;
+  }
 }

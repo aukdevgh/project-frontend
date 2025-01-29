@@ -2,7 +2,7 @@ import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { useDebounce } from '@shared/lib/hooks/useDebounce'
-import { Icon, Input, Text } from '@shared/ui'
+import { Button, Icon, Input, Text } from '@shared/ui'
 
 import cls from './Search.module.scss'
 import { useLazyGetProductsBySearchQuery } from '../api/searchApi'
@@ -10,9 +10,10 @@ import { SearchItem } from './SearchItem/SearchItem'
 
 interface SearchProps {
   className?: string
+  onClose?: () => void
 }
 
-export const Search: FC<SearchProps> = ({ className }) => {
+export const Search: FC<SearchProps> = ({ className, onClose }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [getProducts, { data, isError }] = useLazyGetProductsBySearchQuery()
   const [isOpen, setIsOpen] = useState(false)
@@ -45,13 +46,20 @@ export const Search: FC<SearchProps> = ({ className }) => {
 
   return (
     <div className={classNames(cls.search, {}, [className])} ref={searchRef} onFocus={() => setIsOpen(true)}>
-      <Input
-        className={cls.search}
-        addon={<Icon type="Search" width={24} height={24} />}
-        placeholder="Search for products..."
-        onChange={onChange}
-      />
-      {isError && <Text as="div">Произошла ошибка при загрузке</Text>}
+      <div className={cls.header}>
+        <div className={cls['header-row']}>
+          <Input
+            className={cls['search-input']}
+            addon={<Icon type="Search" width={24} height={24} />}
+            placeholder="Search for products..."
+            onChange={onChange}
+          />
+          <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
+            <Icon type="Close" width={24} height={24} />
+          </Button>
+        </div>
+        {isError && <Text as="div">Произошла ошибка при загрузке</Text>}
+      </div>
 
       {isOpen && searchQuery && data && (
         <div className={cls.catalog}>

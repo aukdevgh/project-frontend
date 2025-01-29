@@ -1,9 +1,9 @@
-import { FC, useState } from 'react'
+import { FC, useState, type MouseEvent } from 'react'
 
 import { ProductDetails } from '@entities/Product/types'
 
 import { classNames } from '@shared/lib/classNames'
-import { AppImage, Button, Headling, Icon, ImageSwiper, Line, Text } from '@shared/ui'
+import { AppImage, Button, Headling, Icon, ImageSwiper, Line, SizeList, Text } from '@shared/ui'
 
 import cls from './ProductBigCard.module.scss'
 import { ProductBigCardSkeleton } from './ProductBigCardSkeleton'
@@ -18,7 +18,7 @@ interface ProductBigCardProps {
 export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) => {
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] ?? '')
-  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] ?? '')
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
 
   if (!product) {
     return <ProductBigCardSkeleton />
@@ -27,7 +27,15 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
   const onMinus = () => setQuantity((prev) => Math.max(1, prev - 1))
   const onPlus = () => setQuantity((prev) => prev + 1)
 
-  const handleSelect = (setter: (value: string) => void, value: string) => setter(value)
+  const handleSelectColor = (color: string) => {
+    setSelectedColor(color)
+  }
+
+  const handleSelectSizes = (e: MouseEvent<HTMLUListElement>) => {
+    const target = e.target as HTMLElement
+    const size = target.innerText
+    setSelectedSizes((sizes) => (sizes.includes(size) ? sizes.filter((s) => s !== size) : [...sizes, size]))
+  }
 
   const getImageByColor = (color: string) => product?.images.find((image) => image.includes(color)) || ''
   const getImagesBySelectedColor = () => product.images.filter((image) => image.includes(selectedColor)) || ['']
@@ -53,7 +61,7 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
                 className={classNames(cls['color-btn'], { [cls.active]: color === selectedColor }, [])}
                 variant="clear"
                 key={color}
-                onClick={() => handleSelect(setSelectedColor, color)}
+                onClick={() => handleSelectColor(color)}
                 aria-selected={color === selectedColor}
                 aria-label={`Select color ${color}`}
               >
@@ -69,23 +77,10 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
           })}
         </div>
         <Line />
+
         <Headling transform="capitalize">Sizes:</Headling>
-        <div className={cls.row}>
-          {product.sizes.map((size) => {
-            return (
-              <Button
-                className={classNames(cls['size-btn'], { [cls.active]: size === selectedSize }, [])}
-                key={size}
-                variant="secondary"
-                onClick={() => handleSelect(setSelectedSize, size)}
-                aria-selected={size === selectedSize}
-                aria-label={`Select size ${size}`}
-              >
-                {size}
-              </Button>
-            )
-          })}
-        </div>
+        <SizeList sizes={product.sizes} selectedSizes={selectedSizes} handleSizeClick={handleSelectSizes} />
+
         <Line />
         <div className={cls.cart}>
           <div className={cls.quantity}>

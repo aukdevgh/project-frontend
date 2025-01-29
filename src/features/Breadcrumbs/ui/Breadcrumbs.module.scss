@@ -1,13 +1,18 @@
 .breadcrumb {
-  margin: 30px 0;
+  margin-bottom: 30px;
   display: flex;
   color: black;
 }
 
 .list {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   text-transform: capitalize;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    gap: 6px;
+  }
 }
 
 .item {

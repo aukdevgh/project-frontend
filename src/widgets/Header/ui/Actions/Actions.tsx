@@ -5,7 +5,7 @@ import { Search } from '@features/Search'
 import { classNames } from '@shared/lib/classNames'
 import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteCart, getRouteProfile } from '@shared/lib/routes'
-import { Button, Icon, AppLink, Menu } from '@shared/ui'
+import { Button, Icon, AppLink, Menu, Card } from '@shared/ui'
 
 import cls from './Actions.module.scss'
 
@@ -38,7 +38,9 @@ export const Actions: FC<ActionsProps> = ({ className }) => {
         </ul>
       </nav>
       <Menu className={cls['search-menu']} isOpen={isOpen} onClose={onClose}>
-        <Search />
+        <Card>
+          <Search onClose={onClose} />
+        </Card>
       </Menu>
     </>
   )

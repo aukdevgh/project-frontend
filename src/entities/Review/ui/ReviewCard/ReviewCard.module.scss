@@ -6,6 +6,10 @@
   background-color: $color-background-primary;
   border: 1px solid $color-background-secondary;
   border-radius: $radius-s;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 14px 18px;
+  }
 }
 
 .rating {

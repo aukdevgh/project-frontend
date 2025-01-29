@@ -5,7 +5,8 @@ import { SortOrder, useGetSortOrder } from '@features/SortOrder'
 
 import { ProductList } from '@entities/Product'
 
-import { Container } from '@shared/ui'
+import { useMenu } from '@shared/lib/hooks/useMenu'
+import { Button, Container, Icon, Menu } from '@shared/ui'
 
 import cls from './Category.module.scss'
 
@@ -16,12 +17,28 @@ const Category: FC = () => {
   const colors = useGetColors()
   const sizes = useGetSizes()
 
+  const { isOpen, onOpen, onClose } = useMenu()
+
   return (
     <Container className={cls.category}>
-      <Filters />
+      <Filters className={cls.filter} />
 
       <div className={cls.content}>
-        <SortOrder className={cls.sort} />
+        <div className={cls.actions}>
+          <Button
+            className={cls['filter-menu-btn']}
+            variant="secondary"
+            size="icon"
+            onClick={onOpen}
+            aria-label="open filter menu"
+          >
+            <Icon type="Filter" />
+          </Button>
+          <Menu className={cls['filter-menu']} isOpen={isOpen} onClose={onClose}>
+            <Filters onClose={onClose} />
+          </Menu>
+          <SortOrder className={cls.sort} />
+        </div>
 
         <ProductList
           category={category}

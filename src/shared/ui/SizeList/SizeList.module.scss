@@ -1,0 +1,10 @@
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: $radius-xs;
+}

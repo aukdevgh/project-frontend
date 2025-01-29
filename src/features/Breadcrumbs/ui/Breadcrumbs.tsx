@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { useLocation, useParams } from 'react-router'
 
 import { useGetProductById } from '@entities/Product'
@@ -14,6 +15,7 @@ interface BreadcrumbsProps {
 }
 
 export const Breadcrumbs = memo(({ className }: BreadcrumbsProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 })
   const location = useLocation()
   const pathNames = location.pathname.split('/').filter(Boolean)
   const { category, productId } = useParams()
@@ -47,7 +49,9 @@ export const Breadcrumbs = memo(({ className }: BreadcrumbsProps) => {
     <nav className={classNames(cls.breadcrumb, {}, [className])}>
       <ul className={cls.list}>
         <li className={cls.item}>
-          <AppLink to="/">Home</AppLink>
+          <AppLink to="/" style={{ lineHeight: isMobile ? 1 : 'auto' }} aria-label="home">
+            {isMobile ? <Icon type="Home" /> : 'Home'}
+          </AppLink>
           {pathNames.length > 0 && <Icon type="ArrowRight" />}
         </li>
         {pathNames.map(renderBreadcrumbItem)}
