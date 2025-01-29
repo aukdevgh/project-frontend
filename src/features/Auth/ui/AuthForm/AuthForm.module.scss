@@ -1,0 +1,19 @@
+.auth-form-wrapper,
+.content,
+.form,
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-wrapper {
+  gap: 30px;
+}
+
+.content {
+  gap: 50px;
+}
+
+.form {
+  gap: 20px;
+}

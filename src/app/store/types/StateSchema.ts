@@ -1,3 +1,4 @@
+import { AuthSchema } from '@features/Auth'
 import { FiltersSchema } from '@features/Filters'
 import { sortOrderSchema } from '@features/SortOrder'
 
@@ -12,6 +13,7 @@ export interface StateSchema {
   filters: FiltersSchema
   sortOrder: sortOrderSchema
   reviews: ReviewsSchema
+  auth: AuthSchema
 }
 
 export type AppDispatch = ReturnType<typeof makeStore>['dispatch']

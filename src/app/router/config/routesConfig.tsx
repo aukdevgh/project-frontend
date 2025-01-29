@@ -2,12 +2,14 @@ import { createBrowserRouter } from 'react-router'
 
 import { BaseLayout, WithBreadcrumbLayout } from '@app/layouts'
 
+import { Auth } from '@pages/Auth'
 import { Cart } from '@pages/Cart'
 import { Category } from '@pages/Category'
 import { Home } from '@pages/Home'
-import { Login } from '@pages/Login'
 import { ProductPage } from '@pages/ProductPage'
 import { Profile } from '@pages/Profile'
+
+import { ProtectedRoute } from '../ui/ProtectedRoute/ProtectedRoute'
 
 export const routeConfig = () => {
   return createBrowserRouter([
@@ -47,15 +49,23 @@ export const routeConfig = () => {
         },
         {
           path: 'cart',
-          element: <Cart />,
+          element: (
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          ),
         },
         {
           path: 'profile',
-          element: <Profile />,
+          element: (
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          ),
         },
         {
-          path: 'login',
-          element: <Login />,
+          path: 'auth',
+          element: <Auth />,
         },
       ],
     },

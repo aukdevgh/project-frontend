@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, ReactNode } from 'react'
+import { forwardRef, InputHTMLAttributes, ReactNode } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 
@@ -12,7 +12,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: InputVariant
 }
 
-export const Input: FC<InputProps> = (props) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { className, value, onChange, placeholder, addon, type = 'text', variant = 'primary', ...otherProps } = props
 
   return (
@@ -25,8 +25,9 @@ export const Input: FC<InputProps> = (props) => {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        ref={ref}
         {...otherProps}
       />
     </label>
   )
-}
+})

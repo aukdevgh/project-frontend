@@ -5,6 +5,7 @@
   line-height: inherit;
   text-transform: capitalize;
   text-align: center;
+  text-wrap: pretty;
   cursor: pointer;
 }
 
@@ -24,12 +25,11 @@
   padding: clamp(10px, 0.4957rem + 0.5305vw, 12px) clamp(20px, 0.9914rem + 1.061vw, 24px);
   color: $color-text;
   background-color: $color-background-secondary;
-  border: 1px solid transparent;
   border-radius: $radius-l;
 
   &:hover,
   &:focus {
-    border-color: $color-primary;
+    opacity: 0.6;
   }
 }
 

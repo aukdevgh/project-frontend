@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import { useAuthActions, useCheckAuthQuery } from '@features/Auth'
 import { useFiltersActions, useGetPriceRangeQuery } from '@features/Filters'
 
 import { AppRouterProvider } from './providers/router/AppRouterProvider'
@@ -7,14 +8,21 @@ import { AppRouterProvider } from './providers/router/AppRouterProvider'
 import '@shared/styles/main.scss'
 
 export const AppEntry = () => {
-  const { data } = useGetPriceRangeQuery()
+  const { data: priceData } = useGetPriceRangeQuery()
   const { setLimits } = useFiltersActions()
 
+  const { isSuccess } = useCheckAuthQuery()
+  const { setIsAuth } = useAuthActions()
+
   useEffect(() => {
-    if (data) {
-      setLimits({ min: data.min, max: data.max })
+    if (priceData) {
+      setLimits({ min: priceData.min, max: priceData.max })
     }
-  }, [data, setLimits])
+  }, [priceData, setLimits])
+
+  useEffect(() => {
+    setIsAuth(isSuccess)
+  }, [isSuccess, setIsAuth])
 
   return <AppRouterProvider />
 }
