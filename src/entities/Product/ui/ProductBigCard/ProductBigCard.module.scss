@@ -27,7 +27,7 @@
 .color-btn,
 .size-btn {
   border: 1px solid transparent;
-  border-radius: $radius-xs;
+  border-radius: $radius-s;
   overflow: hidden;
 
   &.active {
@@ -59,7 +59,7 @@
   justify-content: space-between;
   gap: 10px;
   background-color: $color-background-secondary;
-  border-radius: $radius-l;
+  border-radius: $radius-xl;
 
   @media screen and (max-width: $breakpoint-mobile-mini) {
     max-width: 100%;

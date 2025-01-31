@@ -1,24 +1,26 @@
 import { FC, useState, type MouseEvent } from 'react'
 
-import { ProductDetails } from '@entities/Product/types'
+import { type CartItem } from '@features/Cart'
 
 import { classNames } from '@shared/lib/classNames'
 import { AppImage, Button, Headling, Icon, ImageSwiper, Line, SizeList, Text } from '@shared/ui'
 
 import cls from './ProductBigCard.module.scss'
 import { ProductBigCardSkeleton } from './ProductBigCardSkeleton'
+import { type ProductDetails } from '../../types'
 import { ProductPrice } from '../ProductPrice/ProductPrice'
 import { ProductRating } from '../ProductRating/ProductRating'
 
 interface ProductBigCardProps {
   className?: string
   product?: ProductDetails
+  addToCart: (item: CartItem) => void
 }
 
-export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) => {
+export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product, addToCart }) => {
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] ?? '')
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+  const [selectedSize, setSelectedSize] = useState<string>(product?.sizes[0] ?? '')
 
   if (!product) {
     return <ProductBigCardSkeleton />
@@ -31,14 +33,30 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
     setSelectedColor(color)
   }
 
-  const handleSelectSizes = (e: MouseEvent<HTMLUListElement>) => {
+  const handleSelectSize = (e: MouseEvent<HTMLUListElement>) => {
     const target = e.target as HTMLElement
     const size = target.innerText
-    setSelectedSizes((sizes) => (sizes.includes(size) ? sizes.filter((s) => s !== size) : [...sizes, size]))
+    setSelectedSize(size)
   }
 
   const getImageByColor = (color: string) => product?.images.find((image) => image.includes(color)) || ''
   const getImagesBySelectedColor = () => product.images.filter((image) => image.includes(selectedColor)) || ['']
+
+  const handleAddToCart = () => {
+    const item: CartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      category: product.category,
+      discountPercentage: product.discountPercentage,
+      image: getImageByColor(selectedColor),
+      color: selectedColor,
+      size: selectedSize,
+      quantity,
+    }
+    console.log(item)
+    addToCart(item)
+  }
 
   return (
     <div className={classNames(cls.product, {}, [className])}>
@@ -79,7 +97,7 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
         <Line />
 
         <Headling transform="capitalize">Sizes:</Headling>
-        <SizeList sizes={product.sizes} selectedSizes={selectedSizes} handleSizeClick={handleSelectSizes} />
+        <SizeList sizes={product.sizes} selectedSize={selectedSize} handleSizeClick={handleSelectSize} />
 
         <Line />
         <div className={cls.cart}>
@@ -92,7 +110,9 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product }) 
               <Icon type="Plus" width={24} height={24} />
             </Button>
           </div>
-          <Button className={cls['add-btn']}>Add to Cart</Button>
+          <Button className={cls['add-btn']} onClick={handleAddToCart}>
+            Add to Cart
+          </Button>
         </div>
       </div>
     </div>

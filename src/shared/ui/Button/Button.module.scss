@@ -13,11 +13,12 @@
   padding: 15px 30px;
   color: $color-text-inverted;
   background-color: $color-primary;
-  border-radius: $radius-l;
+  border-radius: $radius-xl;
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    color: $color-text;
+    background-color: $color-background-secondary;
   }
 }
 
@@ -25,7 +26,7 @@
   padding: clamp(10px, 0.4957rem + 0.5305vw, 12px) clamp(20px, 0.9914rem + 1.061vw, 24px);
   color: $color-text;
   background-color: $color-background-secondary;
-  border-radius: $radius-l;
+  border-radius: $radius-xl;
 
   &:hover,
   &:focus {
@@ -55,17 +56,6 @@
   }
 }
 
-.icon {
-  width: 32px;
-  height: 32px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  overflow: hidden;
-}
-
 .clear {
   width: auto;
   height: auto;
@@ -80,12 +70,46 @@
   }
 }
 
+.danger {
+  color: $color-error;
+  background-color: transparent;
+  border-radius: $radius-xs;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color: $color-error, $alpha: 20%);
+  }
+}
+
+.ghost {
+  color: $color-text;
+  background-color: transparent;
+  border-radius: $radius-s;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary;
+    color: $color-text-inverted;
+  }
+}
+
 .square {
   padding: 0;
   width: 40px;
   height: 40px;
   text-align: center;
   border-radius: 0;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  overflow: hidden;
 }
 
 .disabled {

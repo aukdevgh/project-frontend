@@ -22,19 +22,17 @@ body {
 
 .app {
   width: 100%;
-  min-height: 100vh;
-  height: 100%;
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
 }
 
 .header,
 .footer {
-  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .main {
-  min-height: 80vh;
   flex-grow: 1;
 }
 

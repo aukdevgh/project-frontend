@@ -1,0 +1,18 @@
+.items {
+  min-height: fit-content;
+  height: max-content;
+  max-width: 715px;
+  min-width: 280px;
+  width: 100%;
+}
+
+.list,
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.item:last-child .line {
+  display: none;
+}

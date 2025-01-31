@@ -6,6 +6,7 @@ import CalvinKleinIcon from '@shared/assets/icon/calvinKlein.svg'
 import CartIcon from '@shared/assets/icon/cart.svg'
 import CheckMarkerIcon from '@shared/assets/icon/check-marker.svg'
 import CloseIcon from '@shared/assets/icon/close.svg'
+import DeleteIcon from '@shared/assets/icon/delete.svg'
 import DiamondIcon from '@shared/assets/icon/diamond.svg'
 import EmailIcon from '@shared/assets/icon/email.svg'
 import FacebookIcon from '@shared/assets/icon/facebook.svg'
@@ -19,6 +20,7 @@ import MinusIcon from '@shared/assets/icon/minus.svg'
 import PlusIcon from '@shared/assets/icon/plus.svg'
 import PradaIcon from '@shared/assets/icon/prada.svg'
 import ProfileIcon from '@shared/assets/icon/profile.svg'
+import PromoCodeIcon from '@shared/assets/icon/promo-code.svg'
 import RadioMarkerIcon from '@shared/assets/icon/radio-marker.svg'
 import SearchIcon from '@shared/assets/icon/search.svg'
 import LogoIcon from '@shared/assets/icon/SHOP.CO.svg'
@@ -56,6 +58,8 @@ export type IconType =
   | 'CheckMarker'
   | 'RadioMarker'
   | 'Home'
+  | 'Delete'
+  | 'PromoCode'
 
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
@@ -86,4 +90,6 @@ export const iconTypes = new Map([
   ['CheckMarker', CheckMarkerIcon],
   ['RadioMarker', RadioMarkerIcon],
   ['Home', HomeIcon],
+  ['Delete', DeleteIcon],
+  ['PromoCode', PromoCodeIcon],
 ])

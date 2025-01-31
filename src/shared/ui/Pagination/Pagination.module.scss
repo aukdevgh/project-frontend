@@ -11,7 +11,7 @@
   align-items: center;
   gap: 8px;
   border: 1px solid #ccc;
-  border-radius: $radius-xs;
+  border-radius: $radius-s;
   background-color: #f9f9f9;
 }
 
@@ -22,7 +22,7 @@
 .page {
   width: 40px;
   height: 40px;
-  border-radius: $radius-xs;
+  border-radius: $radius-s;
   cursor: pointer;
   transition: background-color 0.3s;
   opacity: 0.5;

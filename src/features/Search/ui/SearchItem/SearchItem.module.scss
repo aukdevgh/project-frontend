@@ -1,6 +1,7 @@
 .search-item {
   width: 100%;
   display: flex;
+  justify-content: start;
   gap: 16px;
   border-bottom: 1px solid $color-background-secondary;
 }

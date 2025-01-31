@@ -12,7 +12,7 @@ type TextWrap = 'wrap' | 'nowrap' | 'pretty' | 'balance'
 
 type TextWeight = 'regular' | 'medium' | 'bold'
 
-type TextSize = 'xs' | 's' | 'm' | 'l'
+type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 type TextTransform = 'none' | 'uppercase' | 'capitalize' | 'lowercase'
 

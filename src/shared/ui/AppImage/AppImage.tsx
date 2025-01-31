@@ -52,13 +52,13 @@ export const AppImage = memo((props: AppImageProps) => {
         />
       )}
 
-      <picture className={classNames('', { [cls.hide]: isError, [cls.transparent]: isLoading }, [])}>
+      <picture className={classNames('', { [cls.hide]: isError, [cls.transparent]: isLoading }, [className])}>
         {sources &&
           sources.map((source, index) => (
             <source key={index} srcSet={source.srcSet} media={source.media} type={source.type} />
           ))}
         <img
-          className={classNames(cls.img, {}, [className])}
+          className={cls.img}
           src={local ? src : `${import.meta.env.VITE_IMAGE_URL}/${src}`}
           alt={alt}
           width={width}

@@ -4,7 +4,7 @@ import { classNames } from '@shared/lib/classNames'
 
 import cls from './Button.module.scss'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'clear'
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'clear' | 'danger' | 'ghost'
 type ButtonSize = 'normal' | 'icon'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,7 +1,9 @@
 .link {
   display: inline-flex;
+  justify-content: center;
   text-wrap: nowrap;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .clear {
@@ -9,7 +11,7 @@
 
   &:hover,
   &:focus {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
 
@@ -41,25 +43,27 @@
 .outline {
   padding: 15px 80px;
   border: 1px solid $color-background-secondary;
-  border-radius: $radius-l;
+  border-radius: $radius-xl;
   text-transform: capitalize;
 
   &:hover,
   &:focus {
-    opacity: 0.7;
     background-color: $color-background-secondary;
+    border-color: rgba($color: $color-primary, $alpha: 50%);
   }
 }
 
 .primary {
-  padding: 15px 30px;
+  padding: 14px 28px;
   color: $color-text-inverted;
   text-align: center;
   background-color: $color-primary;
-  border-radius: $radius-l;
+  border-radius: $radius-xl;
+  border: 1px solid $color-primary;
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    color: $color-text;
+    background-color: $color-background-secondary;
   }
 }

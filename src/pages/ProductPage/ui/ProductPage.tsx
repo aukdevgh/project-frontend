@@ -1,6 +1,9 @@
 import { FC, useMemo } from 'react'
 import { useParams } from 'react-router'
 
+import { useGetIsAuth } from '@features/Auth'
+import { useCartSync } from '@features/Cart'
+
 import { ProductBigCard, useGetProductById } from '@entities/Product'
 import { ProductReviews } from '@entities/Review'
 
@@ -12,8 +15,10 @@ import cls from './ProductPage.module.scss'
 import { ProductPageSkeleton } from './ProductPageSkeleton'
 
 const ProductPage: FC = () => {
+  const isAuth = useGetIsAuth()
   const { productId } = useParams()
   const { data: product, isFetching } = useGetProductById(productId)
+  const { addToCart } = useCartSync(isAuth)
 
   const productDetailsTab = useMemo(
     () => ({
@@ -50,7 +55,7 @@ const ProductPage: FC = () => {
 
   return (
     <Container>
-      <ProductBigCard className={cls.product} product={product} />
+      <ProductBigCard className={cls.product} product={product} addToCart={addToCart} />
       <Tabs tabs={tabs} />
     </Container>
   )

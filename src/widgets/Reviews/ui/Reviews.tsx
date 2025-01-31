@@ -41,10 +41,10 @@ export const Reviews: FC<ReaviewsProps> = ({ className }) => {
           OUR HAPPY CUSTOMERS
         </Headling>
         <div className="swiper-buttons">
-          <Button className="button-prev" variant="clear" size="icon" aria-label="prev">
+          <Button className="button-prev" variant="ghost" size="icon" aria-label="prev">
             <Icon type="ArrowLeft" width={24} height={24} />
           </Button>
-          <Button className="button-next" variant="clear" size="icon" aria-label="next">
+          <Button className="button-next" variant="ghost" size="icon" aria-label="next">
             <Icon className="arrow-right" type="ArrowLeft" width={24} height={24} />
           </Button>
         </div>

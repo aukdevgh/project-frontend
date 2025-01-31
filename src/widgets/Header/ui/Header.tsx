@@ -23,7 +23,7 @@ export const Header: FC = () => {
           </Button>
 
           <AppLink className={cls.logo} to={getRouteMain()} variant="clear" aria-label="shop.co">
-            <Icon type="Logo" width={'auto'} height={22} />
+            <Icon type="Logo" width={'100%'} height={22} />
           </AppLink>
 
           <Navbar className={cls.navbar} />

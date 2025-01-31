@@ -53,6 +53,20 @@ export const outline: Story = {
     children: 'outline',
   },
 }
+export const danger: Story = {
+  globals: {},
+  args: {
+    variant: 'danger',
+    children: 'danger',
+  },
+}
+export const ghost: Story = {
+  globals: {},
+  args: {
+    variant: 'ghost',
+    children: 'ghost',
+  },
+}
 
 export const icon_size_secondary: Story = {
   globals: {},

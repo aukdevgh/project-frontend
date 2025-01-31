@@ -18,10 +18,10 @@ export const ProductPrice: FC<ProductPriceProps> = ({ className, price, discount
     <div className={classNames(cls['price-wrapper'], {}, [className, cls[size]])}>
       {discountPercentage ? (
         <>
-          <Text className={cls.price} size="l" weight="bold">
+          <Text className={cls.price} size="xl" weight="bold">
             {toUSD(getDiscountPrice(price, discountPercentage))}
           </Text>
-          <Text className={cls.price} size="l" weight="bold" decoration="line-through" deprecated={true}>
+          <Text className={cls.price} size="xl" weight="bold" decoration="line-through" deprecated={true}>
             {toUSD(price)}
           </Text>
           <Text className={cls.discount} size="xs" weight="medium">
@@ -29,7 +29,7 @@ export const ProductPrice: FC<ProductPriceProps> = ({ className, price, discount
           </Text>
         </>
       ) : (
-        <Text className={cls.price} size="l" weight="bold">
+        <Text className={cls.price} size="xl" weight="bold">
           {price && toUSD(price)}
         </Text>
       )}

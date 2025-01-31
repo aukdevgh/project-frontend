@@ -7,12 +7,19 @@ import { Button } from '../Button/Button'
 
 interface SizeListProps {
   className?: string
-  selectedSizes: string[]
+  selectedSize?: string
+  selectedSizes?: string[]
   sizes?: string[]
   handleSizeClick: (e: MouseEvent<HTMLUListElement>) => void
 }
 
-export const SizeList: FC<SizeListProps> = ({ className, sizes = [], selectedSizes, handleSizeClick }) => {
+export const SizeList: FC<SizeListProps> = ({
+  className,
+  sizes = [],
+  selectedSize,
+  selectedSizes,
+  handleSizeClick,
+}) => {
   return (
     <ul className={classNames(cls.sizes, {}, [className])} onClick={handleSizeClick}>
       {sizes.map((size) => (
@@ -20,8 +27,8 @@ export const SizeList: FC<SizeListProps> = ({ className, sizes = [], selectedSiz
           <Button
             className={cls.btn}
             variant="outline"
-            isActive={selectedSizes.includes(size)}
-            aria-selected={selectedSizes.includes(size)}
+            isActive={selectedSize ? selectedSize === size : selectedSizes?.includes(size)}
+            aria-selected={selectedSize ? selectedSize === size : selectedSizes?.includes(size)}
             aria-label={`Select size ${size}`}
           >
             {size}

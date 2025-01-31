@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { authReducer } from '@features/Auth'
+import { cartReducer } from '@features/Cart'
 import { filtersReducer } from '@features/Filters'
 import { sortOrderReducer } from '@features/SortOrder'
 
@@ -15,6 +16,7 @@ export function makeStore() {
     sortOrder: sortOrderReducer,
     reviews: reviewsReducer,
     auth: authReducer,
+    cart: cartReducer,
   })
 
   const store = configureStore({

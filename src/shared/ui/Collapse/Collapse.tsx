@@ -19,7 +19,7 @@ export const Collapse: FC<CollapseProps> = ({ className, title, children }) => {
   }
   return (
     <div className={classNames(cls['collapse-wrapper'], {}, [className])}>
-      <Button className={cls.header} onClick={toggleCollapse} variant="clear" size="icon">
+      <Button className={cls.header} onClick={toggleCollapse} variant="clear">
         <Headling transform="capitalize">{title}</Headling>
         <Icon className={classNames('', { [cls.collapsed]: !isCollapsed })} type="ArrowDown" />
       </Button>

@@ -25,15 +25,17 @@ $font-size-title-small: clamp(24px, 0.7241rem + 3.183vw, 36px); // Малень�
 $font-size-heading: clamp(26px, 1.2371rem + 1.5915vw, 32px); // Заголовки разделов
 $font-size-subheading: clamp(16px, 0.7414rem + 1.061vw, 20px); // Подзаголовки
 $font-size-body-large: clamp(20px, 0.9914rem + 1.061vw, 24px); // Крупный текст
+$font-size-body-medium: clamp(16px, 0.7421rem + 1.0582vw, 20px); // Средний текст
 $font-size-body: clamp(14px, 0.7457rem + 0.5305vw, 16px); // Основной текст
 $font-size-caption: clamp(12px, 0.6207rem + 0.5305vw, 14px); // Подписи, вспомогательный текст
 $font-size-small: clamp(10px, 0.496rem + 0.5291vw, 12px); // small text
 
 // Радиус
-$radius-xs: 14px;
-$radius-s: 20px;
-$radius-m: 40px;
-$radius-l: 62px;
+$radius-xs: 8px;
+$radius-s: 14px;
+$radius-m: 20px;
+$radius-l: 40px;
+$radius-xl: 62px;
 
 // z-index
 $zindex-modal: 1000;
