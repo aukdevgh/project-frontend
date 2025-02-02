@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 
 import react from '@vitejs/plugin-react'
+import sitemap from 'vite-plugin-sitemap'
 import svgr from 'vite-plugin-svgr'
 import { defineConfig } from 'vitest/config'
 
@@ -13,6 +14,21 @@ export default defineConfig({
     react(),
     svgr({
       include: '**/*.svg',
+    }),
+    sitemap({
+      hostname: 'http://localhost:4173',
+      readable: true,
+      dynamicRoutes: [
+        '/',
+        '/cart',
+        '/checkout',
+        '/auth',
+        '/profile',
+        '/:catalog',
+        '/:catalog/:category',
+        '/:catalog/:category/:subcategory',
+        '/:catalog/:category/:subcategory/:productId',
+      ],
     }),
   ],
 

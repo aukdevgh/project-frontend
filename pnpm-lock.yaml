@@ -35,6 +35,9 @@ importers:
       swiper:
         specifier: ^11.2.0
         version: 11.2.0
+      vite-plugin-sitemap:
+        specifier: ^0.7.1
+        version: 0.7.1
       zod:
         specifier: ^3.24.1
         version: 3.24.1
@@ -3585,6 +3588,9 @@ packages:
     resolution: {integrity: sha512-uPAwSr57kYjAUux+8E2j0q0Fxpn8M9VoyfGiRI8Kfktz9NcYMCenwY5RnZxnF1WTu3TGiYipirIzacLL3VVGFg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
+
+  vite-plugin-sitemap@0.7.1:
+    resolution: {integrity: sha512-4NRTkiWytLuAmcikckrLcLl9iYA20+5v6l8XshcOrzxH1WR8H0O3S6sTQYfjMrE8su/LG6Y0cTodvOdcOIxaLw==}
 
   vite-plugin-svgr@4.3.0:
     resolution: {integrity: sha512-Jy9qLB2/PyWklpYy0xk0UU3TlU0t2UMpJXZvf+hWII1lAmRHrOUKi11Uw8N3rxoNk7atZNYO3pR3vI1f7oi+6w==}
@@ -7413,6 +7419,8 @@ snapshots:
       - sugarss
       - supports-color
       - terser
+
+  vite-plugin-sitemap@0.7.1: {}
 
   vite-plugin-svgr@4.3.0(rollup@4.28.1)(typescript@5.6.3)(vite@5.4.11(@types/node@22.10.2)(sass-embedded@1.83.0)(sass@1.83.0)):
     dependencies:
