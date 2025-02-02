@@ -1,3 +1,5 @@
+/// <reference path="./src/shared/types/vite-env.d.ts" />
+
 import { resolve } from 'path'
 
 import react from '@vitejs/plugin-react'
@@ -16,7 +18,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
     sitemap({
-      hostname: 'http://localhost:4173',
+      hostname: import.meta.env.VITE_HOST_NAME,
       readable: true,
       dynamicRoutes: [
         '/',
