@@ -18,7 +18,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
     sitemap({
-      hostname: import.meta.env.VITE_HOST_NAME,
+      hostname: 'my-project-shop.co',
       readable: true,
       dynamicRoutes: [
         '/',
