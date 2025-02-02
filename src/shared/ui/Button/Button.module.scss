@@ -1,4 +1,8 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   font-family: $font-primary;
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
@@ -115,4 +119,29 @@
 .disabled {
   pointer-events: none;
   opacity: 0.6;
+}
+
+.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.loader {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  border: 3px solid $color-text-inverted;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

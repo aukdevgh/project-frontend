@@ -1,7 +1,34 @@
-.center {
-  @include center(flex);
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
 
-  height: 500px;
-  margin: 30px;
-  border: 1px solid $color-primary;
+.order-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 30px;
+
+  &:last-child {
+    .line {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 20px;
+  }
 }

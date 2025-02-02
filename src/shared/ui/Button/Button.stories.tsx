@@ -29,6 +29,14 @@ export const primary_disabled: Story = {
   },
 }
 
+export const primary_loading: Story = {
+  globals: {},
+  args: {
+    children: 'primary',
+    loading: true,
+  },
+}
+
 export const secondary: Story = {
   globals: {},
   args: {

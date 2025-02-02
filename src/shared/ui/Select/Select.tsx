@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
+import { FC, SelectHTMLAttributes, useCallback, useEffect, useRef, useState } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
 import { Option } from '@shared/types/select'
@@ -6,7 +6,7 @@ import { Button, Icon } from '@shared/ui'
 
 import cls from './Select.module.scss'
 
-type SelectProps = {
+interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
   className?: string
   options: Option[]
   value: string

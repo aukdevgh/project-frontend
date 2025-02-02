@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 import {
   useAddToCartMutation,
@@ -13,9 +13,6 @@ import { useCartActions } from '../model/slice/cartSlice'
 import { type CartItem } from '../model/types/cartSchema'
 
 export const useCartSync = (isAuth: boolean) => {
-  // Мемоизация isAuth
-  const isAuthMemo = useMemo(() => isAuth, [isAuth])
-
   // Store cart
   const { setCart, addItem, updateItem, removeItem } = useCartActions()
   const cartItems = useGetCartItems()
@@ -28,36 +25,36 @@ export const useCartSync = (isAuth: boolean) => {
 
   // Загрузка корзины из localStorage при неавторизованном состоянии
   useEffect(() => {
-    if (!isAuthMemo) {
+    if (!isAuth) {
       setCart(getLocalStorageCart())
     }
-  }, [isAuthMemo, setCart])
+  }, [isAuth, setCart])
 
   // Запрос корзины с сервера при авторизации
   useEffect(() => {
-    if (isAuthMemo && !isFetching && serverCart === undefined) {
+    if (isAuth && !isFetching && serverCart === undefined) {
       getServerCartItems()
     }
-  }, [isAuthMemo, serverCart, isFetching, getServerCartItems])
+  }, [isAuth, serverCart, isFetching, getServerCartItems])
 
   // Обновление store после загрузки корзины с сервера
   useEffect(() => {
-    if (isAuthMemo && serverCart) {
+    if (isAuth && serverCart) {
       setCart(serverCart)
     }
-  }, [isAuthMemo, serverCart, setCart])
+  }, [isAuth, serverCart, setCart])
 
   // Сохранение корзины в localStorage при изменениях (если не авторизован)
   useEffect(() => {
-    if (!isAuthMemo) {
+    if (!isAuth) {
       setItemsToLocalStorageCart(cartItems)
     }
-  }, [isAuthMemo, cartItems])
+  }, [isAuth, cartItems])
 
   const addToCart = async (item: CartItem) => {
     addItem(item) // Оптимистичное обновление
 
-    if (isAuthMemo) {
+    if (isAuth) {
       try {
         await addToCartMutation({
           id: item.id,
@@ -66,7 +63,6 @@ export const useCartSync = (isAuth: boolean) => {
           quantity: item.quantity,
         }).unwrap()
       } catch {
-        console.log('Откат add', item)
         removeItem(item) // Откат при ошибке
       }
 
@@ -79,7 +75,7 @@ export const useCartSync = (isAuth: boolean) => {
 
     updateItem(item) // Оптимистичное обновление
 
-    if (isAuthMemo) {
+    if (isAuth) {
       try {
         await updateCartItemMutation({
           id: item.id,
@@ -88,7 +84,6 @@ export const useCartSync = (isAuth: boolean) => {
           quantity: item.quantity,
         }).unwrap()
       } catch {
-        console.log('Откат update', item)
         if (previousItem) updateItem(previousItem) // Откат при ошибке
       }
 
@@ -98,7 +93,7 @@ export const useCartSync = (isAuth: boolean) => {
   const removeFromCart = async (item: CartItem) => {
     removeItem(item) // Оптимистичное обновление
 
-    if (isAuthMemo) {
+    if (isAuth) {
       try {
         await removeFromCartMutation({
           id: item.id,
@@ -106,7 +101,6 @@ export const useCartSync = (isAuth: boolean) => {
           size: item.size,
         }).unwrap()
       } catch {
-        console.log('Откат remove', item)
         addItem(item) // Откат при ошибке
       }
 

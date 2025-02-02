@@ -1,4 +1,6 @@
+import { ReactNode } from 'react'
+
 export interface Option {
-  label: string
+  label: ReactNode
   value: string
 }

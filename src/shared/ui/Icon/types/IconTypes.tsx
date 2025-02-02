@@ -1,3 +1,4 @@
+import ApplePayIcon from '@shared/assets/icon/applePay.svg'
 import ArrowDownIcon from '@shared/assets/icon/arrow-down.svg'
 import ArrowLeftIcon from '@shared/assets/icon/arrow-left.svg'
 import ArrowRightIcon from '@shared/assets/icon/arrow-right.svg'
@@ -12,11 +13,14 @@ import EmailIcon from '@shared/assets/icon/email.svg'
 import FacebookIcon from '@shared/assets/icon/facebook.svg'
 import FilterIcon from '@shared/assets/icon/filter.svg'
 import GithubIcon from '@shared/assets/icon/github.svg'
+import GooglePayIcon from '@shared/assets/icon/googlePay.svg'
 import GucciIcon from '@shared/assets/icon/gucci.svg'
 import HalfStarIcon from '@shared/assets/icon/half-star.svg'
 import HomeIcon from '@shared/assets/icon/home.svg'
 import InstagramIcon from '@shared/assets/icon/instagram.svg'
+import MasterCardIcon from '@shared/assets/icon/Mastercard.svg'
 import MinusIcon from '@shared/assets/icon/minus.svg'
+import PayPalIcon from '@shared/assets/icon/Paypal.svg'
 import PlusIcon from '@shared/assets/icon/plus.svg'
 import PradaIcon from '@shared/assets/icon/prada.svg'
 import ProfileIcon from '@shared/assets/icon/profile.svg'
@@ -26,6 +30,7 @@ import SearchIcon from '@shared/assets/icon/search.svg'
 import LogoIcon from '@shared/assets/icon/SHOP.CO.svg'
 import StarIcon from '@shared/assets/icon/star.svg'
 import VersaceIcon from '@shared/assets/icon/versace.svg'
+import VisaIcon from '@shared/assets/icon/Visa.svg'
 import XCOMIcon from '@shared/assets/icon/x.com.svg'
 import ZaraIcon from '@shared/assets/icon/zara.svg'
 
@@ -60,6 +65,11 @@ export type IconType =
   | 'Home'
   | 'Delete'
   | 'PromoCode'
+  | 'ApplePay'
+  | 'GooglePay'
+  | 'MasterCard'
+  | 'PayPal'
+  | 'Visa'
 
 export const iconTypes = new Map([
   ['ArrowDown', ArrowDownIcon],
@@ -92,4 +102,9 @@ export const iconTypes = new Map([
   ['Home', HomeIcon],
   ['Delete', DeleteIcon],
   ['PromoCode', PromoCodeIcon],
+  ['ApplePay', ApplePayIcon],
+  ['GooglePay', GooglePayIcon],
+  ['MasterCard', MasterCardIcon],
+  ['PayPal', PayPalIcon],
+  ['Visa', VisaIcon],
 ])

@@ -15,23 +15,28 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   isActive?: boolean
   disabled?: boolean
+  loading?: boolean
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, isActive, disabled, variant = 'primary', size = 'normal', type, ...otherProps }, ref) => {
+  (
+    { className, children, isActive, disabled, loading, variant = 'primary', size = 'normal', type, ...otherProps },
+    ref
+  ) => {
     return (
       <button
         ref={ref}
-        className={classNames(cls.button, { [cls.active]: isActive, [cls.disabled]: disabled }, [
-          className,
-          cls[variant],
-          cls[size],
-        ])}
+        className={classNames(
+          cls.button,
+          { [cls.active]: isActive, [cls.disabled]: disabled, [cls.loading]: loading },
+          [className, cls[variant], cls[size]]
+        )}
         disabled={disabled}
         type={type}
         {...otherProps}
       >
         {children}
+        {loading && <span className={cls.loader}></span>}
       </button>
     )
   }

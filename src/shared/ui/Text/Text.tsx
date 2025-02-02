@@ -31,6 +31,7 @@ interface TextProps {
   dataTestId?: string
   htmlFor?: string
   deprecated?: boolean
+  error?: boolean
 }
 
 export const Text = memo(
@@ -47,12 +48,13 @@ export const Text = memo(
     dataTestId = 'ui_text',
     htmlFor,
     deprecated = false,
+    error = false,
     ...otherProps
   }: TextProps) => {
     const additionalClass = [className, cls[align], cls[wrap], cls[weight], cls[size], cls[transform], cls[decoration]]
 
     const props = {
-      className: classNames('', { [cls.deprecated]: deprecated }, additionalClass),
+      className: classNames('', { [cls.deprecated]: deprecated, [cls.error]: error }, additionalClass),
       'data-testid': dataTestId,
       ...(as === 'label' && htmlFor && { htmlFor }),
       ...otherProps,

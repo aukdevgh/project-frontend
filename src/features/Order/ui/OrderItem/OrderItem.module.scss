@@ -1,0 +1,15 @@
+.order-item {
+  display: flex;
+  gap: 14px;
+}
+
+.img {
+  border-radius: $radius-xs;
+  overflow: hidden;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

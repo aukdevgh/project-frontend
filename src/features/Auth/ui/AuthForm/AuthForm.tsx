@@ -67,25 +67,48 @@ export const AuthForm: FC<AuthFormProps> = ({ className }) => {
           {isRegister && (
             <div className={cls.field}>
               <Input placeholder="Name" {...register('name')} />
-              {errors && <Text>{errors.root?.message}</Text>}
+              {errors && (
+                <Text as="p" error>
+                  {errors.name?.message}
+                </Text>
+              )}
             </div>
           )}
           <div className={cls.field}>
-            <Input placeholder="Email" {...register('email')} />
-            {errors.email && <Text>{errors.email.message}</Text>}
+            <Input placeholder="Email" {...register('email')} autoComplete="username" />
+            {errors.email && (
+              <Text as="p" error>
+                {errors.email.message}
+              </Text>
+            )}
           </div>
           <div className={cls.field}>
-            <Input type="password" placeholder="Password" {...register('password')} />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+            <Input type="password" placeholder="Password" {...register('password')} autoComplete="current-password" />
+            {errors.password && (
+              <Text as="p" error>
+                {errors.password.message}
+              </Text>
+            )}
           </div>
-          <Button type="submit" disabled={isRegisterLoading || isLoginLoading}>
+          <Button
+            type="submit"
+            disabled={isRegisterLoading || isLoginLoading}
+            loading={isRegisterLoading || isLoginLoading}
+          >
             {isRegister ? 'Sign Up' : 'Sign In'}
-            {(isRegisterLoading || isLoginLoading) && '...'}
           </Button>
         </form>
 
-        {loginError && <Text className="text-red-500">Login failed: {loginError.toString()}</Text>}
-        {registerError && <Text className="text-red-500">Register failed: {registerError.toString()}</Text>}
+        {loginError && (
+          <Text as="p" error>
+            Login failed: {loginError.toString()}
+          </Text>
+        )}
+        {registerError && (
+          <Text as="p" error>
+            Register failed: {registerError.toString()}
+          </Text>
+        )}
 
         <Button variant="secondary" onClick={() => setIsRegister(!isRegister)}>
           {isRegister ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}

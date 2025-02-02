@@ -1,7 +1,9 @@
 import { FC, useState } from 'react'
 
+import { classNames } from '@shared/lib/classNames'
 import { Button, Text } from '@shared/ui'
 
+import cls from './LogoutButton.module.scss'
 import { useLazyLogoutQuery } from '../../hooks'
 import { useAuthActions } from '../../model/slice/authSlice'
 
@@ -25,12 +27,20 @@ export const LogoutButton: FC<LogoutButtonProps> = ({ className }) => {
   }
 
   return (
-    <div className={className}>
+    <div className={classNames(cls['logout-wrapper'], {}, [className])}>
       <Button onClick={handleLogout} disabled={isFetching}>
         {isFetching ? 'Logging out...' : 'Logout'}
       </Button>
-      {logoutError && <Text className="text-red-500">{logoutError}</Text>}
-      {error && <Text className="text-red-500">Server error: {error.toString()}</Text>}
+      {logoutError && (
+        <Text as="p" error>
+          {logoutError}
+        </Text>
+      )}
+      {error && (
+        <Text as="p" error>
+          Server error: {error.toString()}
+        </Text>
+      )}
     </div>
   )
 }
