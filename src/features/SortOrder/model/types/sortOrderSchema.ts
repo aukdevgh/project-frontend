@@ -1,6 +1,6 @@
-import { Order, SortBy } from '@entities/Product'
+import { SortOrder, SortBy } from '@entities/Product'
 
 export interface sortOrderSchema {
   sortBy?: SortBy
-  order?: Order
+  order?: SortOrder
 }

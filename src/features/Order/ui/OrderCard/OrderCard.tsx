@@ -4,7 +4,7 @@ import { classNames } from '@shared/lib/classNames'
 import { Card, Headling, Text } from '@shared/ui'
 
 import cls from './OrderCard.module.scss'
-import { Order } from '../../types'
+import { type Order } from '../../types'
 import { OrderItem } from '../OrderItem/OrderItem'
 
 interface OrderCardProps {

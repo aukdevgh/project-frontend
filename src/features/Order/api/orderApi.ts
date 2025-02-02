@@ -1,6 +1,6 @@
 import { baseApi } from '@shared/api'
 
-import { Order } from '../types'
+import { type Order } from '../types'
 
 const orderApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

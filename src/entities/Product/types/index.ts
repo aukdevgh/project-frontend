@@ -1,5 +1,5 @@
 export type SortBy = 'new' | 'sale' | 'popular' | 'price' | 'rating'
-export type Order = 'desc' | 'asc'
+export type SortOrder = 'desc' | 'asc'
 
 export interface Product {
   id: string
@@ -37,7 +37,7 @@ export interface ProductsQueryArgs {
   category?: string
   sortBy?: SortBy
   filterByBrand?: string
-  order?: Order
+  order?: SortOrder
   minPrice?: number
   maxPrice?: number
   limit?: number
