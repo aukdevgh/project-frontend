@@ -1,11 +1,10 @@
 .order-item {
   display: flex;
   gap: 14px;
-}
 
-.img {
-  border-radius: $radius-xs;
-  overflow: hidden;
+  @media screen and (max-width: $breakpoint-mobile-mini) {
+    flex-direction: column;
+  }
 }
 
 .info {

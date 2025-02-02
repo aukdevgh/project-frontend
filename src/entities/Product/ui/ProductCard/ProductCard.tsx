@@ -23,7 +23,7 @@ export const ProductCard: FC<ProductCardProps> = ({ className, product }) => {
       to={`${generateCategoryPath(product.category, catalog)}/${product.id}`}
       variant="clear"
     >
-      <AppImage className={cls.image} src={product.thumbnail} width={295} height={298} />
+      <AppImage className={cls.image} src={product.thumbnail} width={295} height={298} radius="m" />
       <div className={cls.text}>
         <Headling className={cls.title} as="h2" transform="capitalize" wrap="nowrap">
           {product.name}

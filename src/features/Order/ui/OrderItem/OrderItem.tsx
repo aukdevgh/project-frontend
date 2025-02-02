@@ -17,7 +17,7 @@ interface OrderItemProps {
 export const OrderItem: FC<OrderItemProps> = ({ className, item }) => {
   return (
     <Card className={classNames(cls['order-item'], {}, [className])}>
-      <AppImage className={cls.img} src={item.image} alt={item.name} width={100} height={160} />
+      <AppImage src={item.image} alt={item.name} width={120} height={160} radius="xs" />
 
       <div className={cls.info}>
         <Headling as="h3" transform="capitalize">

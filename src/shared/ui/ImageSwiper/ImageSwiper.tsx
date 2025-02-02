@@ -33,7 +33,7 @@ export const ImageSwiper: FC<ImageSwiperProps> = ({ images = [] }) => {
       >
         {images.map((img) => (
           <SwiperSlide key={`${img}-thumb`}>
-            <AppImage src={img} alt={img} width={152} height={168} />
+            <AppImage src={img} alt={img} width={152} height={168} radius="m" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -48,7 +48,7 @@ export const ImageSwiper: FC<ImageSwiperProps> = ({ images = [] }) => {
       >
         {images.map((img) => (
           <SwiperSlide key={img}>
-            <AppImage src={img} alt={img} width={444} height={530} />
+            <AppImage src={img} alt={img} width={444} height={530} radius="m" />
           </SwiperSlide>
         ))}
       </Swiper>

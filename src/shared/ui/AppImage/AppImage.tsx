@@ -5,7 +5,9 @@ import { ImageSkeleton } from '@shared/ui'
 
 import cls from './AppImage.module.scss'
 
-type SourceProps = {
+type Radius = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
+
+interface SourceProps {
   srcSet: string
   media?: string // "(max-width: 768px)"
   type?: string // "image/webp"
@@ -13,6 +15,7 @@ type SourceProps = {
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string
   sources?: SourceProps[]
+  radius?: Radius
   local?: boolean
 }
 
@@ -25,6 +28,7 @@ export const AppImage = memo((props: AppImageProps) => {
     width,
     height,
     loading = 'lazy',
+    radius = 'none',
     local,
     ...otherProps
   } = props
@@ -32,10 +36,10 @@ export const AppImage = memo((props: AppImageProps) => {
   const [isError, setIsError] = useState(false)
 
   return (
-    <div className={cls.wrapper}>
+    <div className={classNames(cls.wrapper, {}, [className, cls[radius]])}>
       {isLoading && (
         <ImageSkeleton
-          className={classNames(cls.img, { [cls.active]: isLoading }, [className])}
+          className={classNames(cls.img, { [cls.active]: isLoading }, [])}
           alt={alt}
           width={width}
           height={height}
@@ -44,7 +48,7 @@ export const AppImage = memo((props: AppImageProps) => {
 
       {isError && (
         <img
-          className={classNames(cls.img, { [cls.active]: isError }, [className])}
+          className={classNames(cls.img, { [cls.active]: isError }, [])}
           src="/img/image-fallback.webp"
           alt={alt}
           width={width}
@@ -52,7 +56,7 @@ export const AppImage = memo((props: AppImageProps) => {
         />
       )}
 
-      <picture className={classNames('', { [cls.hide]: isError, [cls.transparent]: isLoading }, [className])}>
+      <picture className={classNames('', { [cls.hide]: isError, [cls.transparent]: isLoading }, [])}>
         {sources &&
           sources.map((source, index) => (
             <source key={index} srcSet={source.srcSet} media={source.media} type={source.type} />

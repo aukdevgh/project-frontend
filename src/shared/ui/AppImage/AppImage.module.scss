@@ -1,6 +1,9 @@
 .wrapper {
   position: relative;
+  width: fit-content;
   display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .active {
@@ -19,4 +22,24 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+}
+
+.xs {
+  border-radius: $radius-xs;
+}
+
+.s {
+  border-radius: $radius-s;
+}
+
+.m {
+  border-radius: $radius-m;
+}
+
+.l {
+  border-radius: $radius-l;
+}
+
+.xl {
+  border-radius: $radius-xl;
 }

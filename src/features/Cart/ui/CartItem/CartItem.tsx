@@ -19,7 +19,7 @@ interface CartItemProps {
 export const CartItem: FC<CartItemProps> = ({ className, item, decreaseQuantity, increaseQuantity, removeItem }) => {
   return (
     <div className={classNames(cls['cart-item'], {}, [className])}>
-      <AppImage className={cls.img} src={item.image} alt={item.name} width={124} height={124} />
+      <AppImage src={item.image} alt={item.name} width={124} height={124} radius="s" />
       <div className={cls.inner}>
         <div className={cls.info}>
           <Headling as="h3" transform="capitalize">
