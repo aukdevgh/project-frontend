@@ -18,7 +18,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
     sitemap({
-      hostname: 'https://default.com',
+      hostname: 'https://my-project-shopco.vercel.app/',
       readable: true,
       dynamicRoutes: [
         '/',
