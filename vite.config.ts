@@ -18,7 +18,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
     sitemap({
-      hostname: 'my-project-shop.co',
+      hostname: 'https://default.com',
       readable: true,
       dynamicRoutes: [
         '/',
