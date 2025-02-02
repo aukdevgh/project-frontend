@@ -7,7 +7,7 @@ import cls from './ProductCard.module.scss'
 export const ProductCardSkeleton: FC = () => {
   return (
     <div className={cls.card}>
-      <ImageSkeleton className={cls.image} height={298} width={295} />
+      <ImageSkeleton className={cls.image} height={298} width={295} radius="m" />
       <div className={cls.text}>
         <Skeleton height={24} width={'80%'} />
         <div className={cls.rating}>

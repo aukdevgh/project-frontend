@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import { useParams } from 'react-router'
 
 import { classNames } from '@shared/lib/classNames'
 import { Pagination } from '@shared/ui'
@@ -25,18 +26,26 @@ export const ProductList: FC<ProductListProps> = ({
   colors,
   sizes,
 }) => {
-  const [page, setPage] = useState(1)
+  const { catalog } = useParams()
   const isMobile = useMediaQuery({ maxWidth: 768 })
-  const limit = isMobile ? 6 : 9
-  const [getProducts, { data, isFetching }] = useLazyGetProductsQuery()
+  const limit = useMemo(() => (isMobile ? 6 : 9), [isMobile])
 
-  const handlePageChange = useCallback((page: number) => {
-    setPage(page)
-  }, [])
+  const [getProducts, { data, isFetching }] = useLazyGetProductsQuery()
+  const [page, setPage] = useState(1)
+
+  const handlePageChange = useCallback(
+    (newPage: number) => {
+      if (newPage !== page) {
+        setPage(newPage)
+        window.scrollTo(0, 0)
+      }
+    },
+    [page]
+  )
 
   const skeletons = useMemo(
     () =>
-      Array.from({ length: limit }).map((_, index) => (
+      Array.from({ length: limit }, (_, index) => (
         <li key={index}>
           <ProductCardSkeleton />
         </li>
@@ -45,23 +54,23 @@ export const ProductList: FC<ProductListProps> = ({
   )
 
   useEffect(() => {
-    if (sortBy) {
-      setPage(1)
-      getProducts({
-        category,
-        limit,
-        page,
-        sortBy,
-        filterByBrand,
-        order,
-        minPrice,
-        maxPrice,
-        colors,
-        sizes,
-      })
-      window.scrollTo(0, 0)
-    }
-  }, [category, limit, page, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes, getProducts])
+    setPage(1)
+  }, [category, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes, catalog])
+
+  useEffect(() => {
+    getProducts({
+      category,
+      limit,
+      page,
+      sortBy,
+      filterByBrand,
+      order,
+      minPrice,
+      maxPrice,
+      colors,
+      sizes,
+    })
+  }, [page, category, limit, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes])
 
   return (
     <>
