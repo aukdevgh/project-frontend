@@ -10,11 +10,10 @@ import { CartItem } from '../CartItem/CartItem'
 
 interface CartListProps {
   items: CartItemType[]
-  isAuth: boolean
 }
 
-export const CartList: FC<CartListProps> = ({ isAuth, items }) => {
-  const { updateCart, removeFromCart } = useCartSync(isAuth)
+export const CartList: FC<CartListProps> = ({ items }) => {
+  const { updateCart, removeFromCart } = useCartSync()
 
   const increaseQuantity = (item: CartItemType) => {
     const updatedItem = { ...item, quantity: item.quantity + 1 }

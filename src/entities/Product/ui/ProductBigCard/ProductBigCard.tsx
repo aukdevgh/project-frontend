@@ -54,7 +54,6 @@ export const ProductBigCard: FC<ProductBigCardProps> = ({ className, product, ad
       size: selectedSize,
       quantity,
     }
-    console.log(item)
     addToCart(item)
   }
 

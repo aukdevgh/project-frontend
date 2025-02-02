@@ -39,7 +39,7 @@ export const AppImage = memo((props: AppImageProps) => {
     <div className={classNames(cls.wrapper, {}, [className, cls[radius]])}>
       {isLoading && (
         <ImageSkeleton
-          className={classNames(cls.img, { [cls.active]: isLoading }, [])}
+          className={classNames(cls.img, { [cls.active]: isLoading }, [cls[radius]])}
           alt={alt}
           width={width}
           height={height}

@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import { useGetIsAuth } from '@features/Auth'
+
 import {
   useAddToCartMutation,
   useUpdateCartItemMutation,
@@ -9,16 +11,19 @@ import {
 import { compareItems } from '../lib/compareItems'
 import { getLocalStorageCart, setItemsToLocalStorageCart } from '../lib/localStorageCart'
 import { useGetCartItems } from '../model/selectors/getCartItems/getCartItems'
+import { useGetHasLoadedServerCart } from '../model/selectors/getHasLoadedServerCart/getHasLoadedServerCart'
 import { useCartActions } from '../model/slice/cartSlice'
 import { type CartItem } from '../model/types/cartSchema'
 
-export const useCartSync = (isAuth: boolean) => {
+export const useCartSync = () => {
+  const isAuth = useGetIsAuth()
   // Store cart
-  const { setCart, addItem, updateItem, removeItem } = useCartActions()
+  const { setCart, setHasLoadedServerCart, addItem, updateItem, removeItem } = useCartActions()
   const cartItems = useGetCartItems()
+  const hasLoadedServerCart = useGetHasLoadedServerCart()
 
   // Server cart
-  const [getServerCartItems, { data: serverCart, isFetching }] = useLazyGetCartQuery()
+  const [getServerCartItems] = useLazyGetCartQuery()
   const [addToCartMutation] = useAddToCartMutation()
   const [updateCartItemMutation] = useUpdateCartItemMutation()
   const [removeFromCartMutation] = useRemoveFromCartMutation()
@@ -32,17 +37,16 @@ export const useCartSync = (isAuth: boolean) => {
 
   // Запрос корзины с сервера при авторизации
   useEffect(() => {
-    if (isAuth && !isFetching && serverCart === undefined) {
+    if (isAuth && !hasLoadedServerCart) {
+      console.log('new is auth', hasLoadedServerCart)
       getServerCartItems()
+        .unwrap()
+        .then((data) => {
+          setCart(data)
+          setHasLoadedServerCart(true)
+        }) // Обновление store после загрузки корзины с сервера
     }
-  }, [isAuth, serverCart, isFetching, getServerCartItems])
-
-  // Обновление store после загрузки корзины с сервера
-  useEffect(() => {
-    if (isAuth && serverCart) {
-      setCart(serverCart)
-    }
-  }, [isAuth, serverCart, setCart])
+  }, [isAuth])
 
   // Сохранение корзины в localStorage при изменениях (если не авторизован)
   useEffect(() => {
@@ -65,8 +69,6 @@ export const useCartSync = (isAuth: boolean) => {
       } catch {
         removeItem(item) // Откат при ошибке
       }
-
-      getServerCartItems()
     }
   }
 
@@ -86,8 +88,6 @@ export const useCartSync = (isAuth: boolean) => {
       } catch {
         if (previousItem) updateItem(previousItem) // Откат при ошибке
       }
-
-      getServerCartItems()
     }
   }
   const removeFromCart = async (item: CartItem) => {
@@ -103,8 +103,6 @@ export const useCartSync = (isAuth: boolean) => {
       } catch {
         addItem(item) // Откат при ошибке
       }
-
-      getServerCartItems()
     }
   }
 

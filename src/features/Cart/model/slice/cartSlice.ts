@@ -7,12 +7,16 @@ import { CartItem, CartSchema } from '../types/cartSchema'
 
 const initialState: CartSchema = {
   items: [],
+  hasLoadedServerCart: false,
 }
 
 const cartSlice = buildSlice({
   name: 'cart',
   initialState,
   reducers: {
+    setHasLoadedServerCart: (state, action: PayloadAction<boolean>) => {
+      state.hasLoadedServerCart = action.payload
+    },
     setCart: (state, action: PayloadAction<CartItem[]>) => {
       state.items = action.payload
     },

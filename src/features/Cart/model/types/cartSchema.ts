@@ -12,6 +12,7 @@ export interface CartItem {
 
 export interface CartSchema {
   items: CartItem[]
+  hasLoadedServerCart: boolean
 }
 
 export interface RequestArgs {
