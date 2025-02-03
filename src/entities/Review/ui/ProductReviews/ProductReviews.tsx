@@ -1,17 +1,16 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
-import { useGetHasLoaded } from '@entities/Review/model/selectors/getHasLoadedReviews/getHasLoadedReviews'
-import { useGetHasMoreReviews } from '@entities/Review/model/selectors/getHasMoreReviews/getHasMoreReviews'
-import { useGetReviews } from '@entities/Review/model/selectors/getReviews/getReviews'
-import { useGetReviewsPage } from '@entities/Review/model/selectors/getReviewsPage/getReviewsPage'
-import { useGetTotalReviews } from '@entities/Review/model/selectors/getTotalReviews/getTotalReviews'
-import { useReviewsActions } from '@entities/Review/model/slice/reviewsSlice'
-
 import { Button, Headling, Text } from '@shared/ui'
 
 import cls from './ProductReviews.module.scss'
 import { useLazyGetReviewsByProductIdQuery } from '../../hooks'
+import { useGetHasLoadedReviews } from '../../model/selectors/getHasLoadedReviews/getHasLoadedReviews'
+import { useGetHasMoreReviews } from '../../model/selectors/getHasMoreReviews/getHasMoreReviews'
+import { useGetReviews } from '../../model/selectors/getReviews/getReviews'
+import { useGetReviewsPage } from '../../model/selectors/getReviewsPage/getReviewsPage'
+import { useGetTotalReviews } from '../../model/selectors/getTotalReviews/getTotalReviews'
+import { useReviewsActions } from '../../model/slice/reviewsSlice'
 import { ReviewCard } from '../ReviewCard/ReviewCard'
 import { ReviewCardSkeleton } from '../ReviewCard/ReviewCardSkeleton'
 
@@ -28,7 +27,7 @@ export const ProductReviews: FC<ProductReviewsProps> = ({ className, productId }
   const totalReviews = useGetTotalReviews()
   const hasMoreReviews = useGetHasMoreReviews()
   const reviewsPage = useGetReviewsPage()
-  const hasLoaded = useGetHasLoaded()
+  const hasLoaded = useGetHasLoadedReviews()
   const { setReviewsData, setReviewsPage } = useReviewsActions()
 
   const [getReviewsById, { data, isFetching, isError }] = useLazyGetReviewsByProductIdQuery()

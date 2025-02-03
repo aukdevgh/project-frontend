@@ -3,6 +3,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from '@features/Auth'
 import { cartReducer } from '@features/Cart'
 import { filtersReducer } from '@features/Filters'
+import { orderReducer } from '@features/Order'
 import { sortOrderReducer } from '@features/SortOrder'
 
 import { reviewsReducer } from '@entities/Review'
@@ -17,6 +18,7 @@ export function makeStore() {
     reviews: reviewsReducer,
     auth: authReducer,
     cart: cartReducer,
+    order: orderReducer,
   })
 
   const store = configureStore({

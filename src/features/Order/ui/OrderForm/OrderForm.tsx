@@ -14,9 +14,10 @@ import { useCreateOrderMutation } from '../../api/orderApi'
 interface OrderProps {
   className?: string
   cartItems: CartItem[]
+  handleSetHasLoadedOrders: (value: boolean) => void
 }
 
-export const OrderForm: FC<OrderProps> = ({ className, cartItems }) => {
+export const OrderForm: FC<OrderProps> = ({ className, cartItems, handleSetHasLoadedOrders }) => {
   const navigate = useNavigate()
   const [createOrder, { isLoading }] = useCreateOrderMutation()
   const payments = useMemo(() => getPayments('big'), [])
@@ -42,9 +43,13 @@ export const OrderForm: FC<OrderProps> = ({ className, cartItems }) => {
       }).unwrap()
 
       alert('Заказ оформлен!')
+
+      handleSetHasLoadedOrders(false)
+
       navigate('/profile')
     } catch (error) {
       console.error(error)
+      handleSetHasLoadedOrders(true)
       alert('Ошибка оформления заказа')
     }
   }

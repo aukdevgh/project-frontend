@@ -10,3 +10,8 @@ export interface Order {
   createdAt: string
   updatedAt: string
 }
+
+export interface OrderSchema {
+  orders: Order[]
+  hasLoaded: boolean
+}

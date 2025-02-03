@@ -57,6 +57,7 @@ export const Intro: FC<IntroProps> = ({ className }) => {
                 { srcSet: '/img/banner.jpg', type: 'image/jpg' },
               ]}
               loading="eager"
+              local={true}
             />
           </div>
         </Container>

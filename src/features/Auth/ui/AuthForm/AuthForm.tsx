@@ -99,14 +99,9 @@ export const AuthForm: FC<AuthFormProps> = ({ className }) => {
           </Button>
         </form>
 
-        {loginError && (
+        {(loginError || registerError) && (
           <Text as="p" error>
-            Login failed: {loginError.toString()}
-          </Text>
-        )}
-        {registerError && (
-          <Text as="p" error>
-            Register failed: {registerError.toString()}
+            Invalid credentials
           </Text>
         )}
 

@@ -33,3 +33,13 @@
     gap: 20px;
   }
 }
+
+.logout {
+  width: max-content;
+  margin-left: auto;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 100%;
+    margin-left: none;
+  }
+}
