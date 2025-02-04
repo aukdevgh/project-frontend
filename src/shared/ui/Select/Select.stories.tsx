@@ -1,6 +1,6 @@
 import { fn } from '@storybook/test'
 
-import { SORT_OPTIONS } from '@features/SortOrder/consts/consts'
+import { SORT_OPTIONS } from '@features/Sort'
 
 import { Select } from './Select'
 
