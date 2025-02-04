@@ -1,0 +1,29 @@
+.orders-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.orders-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 30px;
+
+  &:last-child {
+    .line {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 20px;
+  }
+}

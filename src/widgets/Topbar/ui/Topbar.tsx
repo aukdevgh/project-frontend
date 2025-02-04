@@ -1,9 +1,8 @@
 import { FC, useState } from 'react'
 
-import { PromoBanner } from '@features/PromoBanner'
-
 import { classNames } from '@shared/lib/classNames'
-import { Container, Button, Icon } from '@shared/ui'
+import { getRouteAuth } from '@shared/lib/routes'
+import { Container, Button, Icon, AppLink, Text } from '@shared/ui'
 
 import cls from './Topbar.module.scss'
 
@@ -17,7 +16,12 @@ export const Topbar: FC<TopbarProps> = ({ className }) => {
   return (
     <div className={classNames(cls.topbar, { [cls.hide]: isHide }, [className])}>
       <Container className={cls.content}>
-        <PromoBanner className={cls.banner} />
+        <div className={cls.banner}>
+          <Text>Sign up and get 20% off your first order! </Text>
+          <AppLink className={cls.link} to={getRouteAuth()} variant="clear">
+            Sign Up Now
+          </AppLink>
+        </div>
         <Button
           className={cls.close}
           variant="clear"

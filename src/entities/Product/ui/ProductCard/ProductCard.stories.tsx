@@ -1,5 +1,5 @@
 import { ProductCard } from './ProductCard'
-import { Product } from '../../types'
+import { Product } from '../../types/ProductSchema'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

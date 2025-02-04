@@ -1,3 +1,4 @@
+import { getRouteNew } from '@shared/lib/routes'
 import { AppLink } from '@shared/ui'
 
 import { Showcase } from './Showcase'
@@ -39,7 +40,7 @@ export const mobile: Story = {
 export const with_children: Story = {
   args: {
     children: (
-      <AppLink to="/new" variant="outline">
+      <AppLink to={getRouteNew()} variant="outline">
         see all
       </AppLink>
     ),

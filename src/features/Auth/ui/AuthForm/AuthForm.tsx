@@ -8,7 +8,7 @@ import { classNames } from '@shared/lib/classNames'
 import { Button, Headling, Input, Text } from '@shared/ui'
 
 import cls from './AuthForm.module.scss'
-import { useLoginMutation, useRegisterMutation } from '../../hooks'
+import { useLoginMutation, useRegisterMutation } from '../../api/authApi'
 import { useAuthActions } from '../../model/slice/authSlice'
 import { AuthLoginData, AuthRegisterData } from '../../model/types/authSchema'
 

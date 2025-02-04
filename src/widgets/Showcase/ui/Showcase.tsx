@@ -20,7 +20,7 @@ export const Showcase: FC<ShowcaseProps> = ({ className, title, sortBy, limit, c
   const { data, isFetching } = useGetProductsQuery({
     limit,
     sortBy: sortBy,
-    order: 'desc',
+    sortDirection: 'desc',
   })
 
   return (

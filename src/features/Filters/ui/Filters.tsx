@@ -8,7 +8,7 @@ import { Headling, Icon, Line, Button, Collapse, SizeList, ColorList, RangeSlide
 
 import { CategoryList } from './CategoryList/CategoryList'
 import cls from './Filters.module.scss'
-import { useGetColorsQuery, useGetSizesQuery } from '../hooks'
+import { useGetColorsQuery, useGetSizesQuery } from '../api/filterApi'
 import { useGetMaxPrice } from '../model/selectors/getMaxPrice/getMaxPrice'
 import { useGetMinPrice } from '../model/selectors/getMinPrice/getMinPrice'
 import { useGetSelectedPriceRange } from '../model/selectors/getSelectedPriceRange/getSelectedPriceRange'

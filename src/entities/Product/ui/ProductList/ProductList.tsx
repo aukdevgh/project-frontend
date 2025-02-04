@@ -6,8 +6,8 @@ import { classNames } from '@shared/lib/classNames'
 import { Pagination } from '@shared/ui'
 
 import cls from './ProductList.module.scss'
-import { useLazyGetProductsQuery } from '../../hooks'
-import { ProductsQueryArgs } from '../../types'
+import { useLazyGetProductsQuery } from '../../api/ProductApi'
+import { ProductsQueryArgs } from '../../types/ProductSchema'
 import { ProductCard } from '../ProductCard/ProductCard'
 import { ProductCardSkeleton } from '../ProductCard/ProductCard.skeleton'
 
@@ -20,7 +20,7 @@ export const ProductList: FC<ProductListProps> = ({
   filterByBrand,
   sortBy,
   category,
-  order = 'desc',
+  sortDirection = 'desc',
   minPrice,
   maxPrice,
   colors,
@@ -55,7 +55,7 @@ export const ProductList: FC<ProductListProps> = ({
 
   useEffect(() => {
     setPage(1)
-  }, [category, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes, catalog])
+  }, [category, sortBy, filterByBrand, sortDirection, minPrice, maxPrice, colors, sizes, catalog])
 
   useEffect(() => {
     getProducts({
@@ -64,13 +64,13 @@ export const ProductList: FC<ProductListProps> = ({
       page,
       sortBy,
       filterByBrand,
-      order,
+      sortDirection,
       minPrice,
       maxPrice,
       colors,
       sizes,
     })
-  }, [page, category, limit, sortBy, filterByBrand, order, minPrice, maxPrice, colors, sizes])
+  }, [page, category, limit, sortBy, filterByBrand, sortDirection, minPrice, maxPrice, colors, sizes])
 
   return (
     <>

@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { companyRoutes, FAQRoutes, helpRoutes, resourcesRoutes } from '@shared/constants/routes'
 import { classNames } from '@shared/lib/classNames'
+import { getRouteHome } from '@shared/lib/routes'
 import { AppLink, Button, Container, Headling, Icon, Input, Line, SocialLinks, Text } from '@shared/ui'
 
 import { BlokMenu } from './BlokMenu/BlokMenu'
@@ -36,7 +37,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
         <Container>
           <div className={cls.content}>
             <div className={cls.branding}>
-              <AppLink to="/" variant="clear" aria-label="shop.co">
+              <AppLink to={getRouteHome()} variant="clear" aria-label="shop.co">
                 <Icon className={cls.logo} type="Logo" width={167} height={23} />
               </AppLink>
 

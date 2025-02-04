@@ -1,12 +1,11 @@
 import { FC, MouseEvent } from 'react'
 
-import { useGetCategoryListQuery } from '@features/Filters/hooks'
-
 import { classNames } from '@shared/lib/classNames'
 import { formatCategoryName } from '@shared/lib/path'
 import { Button, Icon, Skeleton } from '@shared/ui'
 
 import cls from './CategoryList.module.scss'
+import { useGetCategoryListQuery } from '../../api/filterApi'
 
 interface CategoryListProps {
   className?: string

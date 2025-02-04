@@ -34,3 +34,5 @@ export const filterApi = baseApi.injectEndpoints({
     }),
   }),
 })
+
+export const { useGetPriceRangeQuery, useGetCategoryListQuery, useGetColorsQuery, useGetSizesQuery } = filterApi

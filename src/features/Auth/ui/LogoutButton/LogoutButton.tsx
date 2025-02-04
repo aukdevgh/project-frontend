@@ -4,7 +4,7 @@ import { classNames } from '@shared/lib/classNames'
 import { Button, Text } from '@shared/ui'
 
 import cls from './LogoutButton.module.scss'
-import { useLazyLogoutQuery } from '../../hooks'
+import { useLazyLogoutQuery } from '../../api/authApi'
 import { useAuthActions } from '../../model/slice/authSlice'
 
 interface LogoutButtonProps {

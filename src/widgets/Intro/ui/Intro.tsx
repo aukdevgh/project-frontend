@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { classNames } from '@shared/lib/classNames'
+import { getRouteNew } from '@shared/lib/routes'
 import { AppImage, AppLink, Container, Headling, Icon, type IconType, Text } from '@shared/ui'
 
 import cls from './Intro.module.scss'
@@ -30,7 +31,7 @@ export const Intro: FC<IntroProps> = ({ className }) => {
               individuality and cater to your sense of style.
             </Text>
 
-            <AppLink to={'/new'} className={cls.button} variant="primary">
+            <AppLink to={getRouteNew()} className={cls.button} variant="primary">
               Shop Now
             </AppLink>
 

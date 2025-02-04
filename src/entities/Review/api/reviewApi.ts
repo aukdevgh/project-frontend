@@ -2,7 +2,7 @@ import { baseApi } from '@shared/api'
 
 import { ReaviewRequestArg, ReaviewResponse } from '../model/types/reviewsSchema'
 
-export const reviewApi = baseApi.injectEndpoints({
+const reviewApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getHighRatingReviews: build.query<ReaviewResponse, ReaviewRequestArg>({
       query: ({ limit, page }) => {
@@ -26,3 +26,5 @@ export const reviewApi = baseApi.injectEndpoints({
     }),
   }),
 })
+
+export const { useGetHighRatingReviewsQuery, useLazyGetReviewsByProductIdQuery } = reviewApi

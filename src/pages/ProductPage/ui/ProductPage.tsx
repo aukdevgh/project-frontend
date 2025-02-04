@@ -1,17 +1,15 @@
 import { FC, useMemo } from 'react'
 import { useParams } from 'react-router'
 
-import { useCartSync } from '@features/Cart'
-
-import { ProductBigCard, useGetProductById } from '@entities/Product'
-import { ProductReviews } from '@entities/Review'
+import { useCartSync } from '@entities/Cart'
+import { ProductBigCard, ProductBigCardSkeleton, useGetProductById } from '@entities/Product'
+import { ProductReviews, ProductReviewsSkeleton } from '@entities/Review'
 
 import { Container, type Tab, Tabs } from '@shared/ui'
 
 import { Details } from './Details'
 import { FAQs } from './FAQs'
 import cls from './ProductPage.module.scss'
-import { ProductPageSkeleton } from './ProductPageSkeleton'
 
 const ProductPage: FC = () => {
   const { productId } = useParams()
@@ -48,7 +46,13 @@ const ProductPage: FC = () => {
   )
 
   if (!productId || isFetching) {
-    return <ProductPageSkeleton />
+    return (
+      <Container>
+        <ProductBigCardSkeleton style={{ marginBottom: '60px' }} />
+
+        <ProductReviewsSkeleton />
+      </Container>
+    )
   }
 
   return (

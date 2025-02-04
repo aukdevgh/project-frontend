@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { Filters, useGetCategory, useGetSelectedPriceRange, useGetColors, useGetSizes } from '@features/Filters'
-import { SortOrder, useGetSortOrder } from '@features/SortOrder'
+import { Sort, useGetSortParams } from '@features/Sort'
 
 import { ProductList } from '@entities/Product'
 
@@ -13,7 +13,7 @@ import cls from './Category.module.scss'
 const Category: FC = () => {
   const category = useGetCategory()
   const priceRange = useGetSelectedPriceRange()
-  const sortOrder = useGetSortOrder()
+  const sortParams = useGetSortParams()
   const colors = useGetColors()
   const sizes = useGetSizes()
 
@@ -37,15 +37,15 @@ const Category: FC = () => {
           <Menu className={cls['filter-menu']} isOpen={isOpen} onClose={onClose}>
             <Filters onClose={onClose} />
           </Menu>
-          <SortOrder className={cls.sort} />
+          <Sort className={cls.sort} />
         </div>
 
         <ProductList
           category={category}
           maxPrice={priceRange.max}
           minPrice={priceRange.min}
-          sortBy={sortOrder.sortBy}
-          order={sortOrder.order}
+          sortBy={sortParams.sortBy}
+          sortDirection={sortParams.sortDirection}
           colors={colors}
           sizes={sizes}
         />

@@ -1,8 +1,8 @@
 import { baseApi } from '@shared/api'
 
-import { Product, ProductDetails, ProductsQueryArgs, ProductsResponse } from '../types'
+import { Product, ProductDetails, ProductsQueryArgs, ProductsResponse } from '../types/ProductSchema'
 
-export const productsApi = baseApi.injectEndpoints({
+const productsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getProductById: build.query<ProductDetails, string>({
       query: (productId) => ({
@@ -15,7 +15,7 @@ export const productsApi = baseApi.injectEndpoints({
         category,
         sortBy,
         filterByBrand,
-        order,
+        sortDirection,
         minPrice,
         maxPrice,
         limit,
@@ -40,7 +40,7 @@ export const productsApi = baseApi.injectEndpoints({
         if (category) params.append('category', category)
         if (filterByBrand) params.append('filterByBrand', filterByBrand)
         if (sortBy) params.append('sortBy', sortBy)
-        if (order) params.append('order', order)
+        if (sortDirection) params.append('sortDirection', sortDirection)
         if (minPrice) params.append('minPrice', minPrice.toString())
         if (maxPrice) params.append('maxPrice', maxPrice.toString())
         if (limit) params.append('limit', limit.toString())
@@ -55,3 +55,6 @@ export const productsApi = baseApi.injectEndpoints({
     }),
   }),
 })
+
+export const { useLazyGetProductByIdQuery, useGetProductByIdQuery, useGetProductsQuery, useLazyGetProductsQuery } =
+  productsApi

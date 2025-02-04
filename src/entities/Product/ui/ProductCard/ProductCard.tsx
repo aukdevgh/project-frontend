@@ -6,7 +6,7 @@ import { generateCategoryPath } from '@shared/lib/path'
 import { AppImage, AppLink, Headling } from '@shared/ui'
 
 import cls from './ProductCard.module.scss'
-import { type Product } from '../../types'
+import { type Product } from '../../types/ProductSchema'
 import { ProductPrice } from '../ProductPrice/ProductPrice'
 import { ProductRating } from '../ProductRating/ProductRating'
 

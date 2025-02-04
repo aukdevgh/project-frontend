@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { authReducer } from '@features/Auth'
-import { cartReducer } from '@features/Cart'
 import { filtersReducer } from '@features/Filters'
-import { orderReducer } from '@features/Order'
-import { sortOrderReducer } from '@features/SortOrder'
+import { sortReducer } from '@features/Sort'
 
+import { cartReducer } from '@entities/Cart'
+import { orderReducer } from '@entities/Order'
 import { reviewsReducer } from '@entities/Review'
 
 import { baseApi } from '@shared/api'
@@ -14,7 +14,7 @@ export function makeStore() {
   const rootReducers = combineReducers({
     [baseApi.reducerPath]: baseApi.reducer,
     filters: filtersReducer,
-    sortOrder: sortOrderReducer,
+    sort: sortReducer,
     reviews: reviewsReducer,
     auth: authReducer,
     cart: cartReducer,

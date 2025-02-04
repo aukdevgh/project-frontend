@@ -1,4 +1,4 @@
-export { useLoginMutation, useRegisterMutation, useLazyLogoutQuery, useCheckAuthQuery } from './hooks'
+export { useLoginMutation, useRegisterMutation, useLazyLogoutQuery, useCheckAuthQuery } from './api/authApi.ts'
 export { AuthForm } from './ui/AuthForm/AuthForm'
 export { LogoutButton } from './ui/LogoutButton/LogoutButton'
 export { useAuthActions, authActions, authReducer } from './model/slice/authSlice'

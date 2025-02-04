@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Button, Headling, Text } from '@shared/ui'
 
 import cls from './ProductReviews.module.scss'
-import { useLazyGetReviewsByProductIdQuery } from '../../hooks'
+import { useLazyGetReviewsByProductIdQuery } from '../../api/reviewApi'
 import { useGetHasLoadedReviews } from '../../model/selectors/getHasLoadedReviews/getHasLoadedReviews'
 import { useGetHasMoreReviews } from '../../model/selectors/getHasMoreReviews/getHasMoreReviews'
 import { useGetReviews } from '../../model/selectors/getReviews/getReviews'

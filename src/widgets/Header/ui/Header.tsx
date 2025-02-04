@@ -1,15 +1,15 @@
 import { FC } from 'react'
 
-import { Navbar } from '@features/Navbar'
 import { Search } from '@features/Search'
 
 import { classNames } from '@shared/lib/classNames'
 import { useMenu } from '@shared/lib/hooks/useMenu'
-import { getRouteMain } from '@shared/lib/routes'
+import { getRouteHome } from '@shared/lib/routes'
 import { Container, Button, Icon, AppLink, Menu, Card, Headling } from '@shared/ui'
 
 import { Actions } from './Actions/Actions'
 import cls from './Header.module.scss'
+import { Navbar } from './Navbar/Navbar'
 
 export const Header: FC = () => {
   const { isOpen, onOpen, onClose } = useMenu()
@@ -22,7 +22,7 @@ export const Header: FC = () => {
             <Icon type="Burger" width={24} height={24} />
           </Button>
 
-          <AppLink className={cls.logo} to={getRouteMain()} variant="clear" aria-label="shop.co">
+          <AppLink className={cls.logo} to={getRouteHome()} variant="clear" aria-label="shop.co">
             <Icon type="Logo" width={'100%'} height={22} />
           </AppLink>
 

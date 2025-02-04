@@ -38,7 +38,7 @@ export const Actions: FC<ActionsProps> = ({ className }) => {
         </ul>
       </nav>
       <Menu className={cls['search-menu']} isOpen={isOpen} onClose={onClose}>
-        <Card>
+        <Card className={cls['search-card']}>
           <Search onClose={onClose} />
         </Card>
       </Menu>

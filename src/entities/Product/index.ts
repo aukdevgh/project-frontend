@@ -1,6 +1,8 @@
-export { useLazyGetProductByIdQuery, useGetProductByIdQuery, useGetProductsQuery, useGetProductById } from './hooks'
+export { useGetProductById } from './hooks/useGetProductById'
 
-export type { Product, ProductDetails, SortBy, SortOrder } from './types'
+export { useGetProductsQuery } from './api/ProductApi'
+
+export type { Product, ProductDetails, SortBy, SortDirection } from './types/ProductSchema'
 
 export { ProductList } from './ui/ProductList/ProductList'
 export { ProductCardSkeleton } from './ui/ProductCard/ProductCard.skeleton'

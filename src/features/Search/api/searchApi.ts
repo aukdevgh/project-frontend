@@ -1,6 +1,6 @@
 import { baseApi } from '@shared/api'
 
-import { SearchRequestArgs, SearchResponseType } from '../types/searchTypes'
+import { SearchRequestArgs, SearchResponseType } from '../types/searchSchema'
 
 export const searchApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

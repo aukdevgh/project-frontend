@@ -1,13 +1,13 @@
 import { FC, useState, type MouseEvent } from 'react'
 
-import { type CartItem } from '@features/Cart'
+import { type CartItem } from '@entities/Cart'
 
 import { classNames } from '@shared/lib/classNames'
 import { AppImage, Button, Headling, Icon, ImageSwiper, Line, SizeList, Text } from '@shared/ui'
 
 import cls from './ProductBigCard.module.scss'
 import { ProductBigCardSkeleton } from './ProductBigCardSkeleton'
-import { type ProductDetails } from '../../types'
+import { type ProductDetails } from '../../types/ProductSchema'
 import { ProductPrice } from '../ProductPrice/ProductPrice'
 import { ProductRating } from '../ProductRating/ProductRating'
 

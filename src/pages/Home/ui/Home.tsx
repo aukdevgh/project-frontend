@@ -4,6 +4,7 @@ import { Intro } from '@widgets/Intro'
 import { Reviews } from '@widgets/Reviews'
 import { Showcase } from '@widgets/Showcase'
 
+import { getRouteNew, getRouteSale } from '@shared/lib/routes'
 import { AppLink, Line } from '@shared/ui'
 
 const Home: FC = () => {
@@ -12,7 +13,7 @@ const Home: FC = () => {
       <Intro />
 
       <Showcase title="NEW ARRIVALS" sortBy="new" limit={4}>
-        <AppLink to={'/new'} variant="outline">
+        <AppLink to={getRouteNew()} variant="outline">
           See All
         </AppLink>
       </Showcase>
@@ -20,7 +21,7 @@ const Home: FC = () => {
       <Line className={'container'} />
 
       <Showcase title="TOP SELLING" sortBy="sale" limit={4}>
-        <AppLink to={'/sale'} variant="outline">
+        <AppLink to={getRouteSale()} variant="outline">
           See All
         </AppLink>
       </Showcase>

@@ -11,5 +11,5 @@ export {
   useGetSelectedPriceRange,
 } from './model/selectors/getSelectedPriceRange/getSelectedPriceRange'
 
-export { useGetPriceRangeQuery } from './hooks'
+export { useGetPriceRangeQuery } from './api/filterApi'
 export { Filters } from './ui/Filters'

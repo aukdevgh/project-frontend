@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Cart } from '@features/Cart'
+import { Cart } from '@entities/Cart'
 
 import { Container } from '@shared/ui'
 
