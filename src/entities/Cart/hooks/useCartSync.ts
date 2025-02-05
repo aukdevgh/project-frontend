@@ -38,7 +38,6 @@ export const useCartSync = () => {
   // Запрос корзины с сервера при авторизации
   useEffect(() => {
     if (isAuth && !hasLoadedServerCart) {
-      console.log('new is auth', hasLoadedServerCart)
       getServerCartItems()
         .unwrap()
         .then((data) => {

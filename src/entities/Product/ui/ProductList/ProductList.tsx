@@ -70,7 +70,7 @@ export const ProductList: FC<ProductListProps> = ({
       colors,
       sizes,
     })
-  }, [page, category, limit, sortBy, filterByBrand, sortDirection, minPrice, maxPrice, colors, sizes])
+  }, [page, category, limit, sortBy, filterByBrand, sortDirection, minPrice, maxPrice, colors, sizes, getProducts])
 
   return (
     <>

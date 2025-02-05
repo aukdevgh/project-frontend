@@ -9,7 +9,7 @@ export const useGetProductById = (id: string | undefined) => {
     if (id && !isFetching) {
       getProductById(id)
     }
-  }, [id, getProductById])
+  }, [id, getProductById, isFetching])
 
   return { data, isFetching }
 }
