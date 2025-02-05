@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useAuthActions, useCheckAuthQuery } from '@features/Auth'
 import { useFiltersActions, useGetPriceRangeQuery } from '@features/Filters'
 
+import { ErrorBoundary } from '@shared/ui'
+
 import { AppRouterProvider } from './providers/router/AppRouterProvider'
 
 import '@shared/styles/main.scss'
@@ -24,5 +26,9 @@ export const AppEntry = () => {
     setIsAuth(isSuccess)
   }, [isSuccess, setIsAuth])
 
-  return <AppRouterProvider />
+  return (
+    <ErrorBoundary>
+      <AppRouterProvider />
+    </ErrorBoundary>
+  )
 }
