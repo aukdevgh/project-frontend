@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Navigate, useParams } from 'react-router'
 
 import { Filters, useGetCategory, useGetSelectedPriceRange, useGetColors, useGetSizes } from '@features/Filters'
 import { Sort, useGetSortParams } from '@features/Sort'
@@ -10,7 +11,10 @@ import { Button, Container, Icon, Menu } from '@shared/ui'
 
 import cls from './Category.module.scss'
 
+const allowedCatalogs = ['shop', 'mens', 'womens', 'new', 'sale']
+
 const Category: FC = () => {
+  const { catalog } = useParams()
   const category = useGetCategory()
   const priceRange = useGetSelectedPriceRange()
   const sortParams = useGetSortParams()
@@ -18,6 +22,10 @@ const Category: FC = () => {
   const sizes = useGetSizes()
 
   const { isOpen, onOpen, onClose } = useMenu()
+
+  if (!allowedCatalogs.includes(catalog || '')) {
+    return <Navigate to="/notfound" replace />
+  }
 
   return (
     <Container className={cls.category}>
