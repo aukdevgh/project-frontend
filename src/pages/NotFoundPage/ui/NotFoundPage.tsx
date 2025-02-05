@@ -5,7 +5,7 @@ import { AppLink, Container, Headling } from '@shared/ui'
 
 import cls from './NotFoundPage.module.scss'
 
-export const NotFoundPage: FC = () => {
+const NotFoundPage: FC = () => {
   return (
     <Container className={cls.container}>
       <Headling as="h2">Page not found</Headling>
@@ -13,3 +13,5 @@ export const NotFoundPage: FC = () => {
     </Container>
   )
 }
+
+export default NotFoundPage

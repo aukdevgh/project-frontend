@@ -6,10 +6,10 @@ export const useGetProductById = (id: string | undefined) => {
   const [getProductById, { data, isFetching }] = useLazyGetProductByIdQuery()
 
   useEffect(() => {
-    if (id && !isFetching) {
+    if (id) {
       getProductById(id)
     }
-  }, [id, getProductById, isFetching])
+  }, [id, getProductById])
 
   return { data, isFetching }
 }
