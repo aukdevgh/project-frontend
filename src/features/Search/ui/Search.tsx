@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 
+import { useDebounce } from '@shared/hooks/useDebounce'
 import { classNames } from '@shared/lib/classNames'
-import { useDebounce } from '@shared/lib/hooks/useDebounce'
-import { Button, Icon, Input, Text } from '@shared/ui'
+import { Icon, Input, Text } from '@shared/ui'
 
 import cls from './Search.module.scss'
 import { useLazyGetProductsBySearchQuery } from '../api/searchApi'
@@ -10,10 +10,9 @@ import { SearchItem } from './SearchItem/SearchItem'
 
 interface SearchProps {
   className?: string
-  onClose?: () => void
 }
 
-export const Search: FC<SearchProps> = ({ className, onClose }) => {
+export const Search: FC<SearchProps> = ({ className }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [getProducts, { data, isError }] = useLazyGetProductsBySearchQuery()
   const [isOpen, setIsOpen] = useState(false)
@@ -54,9 +53,6 @@ export const Search: FC<SearchProps> = ({ className, onClose }) => {
             placeholder="Search for products..."
             onChange={onChange}
           />
-          <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
-            <Icon type="Close" width={24} height={24} />
-          </Button>
         </div>
         {isError && <Text as="div">Произошла ошибка при загрузке</Text>}
       </div>

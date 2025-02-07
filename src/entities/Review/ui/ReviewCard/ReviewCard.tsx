@@ -5,7 +5,7 @@ import { getPostDate } from '@shared/lib/format'
 import { Headling, StarRating, Text } from '@shared/ui'
 
 import cls from './ReviewCard.module.scss'
-import { Review } from '../../model/types/reviewsSchema'
+import { Review } from '../../types/reviewsSchema'
 
 interface ReviewCardProps {
   className?: string
@@ -18,13 +18,13 @@ export const ReviewCard: FC<ReviewCardProps> = ({ className, review, withDate, .
     <div className={classNames(cls.review, {}, [className])} {...otherProps}>
       <StarRating className={cls.rating} rating={review.rating} readonly={true} size={22} />
       <Headling className={cls.author} as="h3" transform="capitalize">
-        {review.reviewerName}
+        {review.username}
       </Headling>
       <Text className={cls.comment} as="p">
-        {review.comment}
+        {review.text}
       </Text>
 
-      {withDate && <time className={cls.date}>{getPostDate(review.date)}</time>}
+      {withDate && <time className={cls.date}>{getPostDate(review.createAt)}</time>}
     </div>
   )
 }

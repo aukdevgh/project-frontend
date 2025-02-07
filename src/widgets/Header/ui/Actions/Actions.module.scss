@@ -25,7 +25,14 @@
 
 .search-card {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  margin-top: 100px;
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .cart {

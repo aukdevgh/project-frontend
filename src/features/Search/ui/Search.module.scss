@@ -19,22 +19,9 @@
   width: 100%;
 }
 
-.close-btn {
-  width: 40px;
-  height: 40px;
-  display: none;
-
-  @media screen and (max-width: $breakpoint-desktop) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 .catalog {
   position: absolute;
   top: 60px;
-  max-width: 600px;
   width: 100%;
   padding: 16px 4px;
   background-color: $color-background-primary;

@@ -6,8 +6,8 @@ import { Sort, useGetSortParams } from '@features/Sort'
 
 import { ProductList } from '@entities/Product'
 
-import { useMenu } from '@shared/lib/hooks/useMenu'
-import { Button, Container, Icon, Menu } from '@shared/ui'
+import { useModal } from '@shared/hooks/useModal'
+import { Button, Container, Icon, Modal } from '@shared/ui'
 
 import cls from './Category.module.scss'
 
@@ -21,7 +21,7 @@ const Category: FC = () => {
   const colors = useGetColors()
   const sizes = useGetSizes()
 
-  const { isOpen, onOpen, onClose } = useMenu()
+  const { isOpen, onOpen, onClose } = useModal()
 
   if (!allowedCatalogs.includes(catalog || '')) {
     return <Navigate to="/notfound" replace />
@@ -42,9 +42,9 @@ const Category: FC = () => {
           >
             <Icon type="Filter" />
           </Button>
-          <Menu className={cls['filter-menu']} isOpen={isOpen} onClose={onClose}>
+          <Modal isOpen={isOpen} onClose={onClose}>
             <Filters onClose={onClose} />
-          </Menu>
+          </Modal>
           <Sort className={cls.sort} />
         </div>
 

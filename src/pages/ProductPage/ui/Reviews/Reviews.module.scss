@@ -1,3 +1,9 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .header {
   margin: 24px 0;
   display: flex;
@@ -24,13 +30,14 @@
   }
 }
 
-.reviews {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.review {
-  max-width: 610px;
+.review-card {
+  max-width: 600px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  & .header {
+    margin: 0;
+  }
 }

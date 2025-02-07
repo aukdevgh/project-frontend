@@ -32,6 +32,7 @@ interface TextProps {
   htmlFor?: string
   deprecated?: boolean
   error?: boolean
+  success?: boolean
 }
 
 export const Text = memo(
@@ -49,12 +50,17 @@ export const Text = memo(
     htmlFor,
     deprecated = false,
     error = false,
+    success = false,
     ...otherProps
   }: TextProps) => {
     const additionalClass = [className, cls[align], cls[wrap], cls[weight], cls[size], cls[transform], cls[decoration]]
 
     const props = {
-      className: classNames('', { [cls.deprecated]: deprecated, [cls.error]: error }, additionalClass),
+      className: classNames(
+        '',
+        { [cls.deprecated]: deprecated, [cls.error]: error, [cls.success]: success },
+        additionalClass
+      ),
       'data-testid': dataTestId,
       ...(as === 'label' && htmlFor && { htmlFor }),
       ...otherProps,

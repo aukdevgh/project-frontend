@@ -1,15 +1,15 @@
-.menu {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: 90px 0;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 24px;
   background-color: rgba($color: $color-primary, $alpha: 50%);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .close {
@@ -33,10 +33,4 @@
 
 .close-btn {
   margin-left: auto;
-}
-
-.content {
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }

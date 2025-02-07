@@ -3,13 +3,13 @@ import { useParams } from 'react-router'
 
 import { useCartSync } from '@entities/Cart'
 import { ProductBigCard, ProductBigCardSkeleton, useGetProductById } from '@entities/Product'
-import { ProductReviews, ProductReviewsSkeleton } from '@entities/Review'
 
-import { Container, type Tab, Tabs } from '@shared/ui'
+import { Container, Tabs, type Tab } from '@shared/ui'
 
 import { Details } from './Details'
 import { FAQs } from './FAQs'
 import cls from './ProductPage.module.scss'
+import { Reviews } from './Reviews/Reviews'
 
 const ProductPage: FC = () => {
   const { productId } = useParams()
@@ -27,9 +27,9 @@ const ProductPage: FC = () => {
   const productReviewsTab = useMemo(
     () => ({
       label: 'Rating & Reviews',
-      content: <ProductReviews productId={productId} />,
+      content: <Reviews />,
     }),
-    [productId]
+    []
   )
 
   const faqsTab = useMemo(
@@ -45,19 +45,14 @@ const ProductPage: FC = () => {
     [productDetailsTab, productReviewsTab, faqsTab]
   )
 
-  if (!productId || isFetching) {
-    return (
-      <Container>
-        <ProductBigCardSkeleton style={{ marginBottom: '60px' }} />
-
-        <ProductReviewsSkeleton />
-      </Container>
-    )
-  }
-
   return (
     <Container>
-      <ProductBigCard className={cls.product} product={product} addToCart={addToCart} />
+      {!productId || isFetching ? (
+        <ProductBigCardSkeleton className={cls.product} />
+      ) : (
+        <ProductBigCard className={cls.product} product={product} addToCart={addToCart} />
+      )}
+
       <Tabs tabs={tabs} />
     </Container>
   )

@@ -1,5 +1,5 @@
 import { ReviewCard } from './ReviewCard'
-import { Review } from '../../model/types/reviewsSchema'
+import { Review } from '../../types/reviewsSchema'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

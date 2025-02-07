@@ -2,17 +2,17 @@ import { FC } from 'react'
 
 import { Search } from '@features/Search'
 
+import { useModal } from '@shared/hooks/useModal'
 import { classNames } from '@shared/lib/classNames'
-import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteHome } from '@shared/lib/routes'
-import { Container, Button, Icon, AppLink, Menu, Card, Headling } from '@shared/ui'
+import { Container, Button, Icon, AppLink, Modal, Card, Headling } from '@shared/ui'
 
 import { Actions } from './Actions/Actions'
 import cls from './Header.module.scss'
 import { Navbar } from './Navbar/Navbar'
 
 export const Header: FC = () => {
-  const { isOpen, onOpen, onClose } = useMenu()
+  const { isOpen, onOpen, onClose } = useModal()
 
   return (
     <>
@@ -33,7 +33,7 @@ export const Header: FC = () => {
           <Actions />
         </Container>
       </header>
-      <Menu isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <Card className={cls['menu-card']}>
           <div className={cls['menu-header']}>
             <Headling>Catalogs</Headling>
@@ -43,7 +43,7 @@ export const Header: FC = () => {
           </div>
           <Navbar className={cls['menu-navbar']} onClose={onClose} />
         </Card>
-      </Menu>
+      </Modal>
     </>
   )
 }

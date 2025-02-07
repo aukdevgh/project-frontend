@@ -1,7 +1,7 @@
 import { memo, useRef, useState, useCallback, ChangeEvent, useEffect } from 'react'
 
+import { useDebounce } from '@shared/hooks/useDebounce'
 import { classNames } from '@shared/lib/classNames'
-import { useDebounce } from '@shared/lib/hooks/useDebounce'
 
 import cls from './RangeSlider.module.scss'
 

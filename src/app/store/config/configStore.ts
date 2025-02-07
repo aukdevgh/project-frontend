@@ -6,7 +6,6 @@ import { sortReducer } from '@features/Sort'
 
 import { cartReducer } from '@entities/Cart'
 import { orderReducer } from '@entities/Order'
-import { reviewsReducer } from '@entities/Review'
 
 import { baseApi } from '@shared/api'
 
@@ -15,7 +14,6 @@ export function makeStore() {
     [baseApi.reducerPath]: baseApi.reducer,
     filters: filtersReducer,
     sort: sortReducer,
-    reviews: reviewsReducer,
     auth: authReducer,
     cart: cartReducer,
     order: orderReducer,

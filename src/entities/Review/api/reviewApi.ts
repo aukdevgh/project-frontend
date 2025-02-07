@@ -1,6 +1,6 @@
 import { baseApi } from '@shared/api'
 
-import { ReaviewRequestArg, ReaviewResponse } from '../model/types/reviewsSchema'
+import { AddReviewRequest, ReaviewRequestArg, ReaviewResponse } from '../types/reviewsSchema'
 
 const reviewApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -24,7 +24,20 @@ const reviewApi = baseApi.injectEndpoints({
         return `reviews/${productId}?${params.toString()}`
       },
     }),
+    addReview: build.mutation<{ message: string }, AddReviewRequest>({
+      query: ({ productId, text, rating }) => ({
+        url: `reviews/${productId}`,
+        method: 'POST',
+        body: { text, rating },
+        credentials: 'include',
+      }),
+    }),
   }),
 })
 
-export const { useGetHighRatingReviewsQuery, useLazyGetReviewsByProductIdQuery } = reviewApi
+export const {
+  useGetHighRatingReviewsQuery,
+  useLazyGetReviewsByProductIdQuery,
+  useGetReviewsByProductIdQuery,
+  useAddReviewMutation,
+} = reviewApi

@@ -1,9 +1,9 @@
 export interface Review {
+  id: string
+  username: string
   rating: number
-  comment: string
-  date: string
-  reviewerName: string
-  reviewerEmail: string
+  text: string
+  createAt: string
 }
 
 export interface ReaviewResponse {
@@ -18,10 +18,8 @@ export interface ReaviewRequestArg {
   productId?: string
 }
 
-export interface ReviewsSchema {
-  reviews: Review[] | []
-  page?: number
-  total: number
-  hasMore: boolean
-  hasLoaded: boolean
+export interface AddReviewRequest {
+  productId: string
+  text: string
+  rating: number
 }

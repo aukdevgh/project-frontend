@@ -4,10 +4,10 @@ import { Search } from '@features/Search'
 
 import { useGetCartItems } from '@entities/Cart'
 
+import { useModal } from '@shared/hooks/useModal'
 import { classNames } from '@shared/lib/classNames'
-import { useMenu } from '@shared/lib/hooks/useMenu'
 import { getRouteCart, getRouteProfile } from '@shared/lib/routes'
-import { Button, Icon, AppLink, Menu, Card, Text } from '@shared/ui'
+import { Button, Icon, AppLink, Modal, Card, Text } from '@shared/ui'
 
 import cls from './Actions.module.scss'
 
@@ -16,7 +16,7 @@ interface ActionsProps {
 }
 
 export const Actions: FC<ActionsProps> = ({ className }) => {
-  const { isOpen, onOpen, onClose } = useMenu()
+  const { isOpen, onOpen, onClose } = useModal()
   const cartItems = useGetCartItems()
 
   return (
@@ -45,11 +45,16 @@ export const Actions: FC<ActionsProps> = ({ className }) => {
           </li>
         </ul>
       </nav>
-      <Menu className={cls['search-menu']} isOpen={isOpen} onClose={onClose}>
+      <Modal className={cls['search-menu']} isOpen={isOpen} onClose={onClose}>
         <Card className={cls['search-card']}>
-          <Search onClose={onClose} />
+          <div className={cls['search-header']}>
+            <Search />
+            <Button className={cls['close-btn']} aria-label="close burger menu" variant="clear" onClick={onClose}>
+              <Icon type="Close" width={24} height={24} />
+            </Button>
+          </div>
         </Card>
-      </Menu>
+      </Modal>
     </>
   )
 }

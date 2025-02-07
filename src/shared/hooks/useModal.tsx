@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const useMenu = () => {
+export const useModal = () => {
   const [isOpen, setIsOpen] = useState(false)
   const onClose = () => setIsOpen(false)
   const onOpen = () => setIsOpen(true)
