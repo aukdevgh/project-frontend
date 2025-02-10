@@ -16,12 +16,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const mockReview: Review = {
-  reviewerName: 'Noah Johnson',
-  reviewerEmail: 'noah@gmail.com',
+  id: 'noahid',
+  username: 'Noah Johnson',
   rating: 5,
-  comment:
-    "The quality of the fabrics and the modern designs at Shop.co are second to none. I'm a loyal customer for life.",
-  date: '2024-12-28',
+  text: "The quality of the fabrics and the modern designs at Shop.co are second to none. I'm a loyal customer for life.",
+  createAt: '2024-12-28',
 }
 
 export const primary: Story = {
