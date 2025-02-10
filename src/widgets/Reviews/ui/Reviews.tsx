@@ -78,7 +78,7 @@ export const Reviews: FC<ReaviewsProps> = ({ className }) => {
         }}
       >
         {reviews.map((review, index) => (
-          <SwiperSlide className="review-slider" key={review.comment} virtualIndex={index}>
+          <SwiperSlide className="review-slider" key={review.id} virtualIndex={index}>
             <ReviewCard className="review-card" review={review} />
           </SwiperSlide>
         ))}
